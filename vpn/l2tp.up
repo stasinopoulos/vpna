@@ -1,0 +1,4 @@
+#!/bin/sh
+route add default dev $1
+/var/www/bin/firewall.sh &
+touch /var/www/stat/l2tp.connected

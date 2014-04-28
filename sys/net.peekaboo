@@ -1,0 +1,55 @@
+ServerName vpna
+
+AddDefaultCharset UTF-8
+
+<Directory />
+ AllowOverride None
+ Order Deny,Allow
+ Deny from All
+</Directory>
+
+<Directory /var/www/>
+ Order Deny,Allow
+ Deny from All
+ AddHandler cgi-script .sh
+ <Files error.php>
+  Allow from All
+ </Files>
+# ~SUBNET BEGIN~
+ Allow from 192.168.199.2/24
+# ~SUBNET END~
+
+# ~regge BEGIN~
+#RewriteEngine On
+#RewriteCond $0 !=admin-register.php
+#RewriteCond $0 !=sabaivpn.php
+#RewriteCond $0 !=re.sh
+#RewriteRule ^.*\.php$ admin-register.php
+# ~regge END~
+
+RewriteEngine On
+RewriteCond $0 !=images/favicon.ico
+RewriteRule ^([^/]+/)*favicon\.ico$ /images/favicon.ico [L]
+
+#AuthType Basic
+#AuthName "VPN Accelerator"
+#AuthUserFile /var/www/sys/net.aut
+#Require valid-user
+#Require user x
+</Directory>
+
+<Directory /var/www/bin/sys/>
+ Options -Indexes
+ Order Deny,Allow
+ Deny from All
+</Directory>
+RedirectMatch 404 ^/bin/sys(/)?$
+
+<Directory /var/www/bin/>
+ Options -Indexes
+</Directory>
+RedirectMatch 404 ^/bin(/)?$
+
+ErrorDocument 403 "/error.php"
+ErrorDocument 404 "/error.php"
+

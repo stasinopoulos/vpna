@@ -1,0 +1,7 @@
+config /var/www/usr/ovpn.current
+script-security 2 system
+daemon
+writepid "/var/www/stat/ovpn.pid"
+log "/var/www/stat/ovpn.log"
+up "/var/www/vpn/ovpn.up"
+down "/var/www/vpn/ovpn.dn"

@@ -1,0 +1,4 @@
+#!/bin/sh
+route del default dev $1
+/var/www/bin/firewall.sh &
+rm /var/www/stat/l2tp.connected
