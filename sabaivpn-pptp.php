@@ -25,10 +25,13 @@ function PPTPsave(act){ hideUi("Adjusting PPTP..."); E("_act").value=act; que.dr
 function init(){ f = E('_fom'); hidden = E('hideme'); hide = E('hiddentext'); for(var i in pptp){ E(i).value = pptp[i]; }; getUpdate(); }
 
 </script></head><body onload='init();' id='topmost'>
-<table id='container' cellspacing=0><tr><td colspan=2 id='header'>
-<a href='http://www.sabaitechnology.com'><img src='images/sabai.png' id='headlogo'></a>
-<div class='title' id='SVPNstatus'>Sabai</div><div class='version' id='subversion'>Accelerator</div><div id="vpnstats" class="version"></div></td></tr>
-<tr id='body'><td id='navi'><script type='text/javascript'>navi()</script></td><td id='content'>
+<table id='container' cellspacing=0>
+<tr id='body'>		<td id='navi'>
+					<a href='http://www.sabaitechnology.com'>
+						<img src='images/menuHeader.gif' id='headlogo'>
+					</a>
+					<script type='text/javascript'>navi()</script>
+				</td><td id='content'>
 
 <form id='_fom' method='post'>
 <input type='hidden' id='_act' name='act'>

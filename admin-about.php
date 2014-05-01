@@ -17,9 +17,11 @@ function init(){
  if(vpna.vers!=null&&vpna.vers!=undefined&&vpna.vers!='') E('version').innerHTML = vpna.vers;
 } //</script></head><body onload='init()'>
 <table id='container' cellspacing=0>
-<tr><td colspan=2 id='header'><a href='http://www.sabaitechnology.com'><img src='images/sabai.png' id='headlogo'></a>
-<div class='title' id='SVPNstatus'>Sabai VPN</div><div class='version' id='subversion'>Accelerator</div></td></tr>
-<tr id='body'><td id='navi'><script type='text/javascript'>navi()</script></td>
+<tr id='body'><td id='navi'><a href='http://www.sabaitechnology.com'>
+						<img src='images/menuHeader.gif' id='headlogo'>
+					</a>
+					<script type='text/javascript'>navi()</script>
+				</td>
 <td id='content'>
 <div id='ident'>Sabai Technology</div><div style='margin:20px 20px;font-size:14px;color:#555;'>
 
