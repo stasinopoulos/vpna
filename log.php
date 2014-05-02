@@ -26,16 +26,6 @@ function init(){ hidden = E('hideme'); hide = E('hiddentext');
 }
 </script>
 
-<style type='text/css'>
-.tablemenu { width: 100%; border: 1px transparent double !important; border-collapse: collapse; }
-.tablemenu td { border: 1px black solid; text-align: center; }
-#log { width:200px; margin-left:5px; background:#FFF; }
-#lines { background:#FFF; }
-#findText { position: relative; top: -1px; }
-#response { width: 100%; height: 480px; margin-top:2px; box-shadow: .3px .3px .3px .3px inset; background:#FFF; }
-.pointy { cursor: pointer; }
-</style>
-
 </head>
 <body onload='init();'>
 <form id='_fom' method='post'>
@@ -48,7 +38,7 @@ function init(){ hidden = E('hideme'); hide = E('hiddentext');
 					<script type='text/javascript'>navi()</script>
 				</td>
 <td id='content'>
-<div id='ident'>Sabai Technology</div>
+<div id='ident'></div>
 <div id='logging'>
 <div class='section-title'>Logs</div>
 <div class='section'>
@@ -61,9 +51,9 @@ function init(){ hidden = E('hideme'); hide = E('hiddentext');
 </td>
 <td><a onclick="getLog('all');" class="pointy">View All</a></td>
 <td><select id='log' name='log' onchange="getLog('all');"></td>
-<td><input type="text" maxsize=32 size=33 id='findText' name='find'><input type="button" value="Find" onclick="getLog('find');" id='finder'></td>
+<td><input type="text" class='shortinput' id='findText' name='find'><input type="button" value="Find" onclick="getLog('find');" id='finder'></td>
 </tr></tbody></table>
-<textarea id='response' style=""></textarea>
+<textarea id='response' readonly=""></textarea>
 
 </div></div>
 </td></tr>

@@ -11,9 +11,7 @@
 	<script type='text/javascript' src='jquery-1.7.2.js'></script>
 	<script type='text/javascript' src='sabaivpn.php'></script>
 	<style type='text/css'>
-		#ovpn_file { margin: 15px 0 0 10px; font-size: 1.25em; }
-		#log { width: 99%; height: 30em; }
-		#conf { width: 95%; }
+
 	</style>
 	<script type='text/javascript'>
 
@@ -117,7 +115,7 @@
 						<input type='hidden' name='act' value='newfile'>
 						<span id='ovpn_file'></span>
 						<span id='upload'>
-						<input type='file' id='file' name='file' size='50' style='height:20px'>
+						<input type='file' id='file' name='file'>
 						<input type='button' value='Upload' onclick='submit()'></span>
 						<br>
 						<span id='messages'></span>

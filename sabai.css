@@ -8,41 +8,35 @@ body {
 }
 
 a {
-	text-decoration: none;
-	color: #405080;
-	font-family: Tahoma, Arial, sans-serif;
+/*	text-decoration: none;
+*/	color: blue;
 }
 
 a:hover {
-	text-decoration:none;
+/*	text-decoration:none;
 	color: #fff;
-	background: #405080;
+	background: #405080;*/
 }
 
 table {
 	empty-cells: show;
 }
 
-td { 
-	font: 12px sans-serif; 
-}
-
 form {
-	padding: 0; margin: 0;
+	padding: 0; margin: 0px;
 	-moz-border-radius: 25px;
+	background-color: #EFF2F5;
 }
 
 input {
-	padding: 2px;
+/*	padding: 2px;*/
 	border: none;
-	font: normal 1em Tahoma, Arial, verdana, sans-serif;
 	color:#777;
 }
-
+/*
 input, select {
-	font-family: Tahoma, Arial, Sans-serif;
-	font-size: 12px;
-}
+	font-size: 14px;
+}*/
 
 input[type='checkbox'][disabled] { 
 	opacity: 0.3; 
@@ -69,13 +63,26 @@ select {
 }
 
 input[type='button'] {
-	border: 1px solid #CCC;
+/*	border: 1px solid #CCC;
 	margin: 0;
-	font: bold 1em Arial, Sans-serif;
 	background: #FFF;
 	padding: 2px 3px;
 	color: #333;
-	height: 20px;
+	height: 20px;*/
+	border-radius: .2em;
+	border: 1px solid silver;
+	padding: .25em .25em;
+
+	 color: hsl(204, 70%, 59%);
+	 background: #F0F3F6;
+	 background: hsl(210, 25%, 95%);
+
+	 background: -webkit-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
+	 background: -ms-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%); 
+	 background: -moz-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
+	 background: -o-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%); 
+	 background: linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
+	 cursor: pointer;
 }
 
 input[type='button'][disabled] { 
@@ -87,11 +94,20 @@ input[type='button'][disabled]:hover {
 }
 
 input[type='button']:hover {
-	background: #405080;
-	color: #fff;
+ color: hsl(204, 70%, 30%);
+ border-color: transparent;
+ background: #F7CA61;
+ background: hsl(42, 90%, 67%);
+
+ background: -webkit-linear-gradient(bottom, #f5bc38, #f9d990);
+ background: -ms-linear-gradient(bottom, #f5bc38, #f9d990);
+ background: -moz-linear-gradient(bottom, #f5bc38, #f9d990);
+ background: -o-linear-gradient(bottom, #f5bc38, #f9d990);
+ background: linear-gradient(bottom, #f5bc38, #f9d990);
+
 }
 
-input[type='text'], input[type='password'], textarea, select {
+input[type='text'], input[type='password'], select {
 	border: 1px solid #c7c7c7;
 	margin: 0px;
 	margin-right: 2px !important;
@@ -100,7 +116,7 @@ input[type='text'], input[type='password'], textarea, select {
 	color: #283033;
 }
 
-input[type='text'], input[type='password'], textarea {
+input[type='text'], input[type='password'], {
 	padding-left: 3px;
 	padding-right: 3px;
 	max-width: 99%;
@@ -124,9 +140,9 @@ input[type='text'], input[type='password'], textarea {
 	margin:0px auto;
 }
 
-#header {
+/*#header {
 	background-color: #EFF2F5;
-/*	padding: 15px 10px;*/
+	padding: 15px 10px;
 	border-bottom: none !important;
 	height: 40px;
 }
@@ -145,7 +161,7 @@ input[type='text'], input[type='password'], textarea {
 	color: #919ea1;
 	text-align:right;
 	margin: 0; padding: 0;
-}
+}*/
 
 #footer {
 	height: 1px;
@@ -170,19 +186,18 @@ input[type='text'], input[type='password'], textarea {
 /*	font-family: Tahoma, Arial, Sans-serif;
 	font-size: 12px;*/
 	border-right: 1px solid #f0f0f0;
-	padding: 0;
+	padding: 0 0 100px 0;
 	vertical-align: top;
-	background: #EDEDED;
+	background: #DEE7F1;
 	width: 180px;
 }
 
 #navi a {
 	display: block;
 	color: #fff;
-/*	font-family: Tahoma, Arial, Sans-serif;
-	background: #EFF2F5;*/
+	background: #DEE7F1;
 	border: silver solid 1px;
-
+	text-decoration: none;
 	color: hsl(204, 70%, 59%);
  background: #EDEDED;
  background: hsl(210, 25%, 95%);
@@ -193,6 +208,10 @@ input[type='text'], input[type='password'], textarea {
  background: -o-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%); 
  background: linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
  cursor: pointer;
+}
+
+#navi a.notamenulink {
+	background: #DEE7F1 ;
 }
 
 #navi a:hover {
@@ -214,7 +233,7 @@ input[type='text'], input[type='password'], textarea {
 }
 
 #navi a.indent1 {
-	padding:10px 0 4px 4px;
+	padding: 6px 0 6px 10px;
 	font-weight: bold;
 }
 
@@ -229,8 +248,8 @@ input[type='text'], input[type='password'], textarea {
 }
 
 #content {
-	background-color: #ededed;
-	padding: 5px 4px 20px 4px;
+	background-color: #DEE7F1;
+	padding: 15px 15px 20px 15px;
 	vertical-align: top;
 	width: 770px;
 }
@@ -239,7 +258,6 @@ input[type='text'], input[type='password'], textarea {
 	color: #aaa;
 	text-align: right;
 	padding-right: 5px;
-	font-size: 11px;
 }
 
 ul.tabs, #tabs { 
@@ -282,10 +300,6 @@ div.tabs-bottom, #tabs-bottom {
 	padding: 0;
 }
 
-#tabs li a, ul.tabs li a { 
-	font-family: Tahoma, Arial, Sans-serif; 
-}
-
 #tabs li a.active, ul.tabs li a.active {
 	background: #5a767c;
 	color: #fff;
@@ -298,16 +312,13 @@ ul.tabs li a:hover {
 }
 
 .section-title {
-	font: bold 1.5em Tahoma, Arial, Sans-serif !important;
-	color: #1B75BB !important;
-	border-bottom:1px solid #cccccc;
-	margin:0 0 10px 10px;
-	padding-bottom:4px;
-}
-
-.section {
-	font-family: Tahoma, Arial, Sans-serif;
-	padding: 0 0 20px 5px;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #0B3155;
+/*	border-bottom:1px solid #cccccc;*/
+	/*margin:0 0 10px 10px;*/
+	padding:5px;
+	background-color: #CED7E1;
 }
 
 .section ul {
@@ -316,12 +327,10 @@ ul.tabs li a:hover {
 }
 
 .fields {
-	font-family: Tahoma, Arial, Sans-serif;
-	background-color: #FAFAFA;
+	background-color: #EFF2F5;
 	border: solid 1px #EEEEEE;
 	padding: 10px;
-	margin: 5px;
-	margin-left: 0px;
+	margin-bottom: 10px;
 }
 
 .fields td { 
@@ -329,17 +338,15 @@ ul.tabs li a:hover {
 }
 
 .fields td.title { 
-	width: 150px; 
+	min-width: 85px; 
 }
 
 .fields td.title.indent1 {
 	padding: 1px 15px 1px 0;
-	font-family: Tahoma, Arial, Sans-serif;
 }
 
 .fields td.title.indent2 {
 	padding: 1px 5px 1px 10px;
-	font-family: Tahoma, Arial, Sans-serif;
 }
 
 .fields .spacer { 
@@ -363,8 +370,8 @@ ul.tabs li a:hover {
 
 .tomato-grid td {
 	padding: 2px;
-	margin: 0px;
-	font: 12px sans-serif;
+	margin: 0px;/*
+	font: 14px sans-serif;*/
 }
 
 .tomato-grid .header {
@@ -373,7 +380,7 @@ ul.tabs li a:hover {
 }
 
 .tomato-grid .header td {
-	font: 11px sans-serif;
+	/*font: 14px sans-serif;*/
 	font-weight: bold;
 }
 
@@ -426,13 +433,13 @@ ul.tabs li a:hover {
 }
 
 .tomato-grid .sortasc:after {
-	font-size: 90%;
+	/*font-size: 90%;*/
 	float: right;
 	content: " \25B2";
 }
 
 .tomato-grid .sortdes:after {
-	font-size: 90%;
+	/*font-size: 90%;*/
 	float: right;
 	content: " \25BC";
 }
@@ -451,7 +458,7 @@ ul.tabs li a:hover {
 }
 
 .tomato-grid .controls input {
-	font: 11px sans-serif;
+	/*font: 14px sans-serif;*/
 	width: 60px;
 }
 
@@ -502,7 +509,7 @@ ul.tabs li a:hover {
 	width: 10em;
 	padding: 0.5em;
 	margin: 1em;
-	font-size: 0.9em
+	/*font-size: 0.9em*/
 }
 
 .note-disabledw, .note-warning { 
@@ -535,7 +542,7 @@ ul.tabs li a:hover {
 .bwmg td {
 	padding: 2px;
 	margin: 0px;
-	font: 12px sans-serif;
+	/*font: 14px sans-serif;*/
 }
 
 .bwmg .header { 
@@ -543,7 +550,7 @@ ul.tabs li a:hover {
 }
 
 .bwmg .header td {
-	font: 11px sans-serif;
+	/*font: 14px sans-serif;*/
 	font-weight: bold;
 }
 
@@ -582,13 +589,18 @@ ul.tabs li a:hover {
 /* BEGIN SABAI */
 /* DAVID BEGIN */
 .electMenu { 
-	background-color: lightblue !important; 
-	color: darkblue !important; 
+	color: white !important; 
+ border-color: transparent !important;
+ background: #1B75BB !important; 
+ background: hsla(206, 75%, 42%, 1) !important;
+
+ background: -webkit-linear-gradient(top, #4FA5E0, #1B75BB) !important;
+ background: -ms-linear-gradient(top, #4FA5E0, #1B75BB) !important;
+ background: -moz-linear-gradient(top, #4FA5E0, #1B75BB) !important;
+ background: -o-linear-gradient(top, #4FA5E0, #1B75BB) !important;
+ background: linear-gradient(top, #4FA5E0, #1B75BB) !important;
 }
 
-.electMenuParent { 
-	background-color: steelblue !important; 
-}
 
 .shownChildMenu { 
 	display: block; 
@@ -599,7 +611,7 @@ ul.tabs li a:hover {
 }
 
 .vpnstatus { 
-	font-size: 150%; 
+	/*font-size: 150%; */
 }
 
 #hideme { 
@@ -610,7 +622,7 @@ ul.tabs li a:hover {
 	height: 100%; 
 	width: 100%; 
 	z-index: 10000; 
-	font: 16pt Courier New; 
+	/*font: 16pt Courier New; */
 	color: maroon; 
 	background: hsla( 0,0%,100%,0.35 ); 
 }
@@ -635,7 +647,7 @@ ul.tabs li a:hover {
 }
 
 .vpnstatus { 
-	font: 10pt Arial Narrow !important; 
+	/*font: 10pt Arial Narrow !important; */
 	margin: -3px auto !important; 
 }
 
@@ -657,7 +669,6 @@ ul.tabs li a:hover {
 	display: inline-block; 
 	text-indent: 10px; 
 	margin: 10px 10px 10px 10px; 
-	font-size: 1.00em; 
 }
 
 .VPN_tab_off { 
@@ -683,15 +694,19 @@ ul.tabs li a:hover {
 	border-bottom: none; 
 }
 
+.longinput {
+	width: 20em;
+}
+
+.shortinput {
+	width: 10em;
+}
+
 /* DAVID END */
 
 #headlogo { 
 	float: left; 
 	height: 100px;
-}
-
-.content { 
-	font-family: Tahoma, Arial, Sans-serif; 
 }
 
 .content a:hover {
@@ -701,10 +716,6 @@ ul.tabs li a:hover {
 	padding: 2px;
 }
 
-small { 
-	font-family: Tahoma, Arial, Sans-serif; 
-}
-
 label { 
 	margin: 5px 0; 
 }
@@ -712,14 +723,73 @@ label {
 textarea {
 	width:400px;
 	padding:2px;
-	font: normal 1em Tahoma, Arial, verdana, sans-serif;
 	border:1px solid #655E56;
 	display:block;
 	color:#777;
 }
 
-li, div { 
-	font-family: Tahoma, Arial, Sans-serif; 
+/* END SABAI */
+
+/*tools*/
+.tablemenu { 
+	width: 100%; 
+	border: 1px transparent double !important; 
+	border-collapse: collapse; 
+}
+.tablemenu td { 
+	border: 1px black solid; 
 }
 
-/* END SABAI */
+#log { 
+	width:200px; 
+	margin-left:5px; 
+/*	background:#FFF;*/ 
+}
+.lines { 
+	background:#FFF; 
+}
+/*#dobutton { 
+	position: relative; 
+	top: 0px; 
+	height: 22px; 
+}*/
+#response { 
+	width: 90%; 
+	max-width: 800px; 
+	min-height: 480px; 
+	margin-top: 4px; 
+	/*box-shadow: .3px .3px .3px .3px inset; */
+	padding: 4px; 
+	overflow: auto;
+	font-size: .8em; 
+}
+.pointy { 
+	cursor: pointer; 
+}
+#shellbox { 
+	/*font: 12px monospace;*/ 
+	height: 12em; 
+	width: 99%; 
+}
+
+
+/*Logs*/
+/*.tablemenu { width: 100%; border: 1px transparent double !important; border-collapse: collapse; }
+.tablemenu td { border: 1px black solid; text-align: center; }
+#log { width:200px; margin-left:5px; background:#FFF; }
+#lines { background:#FFF; }
+*/#findText { position: relative; top: -1px; }
+/*#response { width: 100%; height: 480px; margin-top:2px; box-shadow: .3px .3px .3px .3px inset; background:#FFF; }
+.pointy { cursor: pointer; }*/
+
+/*openvpn*/
+		#ovpn_file { 
+			margin: 15px 0 0 10px;
+		}
+/*		#log { 
+			width: 99%; 
+			height: 30em; 
+		}
+		#conf { 
+			width: 95%; 
+		}*/

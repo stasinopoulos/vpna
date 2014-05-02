@@ -8,23 +8,16 @@ function setLog(res){ showUi(); logWindow.innerHTML = res; }
 function getLog(n){ hideUi("Executing..."); logForm.act.value=n; que.drop("bin/shell.php", setLog, $("#_fom").serialize() ); }
 function init(){ hidden = E('hideme'); hide = E('hiddentext'); logWindow = E('response'); logForm = E('_fom'); logSelect = E('log'); }
 </script><style type='text/css'>
-.tablemenu { width: 100%; border: 1px transparent double !important; border-collapse: collapse; }
-.tablemenu td { border: 1px black solid; font-family: Tahoma,Arial,sans-serif; }
-#log { width:200px; margin-left:5px; background:#FFF; }
-.lines { background:#FFF; }
-#dobutton { position: relative; top: 0px; height: 22px; }
-#response { width: 99%; max-width: 800px; min-height: 480px; margin-top: 4px; box-shadow: .3px .3px .3px .3px inset; background:#FFF; padding: 4px; overflow: auto; }
-.pointy { cursor: pointer; }
-#shellbox { font: 12px monospace; height: 12em; width: 99%; }
+
 </style></head><body onload='init();'><form id='_fom' method='post'>
 <input type='hidden' name='act' value='all'>
 <table id='container' cellspacing=0>
-<tr id='body'><td id='navi'>		<td id='navi'>
+<tr id='body'><td id='navi'>
 					<a href='http://www.sabaitechnology.com'>
 						<img src='images/menuHeader.gif' id='headlogo'>
 					</a>
 					<script type='text/javascript'>navi()</script>
-				</td></td>
+				</td>
 <td id='content'>
 <div id='ident'>Sabai Technology</div>
 <div id='logging'>
@@ -32,10 +25,10 @@ function init(){ hidden = E('hideme'); hide = E('hiddentext'); logWindow = E('re
 <div class='section'>
 <table class='tablemenu'><tbody><tr><td><?php
 switch($tool){
- case "Ping":{ echo "<input type='button' value='Ping' onclick='getLog(1);' id='dobutton'> <input type='text' name='ip' class='lines' size='16' value='localhost'/> <input type='text' name='count' class='lines' size='5' value='4'/> times with packet size: <input type='text' name='size' class='lines' size='5' value='56'/>"; break; }
- case "Trace":{ echo "<input type='button' value='Trace' onclick='getLog(2);' id='dobutton'> <input type='text' name='ip' class='lines' size='16' value='localhost'/> with at most <input type='text' name='count' class='lines' size='5' value='30'/> hops of max time <input type='text' name='size' class='lines' size='5' value='5.0'/> seconds."; break; }
- case "Route":{ echo "<input type='button' value='Route' onclick='getLog(3);' id='dobutton'>"; break; }
- case "Shell":{ echo "<textarea id='shellbox' name='cmd'></textarea><br><input type='button' value='Execute' onclick='getLog(4);' id='dobutton'>";
+ case "Ping":{ echo "<input type='button' value='Ping' onclick='getLog(1);'> <input type='text' name='ip' class='lines' size='16' value='localhost'/> <input type='text' name='count' class='lines' size='5' value='4'/> times with packet size: <input type='text' name='size' class='lines' size='5' value='56'/>"; break; }
+ case "Trace":{ echo "<input type='button' value='Trace' onclick='getLog(2);'> <input type='text' name='ip' class='lines' size='16' value='localhost'/> with at most <input type='text' name='count' class='lines' size='5' value='30'/> hops of max time <input type='text' name='size' class='lines' size='5' value='5.0'/> seconds."; break; }
+ case "Route":{ echo "<input type='button' value='Route' onclick='getLog(3);'>"; break; }
+ case "Shell":{ echo "<textarea id='shellbox' name='cmd'></textarea><br><input type='button' value='Execute' onclick='getLog(4);'>";
  break; }
 }
 ?></td></tr></tbody></table>

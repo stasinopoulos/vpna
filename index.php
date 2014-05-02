@@ -49,9 +49,11 @@
 			</tr> -->
 			<tr id='body'>
 				<td id='navi'>
-					<a href='http://www.sabaitechnology.com'>
-						<img src='images/menuHeader.gif' id='headlogo'>
-					</a>
+					<div>
+						<a class='notamenulink' href='http://www.sabaitechnology.com'>
+							<img src='images/menuHeader.gif' id='headlogo'>
+						</a>
+					</div>
 					<script type='text/javascript'>navi()</script>
 				</td>
 				<td id='content'>

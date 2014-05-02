@@ -1,5 +1,6 @@
 <?php header('Content-Type: text/ecmascript; charset=UTF-8'); ?>
 
+
 Array.prototype.find = function(v){ var i = f.length; while(this[--i]!=v && i>=0); return i; }
 Array.prototype.remove = function(v){ var i = this.find(v); if(i!=-1){ this.splice(i, 1); return true; }else{ return false; } }
 
@@ -23,52 +24,80 @@ function myName(){ var name, tool, i;
 
 function toggleChildMenu(){ var ch = E('sub-'+this.id); ch.className = (ch.className == 'shownChildMenu') ? 'hiddenChildMenu' : 'shownChildMenu'; }
 
-function navi(){ var menu = [
-['Status', 		'/'],
-['VPN',			'sabaivpn', 0, [
-	['PPTP',	'sabaivpn-pptp.php'],
-	['L2TP',	'sabaivpn-l2tp.php'],
-	['OpenVPN',	'sabaivpn-ovpn.php']
-] ],
-1,
-['Logs',		'log.php'],
-['Diagnostics', 'tools', 0, [
-	['Ping',	'tools.php?tool=ping'],
-	['Trace',	'tools.php?tool=trace'],
-	['Route',	'tools.php?tool=route'],
-	['System',	'tools.php?tool=shell'] ] ],
-1,
-['About',		'admin-about.php'],
-['Update',		'admin-update.php']//,
-//['Backup',		'admin-config.php'],
-//['Upgrade',		'admin-upgrade.php'],
-//['Logout',		'logout.php']
-];
+function navi(){ 
+  var menu = [
+    ['Status', '/'],
+    ['VPN',	'sabaivpn', 0, 
+      [
+      	['PPTP',	'sabaivpn-pptp.php'],
+      	['L2TP',	'sabaivpn-l2tp.php'],
+      	['OpenVPN',	'sabaivpn-ovpn.php']
+      ] 
+    ],
+    ['Logs',		'log.php'],
+    ['Diagnostics', 'tools', 0, 
+      [
+      	['Ping',	'tools.php?tool=ping'],
+      	['Trace',	'tools.php?tool=trace'],
+      	['Route',	'tools.php?tool=route'],
+      	['System',	'tools.php?tool=shell'] 
+      ] 
+    ],
+    ['About',		'admin-about.php'],
+    ['Update',		'admin-update.php']//,
+    //['Backup',		'admin-config.php'],
+    //['Upgrade',		'admin-upgrade.php'],
+    //['Logout',		'logout.php']
+  ];
 
- var highlight;
- var name = myName();
- var frag = document.createDocumentFragment();
- var m;
- while(m = menu.shift()){
-  if(m==1){ frag.appendChild(document.createElement('br')); }else{
-   var ha = document.createElement('a'); ha.appendChild(document.createTextNode(m[0])); ha.className = 'indent1'; frag.appendChild(ha);
-   var mm,sm;
-   if( mm = m[3] ){
-    ha.onclick = toggleChildMenu; ha.id = m[1]; var di = document.createElement('div'); di.id = 'sub-'+m[1];
-    if(m[2]==1){ di.className = 'shownChildMenu'; }else{ di.className = 'hiddenChildMenu'; }
-    while(sm = mm.shift()){
-     var li = document.createElement('a'); li.appendChild(document.createTextNode(sm[0])); li.className = 'indent2'; li.href = sm[1]; di.appendChild(li);
-     if( name == sm[1] ){ di.className = 'shownChildMenu'; li.className += ' electMenu'; highlight=li.parentNode.id.substring(4); }
+  var highlight;
+  var name = myName();
+  var frag = document.createDocumentFragment();
+  var m;
+  while(m = menu.shift()){
+    if(m==1){ 
+      frag.appendChild(document.createElement('br')); 
+    }else{
+      var ha = document.createElement('a'); 
+      ha.appendChild(document.createTextNode(m[0]));
+      ha.className = 'indent1';
+      frag.appendChild(ha);
+
+      var mm,sm;
+      if( mm = m[3] ){
+        ha.onclick = toggleChildMenu; 
+        ha.id = m[1]; 
+        var di = document.createElement('div'); di.id = 'sub-'+m[1];
+        
+        if(m[2]==1){ 
+          di.className = 'shownChildMenu'; 
+        }else{ 
+          di.className = 'hiddenChildMenu'; 
+        }
+        
+        while(sm = mm.shift()){
+          var li = document.createElement('a'); 
+          li.appendChild(document.createTextNode(sm[0])); 
+          li.className = 'indent2'; 
+          li.href = sm[1]; 
+          di.appendChild(li);
+          if( name == sm[1] ){ 
+            di.className = 'shownChildMenu'; 
+            li.className += ' electMenu'; 
+            highlight=li.parentNode.id.substring(4); 
+          }
+        }
+        frag.appendChild(di);
+      }else{
+        ha.href = m[1];
+        if(m[1]==name){ ha.className += ' electMenuParent'; }
+      } //end else
+    } //end else
+  } //end while
+    E('navi').appendChild(frag);
+    if(highlight != undefined){ 
+      E(highlight).className += ' electMenuParent'; 
     }
-    frag.appendChild(di);
-   }else{
-    ha.href = m[1];
-    if(m[1]==name){ ha.className += ' electMenuParent'; }
-   }
-  }
- }
- E('navi').appendChild(frag);
- if(highlight != undefined){ E(highlight).className += ' electMenuParent'; }
 }
 
 var hidden;

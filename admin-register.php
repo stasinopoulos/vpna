@@ -53,8 +53,8 @@ function init(){ hidden = E('hideme'); hide = E('hiddentext'); } //</script></he
 Thank you for purchasing a Sabai Technology VPN Accelerator. Please enter the e-mail you used when you purchased the accelerator, your Customer ID and Order ID. 
 (This information should be available in or on the packaging with your order and in your order e-mail confirmation.)<br><br>
 
-<input value='Register' onclick='register();' style='height: 20px;' type='button'>
-<input value='Cancel' onclick='window.location.reload();' style='height: 20px;' type='button'>
+<input value='Register' onclick='register();' type='button'>
+<input value='Cancel' onclick='window.location.reload();' type='button'>
 </div><br>
 <span id='reg_message' class='hiddenChildMenu'>AAHH<br><br></span>
 

@@ -59,8 +59,8 @@ function init(){
 	<div class='section'>
 		<div>Current Version: <span id='cversion'></span></div><br>
 		<div id='newversion' class='hiddenChildMenu'>New Version: <span id='available'></span></div><br>
-		<input type='button' value='Check for Update' id='_checkUpdate' onclick='checkUpdate();' style='height:20px'>
-		<input type='button' class='hiddenChildMenu' id='_doUpdate' value='Run Update' onclick='doUpdate();' style='height:20px'>
+		<input type='button' value='Check for Update' id='_checkUpdate' onclick='checkUpdate();'>
+		<input type='button' class='hiddenChildMenu' id='_doUpdate' value='Run Update' onclick='doUpdate();'>
 	</div>
 </div>
 <br>

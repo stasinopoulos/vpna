@@ -38,9 +38,9 @@ function init(){ f = E('_fom'); hidden = E('hideme'); hide = E('hiddentext'); fo
 
 <div class='section-title'>PPTP basic settings</div><div class='section'>
 <table class="fields"><tbody>
- <tr><td class="title indent1">Server</td><td class="content"><input name="server" id="server" size="66" type="text"></td></tr>
- <tr><td class="title indent1">Username</td><td class="content"><input name="user" id="user" size="66" type="text"></td></tr>
- <tr><td class="title indent1">Password</td><td class="content"><input name="pass" id="pass" size="66" autocomplete="off" onfocus='peekaboo("pass")' onblur='peekaboo("pass")' type="password"></td></tr>
+ <tr><td class="title indent1">Server</td><td class="content"><input name="server" id="server" class='longinput' type="text"></td></tr>
+ <tr><td class="title indent1">Username</td><td class="content"><input name="user" id="user" class='longinput' type="text"></td></tr>
+ <tr><td class="title indent1">Password</td><td class="content"><input name="pass" id="pass" class='longinput' autocomplete="off" onfocus='peekaboo("pass")' onblur='peekaboo("pass")' type="password"></td></tr>
 
 </tbody></table>
 <span id='messages'>&nbsp;</span><br>
