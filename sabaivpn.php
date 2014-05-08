@@ -22,7 +22,10 @@ function myName(){ var name, tool, i;
 	return name+tool;
 }
 
-function toggleChildMenu(){ var ch = E('sub-'+this.id); ch.className = (ch.className == 'shownChildMenu') ? 'hiddenChildMenu' : 'shownChildMenu'; }
+function toggleChildMenu(){ 
+  var ch = E('sub-'+this.id); 
+  ch.className = (ch.className == 'shownChildMenu') ? 'hiddenChildMenu' : 'shownChildMenu'; 
+}
 
 function navi(){ 
   var menu = [
@@ -34,6 +37,7 @@ function navi(){
       	['OpenVPN',	'sabaivpn-ovpn.php']
       ] 
     ],
+    ['Settings', 'settings.php'],
     ['Logs',		'log.php'],
     ['Diagnostics', 'tools', 0, 
       [
@@ -54,26 +58,32 @@ function navi(){
   var name = myName();
   var frag = document.createDocumentFragment();
   var m;
+  //(for each item in the menu array)
   while(m = menu.shift()){
-    if(m==1){ 
-      frag.appendChild(document.createElement('br')); 
-    }else{
+    //  if(m==1){ 
+    //   frag.appendChild(document.createElement('br')); 
+    // }else{ 
       var ha = document.createElement('a'); 
+      //make link with text of the array item
       ha.appendChild(document.createTextNode(m[0]));
       ha.className = 'indent1';
       frag.appendChild(ha);
 
       var mm,sm;
+      //set up submenu
       if( mm = m[3] ){
-        ha.onclick = toggleChildMenu; 
+        // ha.onclick = toggleChildMenu; 
         ha.id = m[1]; 
-        var di = document.createElement('div'); di.id = 'sub-'+m[1];
+        var di = document.createElement('div'); 
+        di.id = 'sub-'+m[1];
+        di.className = 'hiddenChildMenu'; 
+ 
         
-        if(m[2]==1){ 
-          di.className = 'shownChildMenu'; 
-        }else{ 
-          di.className = 'hiddenChildMenu'; 
-        }
+        // if(m[2]==1){ 
+        //   di.className = 'shownChildMenu'; 
+        // }else{ 
+        //   di.className = 'hiddenChildMenu'; 
+        // } 
         
         while(sm = mm.shift()){
           var li = document.createElement('a'); 
@@ -92,13 +102,42 @@ function navi(){
         ha.href = m[1];
         if(m[1]==name){ ha.className += ' electMenuParent'; }
       } //end else
-    } //end else
+    // } //end else 
   } //end while
     E('navi').appendChild(frag);
+
+    $('#navi').prepend(
+      $(document.createElement('img'))
+        .prop("id","headlogo")
+        .prop("src","images/menuHeader.gif"),
+      $(document.createElement('br')),  
+      $(document.createElement('br')),  
+      $(document.createElement('br')),  
+      $(document.createElement('br')),
+      $(document.createElement('br')),  
+      $(document.createElement('br'))  
+
+    )
+
     if(highlight != undefined){ 
       E(highlight).className += ' electMenuParent'; 
     }
+
+  $('#tools').click(function() {
+    $('#sub-tools').toggle();
+  })
+  $('#sabaivpn').click(function() {
+    $('#sub-sabaivpn').toggle();
+  })
+
+  $('.indent1').click(function(){
+    $('.indent1').removeClass('electMenu1');
+    $(this).addClass('electMenu1')
+  })
 }
+
+
+
 
 var hidden;
 

@@ -27,32 +27,29 @@ function init(){ f = E('_fom'); hidden = E('hideme'); hide = E('hiddentext'); fo
 </script></head><body onload='init();' id='topmost'>
 <table id='container' cellspacing=0>
 <tr id='body'>		<td id='navi'>
-					<a href='http://www.sabaitechnology.com'>
-						<img src='images/menuHeader.gif' id='headlogo'>
-					</a>
 					<script type='text/javascript'>navi()</script>
 				</td><td id='content'>
 
 <form id='_fom' method='post'>
 <input type='hidden' id='_act' name='act'>
 
-<div class='section-title'>L2TP basic settings</div><div class='section'>
+<div class='section-title'>L2TP</div><div class='section'>
 <table class="fields"><tbody>
  <tr><td class="title indent1">Server</td><td class="content"><input name="server" id="server" class='longinput' type="text"></td></tr>
  <tr><td class="title indent1">Username</td><td class="content"><input name="user" id="user" class='longinput' type="text"></td></tr>
  <tr><td class="title indent1">Password</td><td class="content"><input name="pass" id="pass" class='longinput' autocomplete="off" onfocus='peekaboo("pass")' onblur='peekaboo("pass")' type="password"></td></tr>
  <tr><td class="title indent1">PSK</td><td class="content"><input name="psk" id="psk" class='longinput'  autocomplete="off" onfocus='peekaboo("psk")' onblur='peekaboo("psk")' type="password"></td></tr>
 </tbody></table>
-<span id='messages'>&nbsp;</span><br>
-<input type='button' value='Start' onclick='L2TPsave("start")'>
+<input type='button' class= 'firstButton' value='Start' onclick='L2TPsave("start")'>
 <input type='button' value='Stop' onclick='L2TPsave("stop")'>
 <input type='button' value='Save' onclick='L2TPsave("save")'>
 <input type='button' value='Cancel' onclick='javascript:reloadPage();'>
-<input type='button' value='Help' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#l2tp","_newtab");'><br>
+<input type='button' value='Help' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#l2tp","_newtab");'>
+<span id='messages'>&nbsp;</span><br>
 </div></form>
 </td></tr></table>
 
 <div id='hideme'><div class='centercolumncontainer'><div class='middlecontainer'>
-<div id='hiddentext'>Please wait...</div><br><center><img src='images/SabaiSpin.gif'></center>
+<div id='hiddentext'>Please wait...</div><br><center><img src='images/menuHeader.gif'></center>
 </div></div></div>
 </body></html>

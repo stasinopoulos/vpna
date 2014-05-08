@@ -32,6 +32,11 @@ input {
 /*	padding: 2px;*/
 	border: none;
 	color:#777;
+	border-radius: 0.2em;
+}
+
+select {
+	border-radius: 0.2em;
 }
 /*
 input, select {
@@ -85,6 +90,10 @@ input[type='button'] {
 	 cursor: pointer;
 }
 
+.firstButton {
+	margin-left: 10px;
+}
+
 input[type='button'][disabled] { 
 	color: #aaa; 
 }
@@ -112,7 +121,6 @@ input[type='text'], input[type='password'], select {
 	margin: 0px;
 	margin-right: 2px !important;
 	padding: 2px !important;
-	background-color: #ededed;
 	color: #283033;
 }
 
@@ -140,7 +148,7 @@ input[type='text'], input[type='password'], {
 	margin:0px auto;
 }
 
-/*#header {
+#header {
 	background-color: #EFF2F5;
 	padding: 15px 10px;
 	border-bottom: none !important;
@@ -161,7 +169,7 @@ input[type='text'], input[type='password'], {
 	color: #919ea1;
 	text-align:right;
 	margin: 0; padding: 0;
-}*/
+}
 
 #footer {
 	height: 1px;
@@ -186,10 +194,10 @@ input[type='text'], input[type='password'], {
 /*	font-family: Tahoma, Arial, Sans-serif;
 	font-size: 12px;*/
 	border-right: 1px solid #f0f0f0;
-	padding: 0 0 100px 0;
 	vertical-align: top;
 	background: #DEE7F1;
-	width: 180px;
+	width: 150px;
+	padding: 0 0 100px 0;
 }
 
 #navi a {
@@ -233,12 +241,15 @@ input[type='text'], input[type='password'], {
 }
 
 #navi a.indent1 {
-	padding: 6px 0 6px 10px;
+	padding: 10px 15px;
 	font-weight: bold;
+	margin: 0 10px;
 }
 
 #navi a.indent2 { 
-	padding:4px 0 4px 30px; 
+	padding:5px 25px; 
+	margin: 0 10px;
+
 }
 
 #navi .active {
@@ -252,6 +263,7 @@ input[type='text'], input[type='password'], {
 	padding: 15px 15px 20px 15px;
 	vertical-align: top;
 	width: 770px;
+	font-size: .9em;
 }
 
 #ident {
@@ -326,6 +338,12 @@ ul.tabs li a:hover {
 	padding-left: 15px;
 }
 
+.section {
+		background-color: #EFF2F5;
+		padding: 10px;
+		margin-bottom: 20px;
+}
+
 .fields {
 	background-color: #EFF2F5;
 	border: solid 1px #EEEEEE;
@@ -338,7 +356,7 @@ ul.tabs li a:hover {
 }
 
 .fields td.title { 
-	min-width: 85px; 
+	min-width: 121px; 
 }
 
 .fields td.title.indent1 {
@@ -640,10 +658,11 @@ ul.tabs li a:hover {
 
 #hiddentext { 
 	text-align: center; 
-	border: outset 3px steelblue; 
+	border: outset 1px silver; 
 	border-radius: 10px; 
 	padding: 10px; 
-	background: hsla( 204,85%,65%,0.85 ); 
+	background: #CED7E1; 
+	color: #0B3155;
 }
 
 .vpnstatus { 
@@ -702,6 +721,14 @@ ul.tabs li a:hover {
 	width: 10em;
 }
 
+.extrashortinput {
+	width: 3em;
+}
+
+.smallText {
+	font-size: .9em;
+}
+
 /* DAVID END */
 
 #headlogo { 
@@ -723,9 +750,10 @@ label {
 textarea {
 	width:400px;
 	padding:2px;
-	border:1px solid #655E56;
+	/*border:1px solid #655E56;*/
 	display:block;
-	color:#777;
+	border: 1px solid #C0C0C0;
+  border-radius: 0.2em;
 }
 
 /* END SABAI */
@@ -737,13 +765,17 @@ textarea {
 	border-collapse: collapse; 
 }
 .tablemenu td { 
-	border: 1px black solid; 
+	border: 1px black solid;
+	padding: 0 5px; 
 }
 
+.tablemenu td:first-child {
+	padding-left: 0;
+}
 #log { 
 	width:200px; 
 	margin-left:5px; 
-/*	background:#FFF;*/ 
+	background:#FFF; 
 }
 .lines { 
 	background:#FFF; 
@@ -756,12 +788,13 @@ textarea {
 #response { 
 	width: 90%; 
 	max-width: 800px; 
-	min-height: 480px; 
+	/*min-height: 480px; */
 	margin-top: 4px; 
-	/*box-shadow: .3px .3px .3px .3px inset; */
-	padding: 4px; 
+/*	box-shadow: .3px .3px .3px .3px inset; 
+*/	padding: 4px; 
 	overflow: auto;
 	font-size: .8em; 
+	background-color: #ECEAE9;
 }
 .pointy { 
 	cursor: pointer; 

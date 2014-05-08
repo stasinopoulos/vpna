@@ -101,9 +101,6 @@
 	<table id='container' cellspacing=0>
 		<tr id='body'>
 			<td id='navi'>
-				<a href='http://www.sabaitechnology.com'>
-					<img src='images/menuHeader.gif' id='headlogo'>
-				</a>
 				<script type='text/javascript'>navi()</script>
 			</td>
 			<td id='content'>
@@ -127,9 +124,10 @@
 						<input type='button' value='Start' onclick='OVPNsave("start");'>
 						<input type='button' value='Stop' onclick='OVPNsave("stop");'>
 						<input type='button' value='Reset' onclick='OVPNsave("erase");'></span>
-						<input type='button' value='Show Log' id='logButton' onclick='toggleLog();'>
+						<input type='button' class = 'firstButton' value='Show Log' id='logButton' onclick='toggleLog();'>
 						<input type='button' value='Edit' id='editButton' onclick='toggleEdit();'>
 						<input type='button' value='Help' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#ovpn","_newtab");'>
+						<span id='messages'>&nbsp;</span><br>
 						</div> <!-- what does this close? if it closes the section div, why is it here?-->
 
 						<textarea id='log' class='hiddenChildMenu'></textarea>
@@ -148,7 +146,7 @@
 		<div class='centercolumncontainer'>
 			<div class='middlecontainer'>
 				<div id='hiddentext'>Please wait...</div>
-				<br><center><img src='images/SabaiSpin.gif'></center>
+				<br><center><img src='images/menuHeader.gif'></center>
 			</div>
 		</div>
 	</div>

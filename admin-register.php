@@ -33,9 +33,9 @@ function init(){ hidden = E('hideme'); hide = E('hiddentext'); } //</script></he
 <table id='container' cellspacing=0>
 <tr id='body'>
 <td id='navi'>
-          <a href='http://www.sabaitechnology.com'>
+          <!-- <a href='http://www.sabaitechnology.com'>
             <img src='images/menuHeader.gif' id='headlogo'>
-          </a>
+          </a> -->
           <script type='text/javascript'>navi()</script>
         </td>
 <td id='content'>
@@ -65,7 +65,7 @@ Thank you for purchasing a Sabai Technology VPN Accelerator. Please enter the e-
 
 <div id='hideme'><div class='centercolumncontainer'><div class='middlecontainer'>
  <div id='hiddentext'>Please wait...</div><br>
- <center><img src='images/SabaiSpin.gif'></center>
+ <center><img src='images/menuHeader.gif'></center>
 </div>
 </div></div>
 

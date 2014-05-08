@@ -28,40 +28,60 @@ function init(){ hidden = E('hideme'); hide = E('hiddentext');
 
 </head>
 <body onload='init();'>
-<form id='_fom' method='post'>
-<input type='hidden' name='act' value='all'>
-<table id='container' cellspacing=0>
-<tr id='body'>		<td id='navi'>
-					<a href='http://www.sabaitechnology.com'>
-						<img src='images/menuHeader.gif' id='headlogo'>
-					</a>
+	<form id='_fom' method='post'>
+		<input type='hidden' name='act' value='all'>
+		<table id='container' cellspacing=0>
+			<tr id='body'>		
+				<td id='navi'>
 					<script type='text/javascript'>navi()</script>
 				</td>
-<td id='content'>
-<div id='ident'></div>
-<div id='logging'>
-<div class='section-title'>Logs</div>
-<div class='section'>
+				<td id='content'>
+					<div id='ident'></div>
+					<div id='logging'>
+						<div class='section-title'>Logs</div>
+						<div class='section'>
 
-<table class='tablemenu'><tbody><tr>
-<td>
- <a onclick="getLog('last');" class="pointy">View Last </a>
- <input onclick='return;' type="text" name='lines' id='lines' size='5' value='25' />
- <a onclick="getLog('last');" class="pointy"> Lines</a>
-</td>
-<td><a onclick="getLog('all');" class="pointy">View All</a></td>
-<td><select id='log' name='log' onchange="getLog('all');"></td>
-<td><input type="text" class='shortinput' id='findText' name='find'><input type="button" value="Find" onclick="getLog('find');" id='finder'></td>
-</tr></tbody></table>
-<textarea id='response' readonly=""></textarea>
+							<table class='tablemenu'>
+							<tbody>
+								<tr>
+									<td>
+									 <a onclick="getLog('last');" class="pointy">View Last </a>
+									 <input onclick='return;' type="text" name='lines' id='lines' class='extrashortinput' value='25' />
+									 <a onclick="getLog('last');" class="pointy"> Lines</a>
+									</td>
+									<td>
+										<a onclick="getLog('all');" class="pointy"> View All </a>
+									</td>
+									<td>
+										<select id='log' name='log' onchange="getLog('all');">
+									</td>
+									<td>
+										<input type="text" class='shortinput' id='findText' name='find'>
+										<input type="button" value="Find" onclick="getLog('find');" id='finder'>
+									</td>
+								</tr>
+							</tbody>
+							</table>
+							
+							<textarea id='response' readonly=""></textarea>
 
-</div></div>
-</td></tr>
-</table></form>
+						</div> <!-- end section -->
+					</div> <!-- end logging -->
+				</td>
+			</tr>
+		</table>
+	</form>
 
-<div id='hideme'><div class='centercolumncontainer'><div class='middlecontainer'>
-<div id='hiddentext'>Please wait...</div><br><center><img src='images/SabaiSpin.gif'></center>
-</div></div></div>
+	<div id='hideme'>
+		<div class='centercolumncontainer'>
+			<div class='middlecontainer'>
+				<div id='hiddentext'>Please wait...</div>
+				<br>
+				<center><img src='images/menuHeader.gif'></center>
+			</div>
+		</div>
+	</div>
 
-</body></html>
+</body>
+</html>
 

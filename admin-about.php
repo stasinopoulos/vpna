@@ -17,9 +17,7 @@ function init(){
  if(vpna.vers!=null&&vpna.vers!=undefined&&vpna.vers!='') E('version').innerHTML = vpna.vers;
 } //</script></head><body onload='init()'>
 <table id='container' cellspacing=0>
-<tr id='body'><td id='navi'><a href='http://www.sabaitechnology.com'>
-						<img src='images/menuHeader.gif' id='headlogo'>
-					</a>
+<tr id='body'><td id='navi'>
 					<script type='text/javascript'>navi()</script>
 				</td>
 <td id='content'>
