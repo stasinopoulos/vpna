@@ -35,10 +35,10 @@ function init(){ f = E('_fom'); hidden = E('hideme'); hide = E('hiddentext'); fo
 
 <div class='section-title'>L2TP</div><div class='section'>
 <table class="fields"><tbody>
- <tr><td class="title indent1">Server</td><td class="content"><input name="server" id="server" class='longinput' type="text"></td></tr>
- <tr><td class="title indent1">Username</td><td class="content"><input name="user" id="user" class='longinput' type="text"></td></tr>
- <tr><td class="title indent1">Password</td><td class="content"><input name="pass" id="pass" class='longinput' autocomplete="off" onfocus='peekaboo("pass")' onblur='peekaboo("pass")' type="password"></td></tr>
- <tr><td class="title indent1">PSK</td><td class="content"><input name="psk" id="psk" class='longinput'  autocomplete="off" onfocus='peekaboo("psk")' onblur='peekaboo("psk")' type="password"></td></tr>
+ <tr><td class="title indent1 shortWidth">Server</td><td class="content"><input name="server" id="server" class='longinput' type="text"></td></tr>
+ <tr><td class="title indent1 shortWidth">Username</td><td class="content"><input name="user" id="user" class='longinput' type="text"></td></tr>
+ <tr><td class="title indent1 shortWidth">Password</td><td class="content"><input name="pass" id="pass" class='longinput' autocomplete="off" onfocus='peekaboo("pass")' onblur='peekaboo("pass")' type="password"></td></tr>
+ <tr><td class="title indent1 shortWidth">PSK</td><td class="content"><input name="psk" id="psk" class='longinput'  autocomplete="off" onfocus='peekaboo("psk")' onblur='peekaboo("psk")' type="password"></td></tr>
 </tbody></table>
 <input type='button' class= 'firstButton' value='Start' onclick='L2TPsave("start")'>
 <input type='button' value='Stop' onclick='L2TPsave("stop")'>

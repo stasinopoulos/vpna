@@ -1,30 +1,55 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'>
-<title>[Sabai Technology] Logs</title><link rel='stylesheet' type='text/css' href='sabai.css'>
-<script type='text/javascript' src='jquery-1.7.2.js'></script>
-<script type='text/javascript' src='sabaivpn.php'></script>
-<script type='text/javascript'>
-var logWindow, logForm, logSelect, hidden, hide;
-function setDropdown(res){ eval(res);
- while(i = logs.shift()){ $('#log').append(new Option(i,i)); }
-// Which is faster?
-// $.each(logs, function(key,value){ $('#log').append(new Option( value , value )); });
- logSelect.value="syslog";
-}
-function getDropdown(){ que.drop("bin/logs.php", setDropdown, 'act=list&log=&lines=&find='); }
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='robots' content='noindex,nofollow'>
+	<title>[Sabai Technology] Logs</title>
+	<link rel='stylesheet' type='text/css' href='sabai.css'>
+	<script type='text/javascript' src='jquery-1.7.2.js'></script>
+	<script type='text/javascript' src='sabaivpn.php'></script>
+	<script type='text/javascript'>
 
-function setLog(res){ showUi(); logWindow.value = res; }
-function getLog(n){ hideUi("Fetching log..."); logForm.act.value=n; que.drop("bin/logs.php", setLog, $("#_fom").serialize() ); }
+	var logWindow, logForm, logSelect, hidden, hide;
+	
+	function setDropdown(res){ 
+		eval(res);
+	 	while(i = logs.shift()){ 
+	 		$('#log').append(new Option(i,i)); 
+	 	}
+		// Which is faster?
+		// $.each(logs, function(key,value){ $('#log').append(new Option( value , value )); });
+	 logSelect.value="syslog";
+	}
 
-function catchEnter(event){ if(event.keyCode==13) getLog('find'); }
+	function getDropdown(){ 
+		que.drop("bin/logs.php", setDropdown, 'act=list&log=&lines=&find='); 
+	}
 
-function init(){ hidden = E('hideme'); hide = E('hiddentext'); 
- logWindow = E('response');
- logForm = E('_fom');
- logSelect = E('log');
- getDropdown();
- $('#findText').on("keydown", catchEnter);
-}
-</script>
+	function setLog(res){ 
+		showUi(); 
+		logWindow.value = res; 
+	}
+	
+	function getLog(n){ 
+		hideUi("Fetching log..."); 
+		logForm.act.value=n; 
+		que.drop("bin/logs.php", setLog, $("#_fom").serialize() ); 
+	}
+
+	function catchEnter(event){ 
+		if(event.keyCode==13) getLog('find'); 
+	}
+
+	function init(){ 
+		hidden = E('hideme'); 
+		hide = E('hiddentext'); 
+		logWindow = E('response');
+		logForm = E('_fom');
+		logSelect = E('log');
+		getDropdown();
+		$('#findText').on("keydown", catchEnter);
+	}
+	</script>
 
 </head>
 <body onload='init();'>

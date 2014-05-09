@@ -729,6 +729,14 @@ ul.tabs li a:hover {
 	font-size: .9em;
 }
 
+.xsmallText {
+	font-size: .8em
+}
+
+.fields td.title.shortWidth {
+	min-width: 65px;
+}
+
 /* DAVID END */
 
 #headlogo { 

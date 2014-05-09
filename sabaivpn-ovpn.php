@@ -132,11 +132,16 @@
 
 						<textarea id='log' class='hiddenChildMenu'></textarea>
 						<div id='edit' class='hiddenChildMenu'>
-						 <input type='button' value='Save' onclick='saveEdit();'>
-						 <input type='button' value='Cancel' onclick='window.location.reload();'>
+						 Name:
+						 <input type='text' name='VPNname' id='VPNname' placeholder='(optional)'>
+						 Password: 
+						 <input type='text' name='VPNpassword' id='VPNpassword' placeholder='(optional)'>
+
 						 <textarea id='conf' name='conf'>
 						 	<?php readfile('/var/www/usr/ovpn.current'); ?>
-						 </textarea>
+						 </textarea> <br>
+						 <input type='button' value='Save' onclick='saveEdit();'>
+						 <input type='button' value='Cancel' onclick='window.location.reload();'>
 						</div>
 					</form>
 			</td>

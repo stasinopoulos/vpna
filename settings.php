@@ -5,10 +5,24 @@
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type="text/javascript">
 
+function Proxyresp(res){ 
+	eval(res); 
+	msg(res.msg); 
+	showUi(); 
+	if(res.sabai){ 
+		limit=10; 
+		getUpdate(); 
+	} 
+}
+
+function proxysave(act){ 
+	hideUi("Adjusting Proxy..."); 
+	E("_act").value=act; 
+	que.drop("bin/proxy.php",Proxyresp, $("#_fom").serialize() ); 
+}
 </script>
 
 <body>
-	<form id='_fom'>
 		<input type='hidden' name='version' id='_version'>
 		<table id='container' cellspacing=0>
 			<tr id='body'>    
@@ -17,17 +31,16 @@
         </td>
 
         <td id='content'>
+        	<form id='_fom' method='post'>
+					<input type='hidden' id='_act' name='act'>
 					<div id='proxy' class=''>
 						<div class='section-title'>Proxy</div>
 						<div class='section'>
-							Select Status:
-							<select id='proxyStatus'>
-								<option>On</option>
-								<option>Off</option>
-							</select>
-							<br><br>
+
 							Port: <input type='text' placeholder='1025-65535' name='portNum' id='portNum' class='shortinput'/><br><br>
-							<input type='button' name='proxySet' id='proxySet' value='Set'/>
+							<input type='button' value='Start' onclick='proxysave("start")'>
+							<input type='button' value='Stop' onclick='proxysave("stop")'>
+
 						</div>
 					</div>
 					<div id='dhcpLease' class=''>
@@ -45,6 +58,7 @@
 					</div>
 					<br>
 					<pre id='messages'></pre>
+				</form>
 				</td>
 			</tr>
 		</table>
