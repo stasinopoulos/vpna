@@ -5,7 +5,7 @@
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type="text/javascript">
 
-function Proxyresp(res){ 
+function Settingsresp(res){ 
 	eval(res); 
 	msg(res.msg); 
 	showUi(); 
@@ -18,8 +18,24 @@ function Proxyresp(res){
 function proxysave(act){ 
 	hideUi("Adjusting Proxy..."); 
 	E("_act").value=act; 
-	que.drop("bin/proxy.php",Proxyresp, $("#_fom").serialize() ); 
+	que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
 }
+
+function dhcpLease() {
+	<?php
+		exec("sudo ./dhcp.sh ",$out);
+	?>
+}
+
+function system(act){ 
+	hideUi("Processing Request..."); 
+	E("_act").value=act; 
+	que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
+}
+
+
+
+
 </script>
 
 <body>
@@ -46,14 +62,14 @@ function proxysave(act){
 					<div id='dhcpLease' class=''>
 						<div class='section-title'>DHCP Lease</div>
 						<div class='section'>
-							<input type='button' name='leaseReset' id='leaseReset' value='Reset'/>
+							<input type='button' name='leaseReset' id='leaseReset' value='Reset' onclick='dhcpLease()'/>
 						</div>
 					</div>
 					<div id='onOff' class=''>
 						<div class='section-title'>Power</div>
 						<div class='section'>
-							<input type='button' name='power' id='power' value='Off'/>
-							<input type='button' name='restart' id='restart' value='Restart'/>
+							<input type='button' name='power' id='power' value='Off' onclick='system("shutdown")'/>
+							<input type='button' name='restart' id='restart' value='Restart' onclick='system("reboot")'/>
 						</div>
 					</div>
 					<br>
