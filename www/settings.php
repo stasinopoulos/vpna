@@ -4,8 +4,22 @@
 <script type='text/javascript' src='jquery-1.7.2.js'></script>
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type="text/javascript">
+var hidden, hide, settingsForm, settingsWindow, oldip='',limit=10,info=null,ini=false;
+
+function setUpdate(res){
+ if(info) oldip = info.vpn.ip;
+ eval(res);
+ if(oldip!='' && info.vpn.ip==oldip){ limit--; }
+ if(limit<0) return;
+ setVPNStats();
+}
+
+function getUpdate(){ 
+	que.drop('bin/info.php',setUpdate); 
+}
 
 function Settingsresp(res){ 
+	settingsWindow.innerHTML = res;
 	eval(res); 
 	msg(res.msg); 
 	showUi(); 
@@ -17,29 +31,29 @@ function Settingsresp(res){
 
 function proxysave(act){ 
 	hideUi("Adjusting Proxy..."); 
-	E("_act").value=act; 
+	settingsForm.act.value=act;  
 	que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
 }
 
-function dhcpLease() {
-	<?php
-		exec("sudo ./dhcp.sh ",$out);
-	?>
-}
 
 function system(act){ 
 	hideUi("Processing Request..."); 
-	E("_act").value=act; 
-	que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
+	settingsForm.act.value=act; 
+	que.drop("bin/system.php",Settingsresp, $("#_fom").serialize() ); 
 }
 
-
-
+function init(){ 
+	f = $('#_fom'); 
+	hidden = E('hideme'); 
+	hide = E('hiddentext'); 
+	settingsForm = E('_fom');
+	settingsWindow = E('response');
+	getUpdate(); 
+}
 
 </script>
 
-<body>
-		<input type='hidden' name='version' id='_version'>
+<body onload='init();' id='topmost'>
 		<table id='container' cellspacing=0>
 			<tr id='body'>    
 				<td id='navi'>
@@ -48,7 +62,8 @@ function system(act){
 
         <td id='content'>
         	<form id='_fom' method='post'>
-					<input type='hidden' id='_act' name='act'>
+        	<input type='hidden' id='_act' name='act' value='reboot'>
+					<div id='vpnstats'></div>
 					<div id='proxy' class=''>
 						<div class='section-title'>Proxy</div>
 						<div class='section'>
@@ -62,7 +77,7 @@ function system(act){
 					<div id='dhcpLease' class=''>
 						<div class='section-title'>DHCP Lease</div>
 						<div class='section'>
-							<input type='button' name='leaseReset' id='leaseReset' value='Reset' onclick='dhcpLease()'/>
+							<input type='button' name='leaseReset' id='leaseReset' value='Reset' onclick='system("dhcp")'/>
 						</div>
 					</div>
 					<div id='onOff' class=''>
@@ -73,11 +88,23 @@ function system(act){
 						</div>
 					</div>
 					<br>
-					<pre id='messages'></pre>
-				</form>
+					<span id='messages'>&nbsp;</span>
+					<pre id='response'></pre>
+					</form>
 				</td>
 			</tr>
 		</table>
-	</form>
+
+	<div id='hideme'>
+		<div class='centercolumncontainer'>
+			<div class='middlecontainer'>
+				<div id='hiddentext'>Please wait...</div>
+				<br>
+				<center>
+				<img src='images/menuHeader.gif'>
+				</center>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

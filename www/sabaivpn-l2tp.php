@@ -32,7 +32,7 @@ function init(){ f = E('_fom'); hidden = E('hideme'); hide = E('hiddentext'); fo
 
 <form id='_fom' method='post'>
 <input type='hidden' id='_act' name='act'>
-
+<div id='vpnstats'></div>
 <div class='section-title'>L2TP</div><div class='section'>
 <table class="fields"><tbody>
  <tr><td class="title indent1 shortWidth">Server</td><td class="content"><input name="server" id="server" class='longinput' type="text"></td></tr>

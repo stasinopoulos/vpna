@@ -104,6 +104,7 @@
 				<script type='text/javascript'>navi()</script>
 			</td>
 			<td id='content'>
+				<div id='vpnstats'></div>
 
 				<div class='section-title'>OpenVPN Setup</div>
 				<div class='section'>

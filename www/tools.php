@@ -4,9 +4,22 @@
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type='text/javascript'>
 	var logWindow, logForm, logSelect, hidden, hide;
-	function setLog(res){ showUi(); logWindow.innerHTML = res; }
-	function getLog(n){ hideUi("Executing..."); logForm.act.value=n; que.drop("bin/shell.php", setLog, $("#_fom").serialize() ); }
-	function init(){ hidden = E('hideme'); hide = E('hiddentext'); logWindow = E('response'); logForm = E('_fom'); logSelect = E('log'); }
+	function setLog(res){ 
+		showUi(); 
+		logWindow.innerHTML = res; 
+	}
+	
+	function getLog(n){ 
+		hideUi("Executing..."); 
+		logForm.act.value=n; 
+		que.drop("bin/shell.php", setLog, $("#_fom").serialize() ); 
+	}
+	function init(){ 
+		hidden = E('hideme'); 
+		hide = E('hiddentext'); 
+		logWindow = E('response'); 
+		logForm = E('_fom'); 
+		logSelect = E('log'); }
 </script>
 
 </head>

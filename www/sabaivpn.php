@@ -146,8 +146,11 @@ var queue = []; var workingNow = false; var me = this; var client; var current =
 this.handle = function(){ if((client!=null)&&(client.readyState == 4)&&(client.status==200)){ current.handler(client.responseText); me.crunch(); } }
 this.request = function(){ client = new XMLHttpRequest(); client.onreadystatechange = me.handle; client.open(current.type||'POST',current.path,true); client.setRequestHeader('Content-Type', current.header || "application/x-www-form-urlencoded"); client.send(current.args); }
 this.crunch = function(){ if(current = queue.shift()){ workingNow = true; me.request(); }else{ workingNow = false; } }
-this.drop = function(q_path, q_handler, q_args, q_type, q_header){ if(q_path!=null) me.add(q_path, q_handler, q_args, q_type, q_header); if(!workingNow){ me.crunch(); } }
-this.add = function(q_path, q_handler, q_args, q_type, q_header){ queue.push({ path: q_path, handler: q_handler, args: q_args, type: q_type, header: q_header }); }
+this.drop = function(q_path, q_handler, q_args, q_type, q_header){ 
+  if(q_path!=null) me.add(q_path, q_handler, q_args, q_type, q_header); 
+  if(!workingNow){ me.crunch(); } }
+this.add = function(q_path, q_handler, q_args, q_type, q_header){ 
+queue.push({ path: q_path, handler: q_handler, args: q_args, type: q_type, header: q_header }); }
 }
 var que = new requeue();
 
@@ -158,6 +161,6 @@ function showUi(text){ window.hidden_working = false; hidden.style.display = 'no
 function msg(msg){ E('messages').innerHTML=msg; }
 
 function setVPNStats(){
- E('vpnstats').innerHTML = (info.vpn.status == '-')?'':info.vpn.type +' is '+ info.vpn.status +' at '+info.vpn.ip;
+ $('#vpnstats').innerHTML = (info.vpn.status == '-')?'':info.vpn.type +' is '+ info.vpn.status +' at '+info.vpn.ip;
  setTimeout(getUpdate,(info.vpn.status == '-')?30000:5000); return;
 }

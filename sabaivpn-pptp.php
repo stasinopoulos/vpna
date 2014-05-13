@@ -58,6 +58,7 @@ function init(){
 			<td id='content'>
 				<form id='_fom' method='post'>
 				<input type='hidden' id='_act' name='act'>
+					<div id='vpnstats'></div>
 
 				<div class='section-title'>PPTP</div>
 				<div class='section'>
