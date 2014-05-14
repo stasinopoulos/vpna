@@ -61,6 +61,7 @@ function init(){
         </td>
 
         <td id='content'>
+        	<div class="pageTitle">Settings</div>
         	<form id='_fom' method='post'>
         	<input type='hidden' id='_act' name='act' value='reboot'>
 					<div id='vpnstats'></div>

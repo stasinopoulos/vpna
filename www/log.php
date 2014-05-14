@@ -61,9 +61,10 @@
 					<script type='text/javascript'>navi()</script>
 				</td>
 				<td id='content'>
+					<div class="pageTitle">Logs</div>
 					<div id='ident'></div>
 					<div id='logging'>
-						<div class='section-title'>Logs</div>
+						<div class='section-title'>View Logs</div>
 						<div class='section'>
 
 							<table class='tablemenu'>

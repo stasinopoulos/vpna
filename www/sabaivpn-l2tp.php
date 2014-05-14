@@ -29,11 +29,12 @@ function init(){ f = E('_fom'); hidden = E('hideme'); hide = E('hiddentext'); fo
 <tr id='body'>		<td id='navi'>
 					<script type='text/javascript'>navi()</script>
 				</td><td id='content'>
+				<div class="pageTitle">VPN: L2TP</div>
 
 <form id='_fom' method='post'>
 <input type='hidden' id='_act' name='act'>
 <div id='vpnstats'></div>
-<div class='section-title'>L2TP</div><div class='section'>
+<div class='section-title'>L2TP Setup</div><div class='section'>
 <table class="fields"><tbody>
  <tr><td class="title indent1 shortWidth">Server</td><td class="content"><input name="server" id="server" class='longinput' type="text"></td></tr>
  <tr><td class="title indent1 shortWidth">Username</td><td class="content"><input name="user" id="user" class='longinput' type="text"></td></tr>

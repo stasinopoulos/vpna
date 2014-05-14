@@ -56,10 +56,11 @@ function init(){
 					<script type='text/javascript'>navi()</script>
 			</td>
 			<td id='content'>
+				<div class="pageTitle">VPN: PPTP</div>
 				<form id='_fom' method='post'>
 				<input type='hidden' id='_act' name='act'>
 
-				<div class='section-title'>PPTP</div>
+				<div class='section-title'>PPTP Setup</div>
 				<div class='section'>
 					<table class="fields"><tbody>
 					 <tr><td class="title indent1 shortWidth">Server</td><td class="content"><input name="server" id="server" class='longinput' type="text"></td></tr>

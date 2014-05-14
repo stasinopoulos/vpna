@@ -56,6 +56,7 @@ function init(){
         </td><td id='content'>
 
 <div id='update' class=''>
+  <div class="pageTitle">Update</div>
 	<div class='section-title'>Sabai VPNA Update</div>
 	<div class='section'>
 		<div>Current Version: <span id='cversion'></span></div><br>
