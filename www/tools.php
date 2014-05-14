@@ -43,7 +43,7 @@
 							<tr>
 								<td><?php
 									switch($tool){
-									 case "Ping":{ echo "<input type='button' value='Ping' onclick='getLog(1);'> <input type='text' name='ip' class='lines' size='16' value='localhost'/> <input type='text' name='count' class='lines extrashortinput' value='4'/> <span>times with packet size: </span><input type='text' name='size' class='lines extrashortinput' value='56'/>"; break; }
+									 case "Ping":{ echo "<table class='fields'><tbody><tr><td class='title'>Address</td><td><input type='text' name='ip' class='lines shortinput' value='localhost'/><input type='button' value='Ping' onclick='getLog(1);'></td></tr><tr><td>Ping Count</td><td><input type='text' name='count' class='lines extrashortinput' value='4'/</td></tr><tr><td>Packet Size</td><td><input type='text' name='count' class='lines extrashortinput' value='56'/><span class='smallText'>(bytes)</span</td></tr></tbody></table>"; break; }
 									 case "Trace":{ echo "<input type='button' value='Trace' onclick='getLog(2);'> <input type='text' name='ip' class='lines'  value='localhost'/><span> with at most </span><input type='text' name='count' class='lines extrashortinput' value='30'/><span> hops of max time </span><input type='text' name='size' class='lines extrashortinput' value='5.0'/><span> seconds.</span>"; break; }
 									 case "Route":{ echo "<input type='button' value='Route' onclick='getLog(3);'>"; break; }
 									 case "Shell":{ echo "<textarea id='shellbox' name='cmd'></textarea><br><input type='button' value='Execute' onclick='getLog(4);'>";

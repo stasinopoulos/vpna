@@ -349,8 +349,6 @@ ul.tabs li a:hover {
 }
 
 .fields {
-	background-color: #EFF2F5;
-	border: solid 1px #EEEEEE;
 	padding: 10px;
 	margin-bottom: 10px;
 }
@@ -777,7 +775,6 @@ textarea {
 	border-collapse: collapse; 
 }
 .tablemenu td { 
-	border: 1px black solid;
 	padding: 0 5px; 
 }
 
