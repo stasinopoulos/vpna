@@ -1,0 +1,2 @@
+#!/bin/sh
+chown -R dumbroot:dumbroot /var/www

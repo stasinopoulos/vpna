@@ -1,7 +1,7 @@
 Package: sabai-vpna
 Version: 007
 Priority: extra
-Architecture: any
+Architecture: all
 Depends: bash, apache2, pptpd, pptp-linux, openvpn, ipset, php5, mcrypt, php5-mcrypt, libmcrypt-dev, isc-dhcp-client, squid3
 Maintainer: Kirk Fort <kirk@sabaitechnology.com>
 Description: Sabai VPNA package.
