@@ -62,6 +62,7 @@
 							</tr>
 						</tbody>
 						</table>
+						<br>
 						<pre id='response'></pre>
 					</div>
 				</div>

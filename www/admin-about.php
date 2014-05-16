@@ -25,7 +25,7 @@ $('#about').addClass('active')
 <td id='content'>
 <div class="pageTitle">About</div>
 <div class='section-title'>Sabai Technology</div><div class='section'>
-<div id='ident'>Sabai Technology</div><div style='margin:20px 20px;font-size:14px;color:#555;'>
+<div id='ident'>Sabai Technology</div><div>
 
 Sabai VPN Accelerator v<span id='version'>0.01</span> on <span id='distro'>Ubuntu Server</span> (<span id='kernel'></span>)
 

@@ -118,8 +118,7 @@
 						<span id='ovpn_file'></span>
 						<span id='upload'>
 						<input type='file' id='file' name='file'>
-						<input type='button' value='Upload' onclick='submit()'></span>
-						<br>
+						<br><br><input type='button' value='Upload' class='firstButton' onclick='submit()'></span>
 						<span id='messages'></span>
 					</form>
 

@@ -69,28 +69,17 @@
 						<div class='section-title'>View Logs</div>
 						<div class='section'>
 
-							<table class='tablemenu'>
-							<tbody>
-								<tr>
-									<td>
+										<select id='log' name='log' class='fleft' onchange="getLog('all');">
+										
+										<input type="button" value="Find" class='fright' onclick="getLog('find');" id='finder'>
+										<input type="text" class='shortinput fright' id='findText' name='find'>
+								<br><br>
 									 <a onclick="getLog('last');" class="pointy">View Last </a>
 									 <input onclick='return;' type="text" name='lines' id='lines' class='extrashortinput' value='25' />
 									 <a onclick="getLog('last');" class="pointy"> Lines</a>
-									</td>
-									<td>
+									 <br><br>
 										<a onclick="getLog('all');" class="pointy"> View All </a>
-									</td>
-									<td>
-										<select id='log' name='log' onchange="getLog('all');">
-									</td>
-									<td>
-										<input type="text" class='shortinput' id='findText' name='find'>
-										<input type="button" value="Find" onclick="getLog('find');" id='finder'>
-									</td>
-								</tr>
-							</tbody>
-							</table>
-							
+										<br><br>
 							<textarea id='response' readonly=""></textarea>
 
 						</div> <!-- end section -->
