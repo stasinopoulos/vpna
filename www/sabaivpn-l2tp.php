@@ -22,7 +22,19 @@ function setUpdate(res){
 function getUpdate(){ que.drop('bin/info.php',setUpdate); }
 function L2TPresp(res){ eval(res); msg(res.msg); showUi(); if(res.sabai){ limit=10; getUpdate(); } }
 function L2TPsave(act){ hideUi("Adjusting L2TP..."); E("_act").value=act; que.drop("bin/l2tp.php",L2TPresp, $("#_fom").serialize()); }
-function init(){ f = E('_fom'); hidden = E('hideme'); hide = E('hiddentext'); for(var i in l2tp){ E(i).value = l2tp[i]; }; getUpdate(); }
+function init(){ 
+	f = E('_fom'); 
+	hidden = E('hideme'); 
+	hide = E('hiddentext'); 
+	for(var i in l2tp){ 
+		E(i).value = l2tp[i]; 
+	}; 
+	getUpdate(); 
+	$('#VPNsub-menu').show();
+	$('.active').removeClass('active')
+	$('#l2tp').addClass('active')
+}
+
 
 </script></head><body onload='init();' id='topmost'>
 <table id='container' cellspacing=0>

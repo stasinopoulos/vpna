@@ -44,6 +44,9 @@ function init(){
 		E(i).value = pptp[i]; 
 	}; 
 	getUpdate(); 
+	$('#VPNsub-menu').show();
+	$('.active').removeClass('active')
+	$('#pptp').addClass('active')
 }
 
 </script>

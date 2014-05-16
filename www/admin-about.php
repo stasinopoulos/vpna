@@ -11,6 +11,8 @@ vpna = {
 }
 
 function init(){
+	$('.active').removeClass('active')
+$('#about').addClass('active')
  if(vpna==null || vpna==undefined) return;
  if(vpna.dist!=null&&vpna.dist!=undefined&&vpna.dist!='') E('distro').innerHTML = vpna.dist;
  if(vpna.kern!=null&&vpna.kern!=undefined&&vpna.kern!='') E('kernel').innerHTML = vpna.kern;

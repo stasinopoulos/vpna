@@ -16,15 +16,9 @@ body {
 		display: inline-block;
 }
 
-a {
+#content a {
 /*	text-decoration: none;
 */	color: blue;
-}
-
-a:hover {
-/*	text-decoration:none;
-	color: #fff;
-	background: #405080;*/
 }
 
 table {
@@ -194,8 +188,6 @@ input[type='text'], input[type='password'], {
 }
 */
 #navi {
-/*	font-family: Tahoma, Arial, Sans-serif;
-	font-size: 12px;*/
 	border-right: 1px solid #f0f0f0;
 	vertical-align: top;
 	background: #DEE7F1;
@@ -203,16 +195,12 @@ input[type='text'], input[type='password'], {
 	padding: 0 0 100px 0;
 }
 
-#navi a {
-	display: block;
-	color: #fff;
+#navi li {
 	background: #DEE7F1;
 	border: silver solid 1px;
 	text-decoration: none;
-	color: hsl(204, 70%, 59%);
  background: #EDEDED;
  background: hsl(210, 25%, 95%);
-
  background: -webkit-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
  background: -ms-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%); 
  background: -moz-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
@@ -221,17 +209,8 @@ input[type='text'], input[type='password'], {
  cursor: pointer;
 }
 
-#navi a.notamenulink {
-	background: #DEE7F1 ;
-}
 
-#navi a:hover {
-/*	border: none;
-	background: #2b47b1;
-	color: #fff;
-	text-decoration:none;
-	border-bottom: #3f4f52 solid 1px;*/
-	color: hsl(204, 70%, 30%);
+#navi li:hover {
  border-color: transparent;
  background: #F7CA61;
  background: hsl(42, 90%, 67%);
@@ -243,22 +222,47 @@ input[type='text'], input[type='password'], {
  background: linear-gradient(bottom, #f5bc38, #f9d990);
 }
 
+#navi li:hover a {
+	color: hsl(204, 70%, 30%);
+}
+
+
+#navi ul {
+	list-style-type: none;
+}
+
+#navButtons a {
+	color: hsl(204, 70%, 59%);
+	text-decoration: none;
+	display:block;
+	width: 100%;
+	margin: 0px;
+}
+
 #navi a.indent1 {
-	padding: 10px 15px;
 	font-weight: bold;
-	margin: 0 10px;
+	padding: 8px 0 8px 0;
+	text-indent: 18px;
 }
 
 #navi a.indent2 { 
-	padding:5px 25px; 
-	margin: 0 10px;
-
+	text-decoration: none;
+	text-indent: 30px;
+	padding: 5px 0 5px 0;
 }
 
-#navi .active {
+#navi li.active {
+	border-color: transparent;
+	background: -moz-linear-gradient(center top , #4FA5E0, #1B75BB) repeat scroll 0% 0% transparent;
+}
+
+#navi li.active a {
 	font-weight: bold;
-	color: #fff;
-	background: #EFF2F5;
+	color: white;
+}
+
+#navButtons {
+	padding: 0 15px;
 }
 
 #content {
@@ -277,7 +281,7 @@ input[type='text'], input[type='password'], {
 	float: right;
 }
 
-ul.tabs, #tabs { 
+/*ul.tabs, #tabs { 
 	padding: 0; margin: 0; 
 }
 
@@ -326,7 +330,7 @@ div.tabs-bottom, #tabs-bottom {
 ul.tabs li a:hover {
 	background: #2b47b1;
 	color: #fff;
-}
+}*/
 
 .section-title {
 	font-size: 1.2em;
@@ -378,7 +382,7 @@ ul.tabs li a:hover {
 	vertical-align: top;
 }
 
-.tomato-grid {
+/*.tomato-grid {
 	border-spacing: 1px;
 	border-collapse: separate;
 	background:#EFF2F5 none repeat scroll 0 0;
@@ -390,8 +394,8 @@ ul.tabs li a:hover {
 
 .tomato-grid td {
 	padding: 2px;
-	margin: 0px;/*
-	font: 14px sans-serif;*/
+	margin: 0px;
+	font: 14px sans-serif;
 }
 
 .tomato-grid .header {
@@ -400,7 +404,7 @@ ul.tabs li a:hover {
 }
 
 .tomato-grid .header td {
-	/*font: 14px sans-serif;*/
+	/*font: 14px sans-serif;
 	font-weight: bold;
 }
 
@@ -453,13 +457,13 @@ ul.tabs li a:hover {
 }
 
 .tomato-grid .sortasc:after {
-	/*font-size: 90%;*/
+	font-size: 90%;
 	float: right;
 	content: " \25B2";
 }
 
 .tomato-grid .sortdes:after {
-	/*font-size: 90%;*/
+	font-size: 90%;
 	float: right;
 	content: " \25BC";
 }
@@ -478,7 +482,7 @@ ul.tabs li a:hover {
 }
 
 .tomato-grid .controls input {
-	/*font: 14px sans-serif;*/
+	font: 14px sans-serif;
 	width: 60px;
 }
 
@@ -500,7 +504,7 @@ ul.tabs li a:hover {
 #tg-row-panel img:hover {
 	opacity: 1;
 	border: 1px solid #eee;
-}
+}*/
 
 #refresh-button {
  width: 80px; 
@@ -734,6 +738,9 @@ ul.tabs li a:hover {
 .xsmallText {
 	font-size: .8em
 }
+.noshow {
+	display: none;
+}
 
 .fields td.title.shortWidth {
 	min-width: 65px;
@@ -781,7 +788,7 @@ textarea {
 .tablemenu td:first-child {
 	padding-left: 0;
 }
-#log { 
+#content #log { 
 	width:200px; 
 	margin-left:5px; 
 	background:#FFF; 

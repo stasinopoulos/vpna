@@ -49,6 +49,8 @@ function init(){
 	settingsForm = E('_fom');
 	settingsWindow = E('response');
 	getUpdate(); 
+	$('.active').removeClass('active')
+	$('#settings').addClass('active')
 }
 
 </script>

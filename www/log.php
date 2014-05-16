@@ -48,6 +48,8 @@
 		logSelect = E('log');
 		getDropdown();
 		$('#findText').on("keydown", catchEnter);
+		$('.active').removeClass('active')
+		$('#log').addClass('active')
 	}
 	</script>
 

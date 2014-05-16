@@ -28,7 +28,13 @@ function regresp(text){ sv=JSON.parse(text);
 function register(){ E('_reg').value=0; hideUi("Registering..."); que.drop("admin-register.php",regresp, $("#_fom").serialize()); }
 
 var hidden, hide;
-function init(){ hidden = E('hideme'); hide = E('hiddentext'); } //</script></head><body onload='init()'><form id='_fom'>
+function init(){ 
+  hidden = E('hideme'); 
+  hide = E('hiddentext'); 
+    $('.active').removeClass('active')
+$('#register').addClass('active')
+} //
+</script></head><body onload='init()'><form id='_fom'>
 <input type='hidden' id='_reg' name='reg' value='0'>
 <table id='container' cellspacing=0>
 <tr id='body'>

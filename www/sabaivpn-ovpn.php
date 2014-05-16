@@ -91,8 +91,11 @@
 			hidden = E('hideme'); 
 			hide = E('hiddentext'); 
 			load(); 
-			getUpdate(); 
-		}
+			getUpdate();
+			$('#VPNsub-menu').show(); 
+			$('.active').removeClass('active')
+			$('#ovpn').addClass('active')
+	}
 
 	</script>
 </head>
