@@ -13,7 +13,7 @@ _reboot(){
 }
 
 _shutdown(){
-	ping -c1 google.com >> test
+	shutdown -P now
 	_return 1 "Shut Down Complete"
 }
 

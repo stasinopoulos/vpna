@@ -76,14 +76,7 @@ input[type='button'] {
 	padding: .25em .25em;
 
 	 color: #0B3155;
-	 background: #F0F3F6;
-	 background: hsl(210, 25%, 95%);
-
-	 background: -webkit-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
-	 background: -ms-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%); 
-	 background: -moz-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
-	 background: -o-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%); 
-	 background: linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
+	 background-color: #EBEBEB;
 	 cursor: pointer;
 }
 
@@ -105,11 +98,11 @@ input[type='button']:hover {
  background: #F7CA61;
  background: hsl(42, 90%, 67%);
 
- background: -webkit-linear-gradient(bottom, #f5bc38, #f9d990);
+/* background: -webkit-linear-gradient(bottom, #f5bc38, #f9d990);
  background: -ms-linear-gradient(bottom, #f5bc38, #f9d990);
  background: -moz-linear-gradient(bottom, #f5bc38, #f9d990);
  background: -o-linear-gradient(bottom, #f5bc38, #f9d990);
- background: linear-gradient(bottom, #f5bc38, #f9d990);
+ background: linear-gradient(bottom, #f5bc38, #f9d990);*/
 
 }
 
@@ -201,11 +194,6 @@ input[type='text'], input[type='password'], {
 	text-decoration: none;
  background: #EDEDED;
  background: hsl(210, 25%, 95%);
- background: -webkit-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
- background: -ms-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%); 
- background: -moz-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
- background: -o-linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%); 
- background: linear-gradient(top, #F0F3F6 50%, #E5E5E5 99%);
  cursor: pointer;
 }
 
@@ -214,12 +202,6 @@ input[type='text'], input[type='password'], {
  border-color: transparent;
  background: #F7CA61;
  background: hsl(42, 90%, 67%);
-
- background: -webkit-linear-gradient(bottom, #f5bc38, #f9d990);
- background: -ms-linear-gradient(bottom, #f5bc38, #f9d990);
- background: -moz-linear-gradient(bottom, #f5bc38, #f9d990);
- background: -o-linear-gradient(bottom, #f5bc38, #f9d990);
- background: linear-gradient(bottom, #f5bc38, #f9d990);
 }
 
 #navi li:hover a {
@@ -253,7 +235,7 @@ input[type='text'], input[type='password'], {
 
 #navi li.active {
 	border-color: transparent;
-	background: -moz-linear-gradient(center top , #4FA5E0, #1B75BB) repeat scroll 0% 0% transparent;
+	background: #1B75BB;
 }
 
 #navi li.active a {
@@ -612,31 +594,7 @@ ul.tabs li a:hover {
 
 /* BEGIN SABAI */
 /* DAVID BEGIN */
-.electMenu { 
-	color: white !important; 
- border-color: transparent !important;
- background: #1B75BB !important; 
- background: hsla(206, 75%, 42%, 1) !important;
 
- background: -webkit-linear-gradient(top, #4FA5E0, #1B75BB) !important;
- background: -ms-linear-gradient(top, #4FA5E0, #1B75BB) !important;
- background: -moz-linear-gradient(top, #4FA5E0, #1B75BB) !important;
- background: -o-linear-gradient(top, #4FA5E0, #1B75BB) !important;
- background: linear-gradient(top, #4FA5E0, #1B75BB) !important;
-}
-
-
-.shownChildMenu { 
-	display: block; 
-}
-
-.hiddenChildMenu { 
-	display: none; 
-}
-
-.vpnstatus { 
-	/*font-size: 150%; */
-}
 
 #hideme { 
 	display: none; 
@@ -675,6 +633,15 @@ ul.tabs li a:hover {
 	/*font: 10pt Arial Narrow !important; */
 	margin: -3px auto !important; 
 }
+
+.shownChildMenu { 
+	display: block; 
+}
+
+.hiddenChildMenu { 
+	display: none; 
+}
+
 
 #iplocation { 
 	text-transform: capitalize !important; 
