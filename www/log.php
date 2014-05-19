@@ -69,14 +69,14 @@
 						<div class='section-title'>View Logs</div>
 						<div class='section'>
 
-							<select id='logSelect' name='logSelect' class='fleft' onchange="getLog('all');"> | 
-						 <a onclick="getLog('last');" class="pointy">View Last </a>
+							<select id='logSelect' name='logSelect' class='fleft' onchange="getLog('all');"></select>
+						 <a onclick="getLog('last');" class="pointy"> View Last </a>
 						 <input onclick='return;' type="text" name='lines' id='lines' class='extrashortinput lines' value='25' />
 						 <a onclick="getLog('last');" class="pointy">Lines</a> |
 							<a onclick="getLog('all');" class="pointy">View All</a>
 							
 							<input type="button" value="Find" class='fright' onclick="getLog('find');" id='finder'>
-							<input type="text" class='shortinput fright' id='findText' name='find'>
+							<input type="text" class='shortinput fright lines' id='findText' name='find'>
 		
 								
 							<textarea id='response' readonly=""></textarea>

@@ -19,7 +19,7 @@
 		hide = E('hiddentext'); 
 		logWindow = E('response'); 
 		logForm = E('_fom'); 
-		logSelect = E('log'); 
+		logSelect = E('logSelect'); 
 		$('#Diagnosticssub-menu').show();
 		$('.active').removeClass('active')
 		var whatPage = $('#whatPage').html()

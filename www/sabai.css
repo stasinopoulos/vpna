@@ -837,3 +837,8 @@ textarea {
 			border: 1px solid grey;
 			padding: 5px;
 		}
+
+		#finder {
+			position: relative;
+			margin-top: -2px;
+		}
