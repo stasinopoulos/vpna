@@ -28,6 +28,7 @@
 	function setLog(res){ 
 		showUi(); 
 		logWindow.value = res; 
+		console.log("value of log is:" + res)
 	}
 	
 	function getLog(n){ 
@@ -69,7 +70,7 @@
 						<div class='section-title'>View Logs</div>
 						<div class='section'>
 
-							<select id='logSelect' name='logSelect' class='fleft' onchange="getLog('all');"></select>
+							<select id='logSelect' name='logSelect' class='fleft' onchange="getLog('all');">
 						 <a onclick="getLog('last');" class="pointy"> View Last </a>
 						 <input onclick='return;' type="text" name='lines' id='lines' class='extrashortinput lines' value='25' />
 						 <a onclick="getLog('last');" class="pointy">Lines</a> |
