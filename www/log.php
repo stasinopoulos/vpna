@@ -14,7 +14,7 @@
 	function setDropdown(res){ 
 		eval(res);
 	 	while(i = logs.shift()){ 
-	 		$('#log').append(new Option(i,i)); 
+	 		$('#logSelect').append(new Option(i,i)); 
 	 	}
 		// Which is faster?
 		// $.each(logs, function(key,value){ $('#log').append(new Option( value , value )); });
@@ -45,7 +45,7 @@
 		hide = E('hiddentext'); 
 		logWindow = E('response');
 		logForm = E('_fom');
-		logSelect = E('log');
+		logSelect = E('logSelect');
 		getDropdown();
 		$('#findText').on("keydown", catchEnter);
 		$('.active').removeClass('active')
@@ -69,17 +69,16 @@
 						<div class='section-title'>View Logs</div>
 						<div class='section'>
 
-										<select id='log' name='log' class='fleft' onchange="getLog('all');">
-										
-										<input type="button" value="Find" class='fright' onclick="getLog('find');" id='finder'>
-										<input type="text" class='shortinput fright' id='findText' name='find'>
-								<br><br>
-									 <a onclick="getLog('last');" class="pointy">View Last </a>
-									 <input onclick='return;' type="text" name='lines' id='lines' class='extrashortinput' value='25' />
-									 <a onclick="getLog('last');" class="pointy"> Lines</a>
-									 <br><br>
-										<a onclick="getLog('all');" class="pointy"> View All </a>
-										<br><br>
+							<select id='logSelect' name='logSelect' class='fleft' onchange="getLog('all');"> | 
+						 <a onclick="getLog('last');" class="pointy">View Last </a>
+						 <input onclick='return;' type="text" name='lines' id='lines' class='extrashortinput lines' value='25' />
+						 <a onclick="getLog('last');" class="pointy">Lines</a> |
+							<a onclick="getLog('all');" class="pointy">View All</a>
+							
+							<input type="button" value="Find" class='fright' onclick="getLog('find');" id='finder'>
+							<input type="text" class='shortinput fright' id='findText' name='find'>
+		
+								
 							<textarea id='response' readonly=""></textarea>
 
 						</div> <!-- end section -->

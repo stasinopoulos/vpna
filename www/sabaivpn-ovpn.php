@@ -20,7 +20,7 @@
 		ovpn=<?php if(!readfile("/var/www/usr/ovpn")) echo 'false'; ?>;
 
 		function setLog(res){ 
-			E('log').value = res; 
+			E('response').value = res; 
 		}
 
 		function saveEdit(){ 
@@ -30,7 +30,7 @@
 		}
 
 		function toggleEdit(){
-		 E('ovpn_controls').style.display='none';
+		 $('#ovpn_controls').hide();
 		 E('logButton').style.display='none';
 		 E('edit').className='';
 		 E('editButton').style.display='none';
@@ -44,15 +44,16 @@
 		 	que.drop('bin/ovpn.php', setLog, 'act=log'); 
 		 }
 		 E('logButton').value = (logon?'Hide':'Show') + " Log";
-		 E('log').className = (logon?'':'hiddenChildMenu');
+		 E('response').className = (logon?'':'hiddenChildMenu');
+		 $('#editButton').toggle();
 		}
 
 		function load(){
 		 var y=( ovpn && ovpn.file != null && ovpn.file != '');
 		 E('ovpn_controls').style.display = (y?'':'none');
 		 E('upload').style.display = (y?'none':'');
-		 E('ovpn_file').innerHTML = 'Current File: ' + (y?ovpn.file:'');
-		 msg(y?'':'You may supply a .conf/.ovpn complete configuration or a DD-WRT style .sh script.');
+		 E('ovpn_file').innerHTML = (y?ovpn.file:'');
+		 E('instructions').style.display = (y?'none':'');
 		}
 
 		function setUpdate(res){ 
@@ -115,32 +116,40 @@
 				
 					<form id='newfile' method='post' action='bin/ovpn.php' encType='multipart/form-data'>
 						<input type='hidden' name='act' value='newfile'>
+						<!-- <input type='button' class='fright' value='Help' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#ovpn","_newtab");'> -->
+						<span id='instructions'>Please supply a .conf/.ovpn complete configuration or a DD-WRT style .sh script.</span><br>
 						<span id='ovpn_file'></span>
 						<span id='upload'>
 						<input type='file' id='file' name='file'>
-						<br><br><input type='button' value='Upload' class='firstButton' onclick='submit()'></span>
-						<span id='messages'></span>
+						<!-- <input type='button' id='browse' value='Browse...' onclick='browse();'> -->
+						<input type='button' value='Upload' onclick='submit()'></span>
 					</form>
-
 					<form id='_fom'>
-						<span id='ovpn_controls'>
-						<input type='hidden' id='_act' name='act' value=''>
-						<input type='button' value='Start' onclick='OVPNsave("start");'>
-						<input type='button' value='Stop' onclick='OVPNsave("stop");'>
-						<input type='button' value='Reset' onclick='OVPNsave("erase");'></span>
-						<input type='button' class = 'firstButton' value='Show Log' id='logButton' onclick='toggleLog();'>
-						<input type='button' value='Edit' id='editButton' onclick='toggleEdit();'>
-						<input type='button' value='Help' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#ovpn","_newtab");'>
-						<span id='messages'>&nbsp;</span><br>
-						</div> <!-- what does this close? if it closes the section div, why is it here?-->
+						<br>
+						<div class='firstButton'>
+							<span id='ovpn_controls'>
+							<input type='hidden' id='_act' name='act' value=''>
+							<input type='button' value='Start' onclick='OVPNsave("start");'>
+							<input type='button' value='Stop' onclick='OVPNsave("stop");'>
+							<input type='button' value='Reset' onclick='OVPNsave("erase");'></span>
+							<input type='button' value='Show Log' id='logButton' onclick='toggleLog();'>
+							<input type='button' value='Edit Config' id='editButton' onclick='toggleEdit();'>
+						</div>
 
-						<textarea id='log' class='hiddenChildMenu'></textarea>
+						<textarea id='response' class='hiddenChildMenu'></textarea>
+						<span id='messages'>&nbsp;</span>
 						<div id='edit' class='hiddenChildMenu'>
-						 Name:
-						 <input type='text' name='VPNname' id='VPNname' placeholder='(optional)'>
-						 Password: 
-						 <input type='text' name='VPNpassword' id='VPNpassword' placeholder='(optional)'>
-
+						 <table>
+						 	<tr>
+						 		<td>Name: </td>
+						 		<td><input type='text' name='VPNname' id='VPNname' placeholder='(optional)'></td>
+						 	</tr>
+						 	<tr>
+						 	<td>Password:</td><td><input type='text' name='VPNpassword' id='VPNpassword' placeholder='(optional)'></td>
+						 	</tr>
+						 </table>
+						 
+						 <br>
 						 <textarea id='conf' name='conf'>
 						 	<?php readfile('/var/www/usr/ovpn.current'); ?>
 						 </textarea> <br>
@@ -148,6 +157,8 @@
 						 <input type='button' value='Cancel' onclick='window.location.reload();'>
 						</div>
 					</form>
+				</div> 
+
 			</td>
 		</tr>
 	</table>
