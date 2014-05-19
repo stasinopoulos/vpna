@@ -773,7 +773,7 @@ textarea {
 	background:#FFF; 
 }
 .lines { 
-	height: 19px; 
+	height: 17px; 
 }
 /*#dobutton { 
 	position: relative; 
@@ -800,6 +800,9 @@ textarea {
 	width: 99%; 
 }
 
+.tall {
+	height: 36em;
+}
 
 /*Logs*/
 /*.tablemenu { width: 100%; border: 1px transparent double !important; border-collapse: collapse; }

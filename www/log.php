@@ -70,7 +70,7 @@
 						<div class='section-title'>View Logs</div>
 						<div class='section'>
 
-							<select id='logSelect' name='logSelect' class='fleft' onchange="getLog('all');">
+							<select id='logSelect' name='logSelect' class='fleft' onchange="getLog('all');"></select>
 						 <a onclick="getLog('last');" class="pointy"> View Last </a>
 						 <input onclick='return;' type="text" name='lines' id='lines' class='extrashortinput lines' value='25' />
 						 <a onclick="getLog('last');" class="pointy">Lines</a> |
@@ -80,7 +80,7 @@
 							<input type="text" class='shortinput fright lines' id='findText' name='find'>
 		
 								
-							<textarea id='response' readonly=""></textarea>
+							<textarea id='response' class='tall' readonly=""></textarea>
 
 						</div> <!-- end section -->
 					</div> <!-- end logging -->
