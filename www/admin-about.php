@@ -38,7 +38,7 @@ Simpsonville, SC 29681<br>
 </blockquote>
 
 <p>VPN GUI and API<br>
-Copyright &copy; 2012 Sabai Technology, LLC<br>
+Copyright &copy; 2014 Sabai Technology, LLC<br>
 <a href='http://www.sabaitechnology.com'>http://www.sabaitechnology.com</a><br>
 VPN Client Interface - Sabai Technology US patent pending #13/292,509.
 
