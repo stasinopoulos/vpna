@@ -52,10 +52,17 @@ _start(){
 	fi
 }
 
+_restart(){
+	_stop
+	sleep 10
+	_start
+}
+
 sudo -n ls >/dev/null 2>/dev/null || _return 0 "Need Sudo powers."
 
 case $act in
 	start)	_start	;;
 	stop)	_stop	;;
+	start) _restart ;;
 	*)	_badarg	;;
 esac
