@@ -801,7 +801,8 @@ textarea {
 }
 
 .tall {
-	height: 36em;
+	height: 30em;
+	width: 90%;
 }
 
 /*Logs*/
