@@ -4,12 +4,74 @@
 <script type='text/javascript' src='jquery-1.7.2.js'></script>
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type="text/javascript">
+var hidden, hide, settingsForm, settingsWindow, oldip='',limit=10,info=null,ini=false;
+
+function setUpdate(res){
+ if(info) oldip = info.vpn.ip;
+ eval(res);
+ if(oldip!='' && info.vpn.ip==oldip){ limit--; }
+ if(limit<0) return;
+ setVPNStats();
+}
+
+function getUpdate(){ 
+	que.drop('bin/info.php',setUpdate); 
+}
+
+function Settingsresp(res){ 
+	settingsWindow.innerHTML = res;
+	eval(res); 
+	msg(res.msg); 
+	showUi(); 
+	if(res.sabai){ 
+		limit=10; 
+		getUpdate(); 
+	} 
+}
+
+function proxysave(act){ 
+	hideUi("Adjusting Proxy..."); 
+	settingsForm.act.value=act;  
+	que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
+	if (act == 'start') {
+		$('#proxyStop').attr('disabled', false)
+		$('#proxyStart').attr('disabled', true)
+	}
+	else {
+		$('#proxyStop').attr('disabled', true)
+		$('#proxyStart').attr('disabled', false)
+	}
+}
+
+
+function system(act){ 
+	hideUi("Processing Request..."); 
+	settingsForm.act.value=act; 
+	que.drop("bin/system.php",Settingsresp, $("#_fom").serialize() ); 
+}
+
+function init(){ 
+	f = $('#_fom'); 
+	hidden = E('hideme'); 
+	hide = E('hiddentext'); 
+	settingsForm = E('_fom');
+	settingsWindow = E('response');
+	getUpdate(); 
+	$('.active').removeClass('active')
+	$('#settings').addClass('active')
+	var port = '<?php echo exec("./proxy.sh port"); ?>'
+	if (port != 'undefined' && port != '') {
+		$('#portNum').val(port)
+	}
+	else{
+		$('#proxyStop').attr("disabled", "enabled");
+	}
+
+}
 
 </script>
 
-<body>
-	<form id='_fom'>
-		<input type='hidden' name='version' id='_version'>
+<body onload='init();' id='topmost'>
 		<table id='container' cellspacing=0>
 			<tr id='body'>    
 				<td id='navi'>
@@ -17,37 +79,51 @@
         </td>
 
         <td id='content'>
+        	<div class="pageTitle">Settings</div>
+        	<form id='_fom' method='post'>
+        	<input type='hidden' id='_act' name='act' value='reboot'>
+					<div id='vpnstats'></div>
 					<div id='proxy' class=''>
 						<div class='section-title'>Proxy</div>
 						<div class='section'>
-							Select Status:
-							<select id='proxyStatus'>
-								<option>On</option>
-								<option>Off</option>
-							</select>
-							<br><br>
-							Port: <input type='text' placeholder='1025-65535' name='portNum' id='portNum' class='shortinput'/><br><br>
-							<input type='button' name='proxySet' id='proxySet' value='Set'/>
+
+							Port: <input type='text' placeholder='(1025-65535)' name='portNum' id='portNum' class='shortinput'/><br><br>
+							<input type='button' id='proxyStart' value='Start' onclick='proxysave("start")'>
+							<input type='button' id='proxyStop' value='Stop' onclick='proxysave("stop")'>
+
 						</div>
 					</div>
 					<div id='dhcpLease' class=''>
 						<div class='section-title'>DHCP Lease</div>
 						<div class='section'>
-							<input type='button' name='leaseReset' id='leaseReset' value='Reset'/>
+							<input type='button' name='leaseReset' id='leaseReset' value='Reset' onclick='system("dhcp")'/>
 						</div>
 					</div>
 					<div id='onOff' class=''>
 						<div class='section-title'>Power</div>
 						<div class='section'>
-							<input type='button' name='power' id='power' value='Off'/>
-							<input type='button' name='restart' id='restart' value='Restart'/>
+							<input type='button' name='power' id='power' value='Off' onclick='system("shutdown")'/>
+							<input type='button' name='restart' id='restart' value='Restart' onclick='system("reboot")'/>
 						</div>
 					</div>
 					<br>
-					<pre id='messages'></pre>
+					<span id='messages'>&nbsp;</span>
+					<pre id='response'></pre>
+					</form>
 				</td>
 			</tr>
 		</table>
-	</form>
+
+	<div id='hideme'>
+		<div class='centercolumncontainer'>
+			<div class='middlecontainer'>
+				<div id='hiddentext'>Please wait...</div>
+				<br>
+				<center>
+				<img src='images/menuHeader.gif'>
+				</center>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

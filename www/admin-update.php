@@ -45,6 +45,8 @@ function init(){
  E('_version').value = (version==''?'000':version);
  E('cversion').innerHTML= version.substr(0,1) +'.'+ version.substr(1);
  hidden = E('hideme'); hide = E('hiddentext');
+  $('.active').removeClass('active')
+$('#update').addClass('active')
 }// </script></head>
 <body onload='init()'><form id='_fom'><input type='hidden' name='version' id='_version'><table id='container' cellspacing=0>
 <tr id='body'>    <td id='navi'>
@@ -56,6 +58,7 @@ function init(){
         </td><td id='content'>
 
 <div id='update' class=''>
+  <div class="pageTitle">Update</div>
 	<div class='section-title'>Sabai VPNA Update</div>
 	<div class='section'>
 		<div>Current Version: <span id='cversion'></span></div><br>

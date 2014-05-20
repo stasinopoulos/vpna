@@ -1,30 +1,58 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'>
-<title>[Sabai Technology] Logs</title><link rel='stylesheet' type='text/css' href='sabai.css'>
-<script type='text/javascript' src='jquery-1.7.2.js'></script>
-<script type='text/javascript' src='sabaivpn.php'></script>
-<script type='text/javascript'>
-var logWindow, logForm, logSelect, hidden, hide;
-function setDropdown(res){ eval(res);
- while(i = logs.shift()){ $('#log').append(new Option(i,i)); }
-// Which is faster?
-// $.each(logs, function(key,value){ $('#log').append(new Option( value , value )); });
- logSelect.value="syslog";
-}
-function getDropdown(){ que.drop("bin/logs.php", setDropdown, 'act=list&log=&lines=&find='); }
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='robots' content='noindex,nofollow'>
+	<title>[Sabai Technology] Logs</title>
+	<link rel='stylesheet' type='text/css' href='sabai.css'>
+	<script type='text/javascript' src='jquery-1.7.2.js'></script>
+	<script type='text/javascript' src='sabaivpn.php'></script>
+	<script type='text/javascript'>
 
-function setLog(res){ showUi(); logWindow.value = res; }
-function getLog(n){ hideUi("Fetching log..."); logForm.act.value=n; que.drop("bin/logs.php", setLog, $("#_fom").serialize() ); }
+	var logWindow, logForm, logSelect, hidden, hide;
+	
+	function setDropdown(res){ 
+		eval(res);
+	 	while(i = logs.shift()){ 
+	 		$('#logSelect').append(new Option(i,i)); 
+	 	}
+		// Which is faster?
+		// $.each(logs, function(key,value){ $('#log').append(new Option( value , value )); });
+	 logSelect.value="syslog";
+	}
 
-function catchEnter(event){ if(event.keyCode==13) getLog('find'); }
+	function getDropdown(){ 
+		que.drop("bin/logs.php", setDropdown, 'act=list&log=&lines=&find='); 
+	}
 
-function init(){ hidden = E('hideme'); hide = E('hiddentext'); 
- logWindow = E('response');
- logForm = E('_fom');
- logSelect = E('log');
- getDropdown();
- $('#findText').on("keydown", catchEnter);
-}
-</script>
+	function setLog(res){ 
+		showUi(); 
+		logWindow.value = res; 
+		console.log("value of log is:" + res)
+	}
+	
+	function getLog(n){ 
+		hideUi("Fetching log..."); 
+		logForm.act.value=n; 
+		que.drop("bin/logs.php", setLog, $("#_fom").serialize() ); 
+	}
+
+	function catchEnter(event){ 
+		if(event.keyCode==13) getLog('find'); 
+	}
+
+	function init(){ 
+		hidden = E('hideme'); 
+		hide = E('hiddentext'); 
+		logWindow = E('response');
+		logForm = E('_fom');
+		logSelect = E('logSelect');
+		getDropdown();
+		$('#findText').on("keydown", catchEnter);
+		$('.active').removeClass('active')
+		$('#log').addClass('active')
+	}
+	</script>
 
 </head>
 <body onload='init();'>
@@ -36,34 +64,23 @@ function init(){ hidden = E('hideme'); hide = E('hiddentext');
 					<script type='text/javascript'>navi()</script>
 				</td>
 				<td id='content'>
+					<div class="pageTitle">Logs</div>
 					<div id='ident'></div>
 					<div id='logging'>
-						<div class='section-title'>Logs</div>
+						<div class='section-title'>View Logs</div>
 						<div class='section'>
 
-							<table class='tablemenu'>
-							<tbody>
-								<tr>
-									<td>
-									 <a onclick="getLog('last');" class="pointy">View Last </a>
-									 <input onclick='return;' type="text" name='lines' id='lines' class='extrashortinput' value='25' />
-									 <a onclick="getLog('last');" class="pointy"> Lines</a>
-									</td>
-									<td>
-										<a onclick="getLog('all');" class="pointy"> View All </a>
-									</td>
-									<td>
-										<select id='log' name='log' onchange="getLog('all');">
-									</td>
-									<td>
-										<input type="text" class='shortinput' id='findText' name='find'>
-										<input type="button" value="Find" onclick="getLog('find');" id='finder'>
-									</td>
-								</tr>
-							</tbody>
-							</table>
+							<select id='logSelect' name='logSelect' class='fleft' onchange="getLog('all');"></select>
+						 <a onclick="getLog('last');" class="pointy"> View Last </a>
+						 <input onclick='return;' type="text" name='lines' id='lines' class='extrashortinput lines' value='25' />
+						 <a onclick="getLog('last');" class="pointy">Lines</a> |
+							<a onclick="getLog('all');" class="pointy">View All</a>
 							
-							<textarea id='response' readonly=""></textarea>
+							<input type="button" value="Find" class='fright' onclick="getLog('find');" id='finder'>
+							<input type="text" class='shortinput fright lines' id='findText' name='find'>
+		
+								
+							<textarea id='response' class='tall' readonly=""></textarea>
 
 						</div> <!-- end section -->
 					</div> <!-- end logging -->

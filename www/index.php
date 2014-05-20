@@ -32,7 +32,8 @@
 			que.drop('bin/info.php',setUpdate,ipref?'do=ip':null); 
 		}
 
-		function init(){ getUpdate(); }
+		function init(){ getUpdate(); $('#status').addClass('active')
+	}
 	</script>
 </head>
 <body onload='init()'>
@@ -52,6 +53,7 @@
 					<script type='text/javascript'>navi()</script>
 				</td>
 				<td id='content'>
+					<div class="pageTitle">Status</div>
 					<div class='section-title'>WAN</div>
 					<div class='section' id='wan-section'>
 						<table class="fields">

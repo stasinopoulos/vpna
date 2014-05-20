@@ -1,7 +1,7 @@
 <?php
 
 $act=$_REQUEST['act'];
-$log=$_REQUEST['log'];
+$log=$_REQUEST['logSelect'];
 $lines=$_REQUEST['lines'];
 $find=$_REQUEST['find'];
 

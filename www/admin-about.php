@@ -11,6 +11,8 @@ vpna = {
 }
 
 function init(){
+	$('.active').removeClass('active')
+$('#about').addClass('active')
  if(vpna==null || vpna==undefined) return;
  if(vpna.dist!=null&&vpna.dist!=undefined&&vpna.dist!='') E('distro').innerHTML = vpna.dist;
  if(vpna.kern!=null&&vpna.kern!=undefined&&vpna.kern!='') E('kernel').innerHTML = vpna.kern;
@@ -21,7 +23,9 @@ function init(){
 					<script type='text/javascript'>navi()</script>
 				</td>
 <td id='content'>
-<div id='ident'>Sabai Technology</div><div style='margin:20px 20px;font-size:14px;color:#555;'>
+<div class="pageTitle">About</div>
+<div class='section-title'>Sabai Technology</div><div class='section'>
+<div id='ident'>Sabai Technology</div><div>
 
 Sabai VPN Accelerator v<span id='version'>0.01</span> on <span id='distro'>Ubuntu Server</span> (<span id='kernel'></span>)
 
@@ -41,7 +45,7 @@ VPN Client Interface - Sabai Technology US patent pending #13/292,509.
 <p>We support and appreciate the exceptional work done by many in the development of Ubuntu Server and Linux opensource software.
  Ubuntu linux and licenses used can be found at <a href='http://www.ubuntu.com'>http://www.ubuntu.com</a>.
 
-</div>
+</div></div>
 </td></tr>
 </table>
 </body>
