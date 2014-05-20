@@ -34,9 +34,9 @@
 		 E('logButton').style.display='none';
 		 E('edit').className='';
 		 E('editButton').style.display='none';
-		 var conf=E('conf');
-		 var leng=(conf.value.match(/\n/g)||'').length;
-		 conf.style.height=(leng<15?'15':leng)+'em';
+		 // var conf=E('conf');
+		 // var leng=(conf.value.match(/\n/g)||'').length;
+		 // conf.style.height=(leng<15?'15':leng)+'em';
 		}
 
 		function toggleLog(){
@@ -44,7 +44,7 @@
 		 	que.drop('bin/ovpn.php', setLog, 'act=log'); 
 		 }
 		 E('logButton').value = (logon?'Hide':'Show') + " Log";
-		 E('response').className = (logon?'':'hiddenChildMenu');
+		 E('response').className = (logon?'tall':'hiddenChildMenu');
 		 $('#editButton').toggle();
 		}
 
@@ -53,7 +53,8 @@
 		 E('ovpn_controls').style.display = (y?'':'none');
 		 E('upload').style.display = (y?'none':'');
 		 E('ovpn_file').innerHTML = (y?ovpn.file:'');
-		 E('instructions').style.display = (y?'none':'');
+		 E('ovpn_file').innerHTML = 'Current File: ' + (y?ovpn.file:'');
+-		 msg(y?'':'Please supply a .conf/.ovpn complete configuration or a DD-WRT style .sh script.');
 		}
 
 		function setUpdate(res){ 
@@ -108,8 +109,11 @@
 				<script type='text/javascript'>navi()</script>
 			</td>
 			<td id='content'>
+
+				<div class='fright' id='vpnstats'></div>
+				<input type='button' value='Help' class= 'fright' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#ovpn","_newtab");'>
+
 				<div class="pageTitle">VPN: OpenVPN</div>
-				<div id='vpnstats'></div>
 
 				<div class='section-title'>OpenVPN Setup</div>
 				<div class='section'>
@@ -117,12 +121,13 @@
 					<form id='newfile' method='post' action='bin/ovpn.php' encType='multipart/form-data'>
 						<input type='hidden' name='act' value='newfile'>
 						<!-- <input type='button' class='fright' value='Help' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#ovpn","_newtab");'> -->
-						<span id='instructions'>Please supply a .conf/.ovpn complete configuration or a DD-WRT style .sh script.</span><br>
+						<!-- <span id='instructions'>Please supply a .conf/.ovpn complete configuration or a DD-WRT style .sh script.</span><br> -->
 						<span id='ovpn_file'></span>
 						<span id='upload'>
 						<input type='file' id='file' name='file'>
 						<!-- <input type='button' id='browse' value='Browse...' onclick='browse();'> -->
 						<input type='button' value='Upload' onclick='submit()'></span>
+						<span id='messages'>&nbsp;</span>
 					</form>
 					<form id='_fom'>
 						<br>
@@ -137,7 +142,6 @@
 						</div>
 
 						<textarea id='response' class='hiddenChildMenu'></textarea>
-						<span id='messages'>&nbsp;</span>
 						<div id='edit' class='hiddenChildMenu'>
 						 <table>
 						 	<tr>
@@ -150,7 +154,7 @@
 						 </table>
 						 
 						 <br>
-						 <textarea id='conf' name='conf'>
+						 <textarea id='conf' class='tall' name='conf'>
 						 	<?php readfile('/var/www/usr/ovpn.current'); ?>
 						 </textarea> <br>
 						 <input type='button' value='Save' onclick='saveEdit();'>

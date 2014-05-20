@@ -6,7 +6,7 @@ switch($act){
   $ip = $_REQUEST['ip'];
   $count = $_REQUEST['count'];
   $size = $_REQUEST['size'];
-  $ex="ping $ip -c $count" .($size=="56"?"":"-s $size");
+  $ex="ping $ip -c $count";
  break; }
  case 2:
   $ip = $_REQUEST['ip'];

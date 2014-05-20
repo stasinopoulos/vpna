@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html><head><meta charset='UTF-8'>
-<title>[Sabai Technology] Update</title><link rel='stylesheet' type='text/css' href='sabai.css'>
+<title>[Sabai Technology] Settings</title><link rel='stylesheet' type='text/css' href='sabai.css'>
 <script type='text/javascript' src='jquery-1.7.2.js'></script>
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type="text/javascript">

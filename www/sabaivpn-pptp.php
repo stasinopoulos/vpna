@@ -31,6 +31,8 @@ function PPTPresp(res){
 		getUpdate(); 
 	} 
 }
+
+
 function PPTPsave(act){ 
 	hideUi("Adjusting PPTP..."); 
 	E("_act").value=act; 
@@ -59,8 +61,10 @@ function init(){
 					<script type='text/javascript'>navi()</script>
 			</td>
 			<td id='content'>
-				<div class="pageTitle">VPN: PPTP</div>
 				<form id='_fom' method='post'>
+				<input type='button' value='Help' class='fright' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#pptp","_newtab");'>
+				<div id='vpnstats' class='fright'></div>
+				<div class="pageTitle">VPN: PPTP</div>
 				<input type='hidden' id='_act' name='act'>
 
 				<div class='section-title'>PPTP Setup</div>
@@ -75,7 +79,6 @@ function init(){
 					<input type='button' value='Stop' onclick='PPTPsave("stop")'>
 					<input type='button' value='Save' onclick='PPTPsave("save")'>
 					<input type='button' value='Cancel' onclick='javascript:reloadPage();'>
-					<input type='button' value='Help' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#pptp","_newtab");'>
 					<span id='messages'>&nbsp;</span><br>
 				</div>
 				</form>
