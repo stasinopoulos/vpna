@@ -25,6 +25,8 @@ _start(){
 	[ ! -e /var/www/usr/ovpn.current ] && _return 0 "No file loaded."
 	:>/var/www/stat/ovpn.log
 	chmod +r /var/www/stat/ovpn.log
+	./pptp.sh stop 
+	./l2tp.sh stop
 	openvpn /var/www/sys/ovpn.sabai
 	timeout=15
 	while [ ! -e /var/www/sys/ovpn.connected ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done

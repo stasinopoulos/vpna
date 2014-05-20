@@ -35,6 +35,8 @@ _start(){
 	_stop
 	( [ -z "$_u" ] || [ -z "$_p" ] || [ -z "$_k" ] || [ -z "$_l" ] || [ -z "$_s" ] ) && _badargs
 	ip route add $_s via $(ip route ls to 0/0 dev eth0|cut -d ' ' -f3) dev eth0
+	./pptp.sh stop
+	./ovpn.sh stop
 	_setup
 	service ipsec start && service xl2tpd start
 	while [ ! -e /var/run/pluto/pluto.ctl ] || [ ! -e /var/run/xl2tpd.pid ]; do sleep 2; done

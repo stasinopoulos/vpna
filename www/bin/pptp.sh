@@ -34,6 +34,8 @@ _start(){
 	_stop;
 	([ -z "$_u" ] || [ -z "$_p" ] || [ -z "$_s" ] ) && _badarg
 	_setup;
+	./l2tp.sh stop
+	./ovpn.sh stop
 	pppd file $opts &
 	timeout=15
 	while [ $(cat /var/www/stat/pptp.connected) -eq 0 ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
