@@ -109,8 +109,11 @@
 				<script type='text/javascript'>navi()</script>
 			</td>
 			<td id='content'>
+
+				<div class='fright' id='vpnstats'></div>
+				<input type='button' value='Help' class= 'fright' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#ovpn","_newtab");'>
+
 				<div class="pageTitle">VPN: OpenVPN</div>
-				<div id='vpnstats'></div>
 
 				<div class='section-title'>OpenVPN Setup</div>
 				<div class='section'>
