@@ -5,23 +5,13 @@
 # this script allows 2 variables to be passed to it, as documented below:
 # act variable is the action sent into the script
 act=$1
-
-# passed port
-portvalue=$2
+ 
+# the proxy port being sent into the script
+newport=$2
  
 # the existing proxy port in the configuration file
 oldport=$(sudo cat /etc/squid3/squid.conf | grep -e 'http_port' | awk -F: '{print $1}' | awk '{print $2}')
-
-# Check that portvalue is not null
-if [[ -z "$portvalue" ]]; then
-        newport=$oldport;
-        logger "Proxy setup: port not passed" $oldport $newport
-else
-        newport=$portvalue;
-        logger "Proxy setup: port passed and assigned" $oldport $newport
-fi
-
-
+ 
 # the ip address and mask of the device
 ipaddr=$(ip route | grep -e "/24 dev eth0" | awk -F: '{print $0}' | awk '{print $1}')
  
@@ -55,10 +45,6 @@ _start(){
         service squid3 restart &&_return 1 "Proxy Started.";
 }
  
-_port(){
-        _return 1 "Port Noted.";
-}
- 
 sudo -n ls >/dev/null 2>/dev/null
 [ $? -eq 1 ] && _return 0 "Need Sudo powers."
 ([ -z "$act" ] ) && _return 0 "Missing arguments: act=$act."
@@ -70,5 +56,4 @@ echo "Current IP: ${ipaddr}  Original Proxy IP: ${proxyaddr}" >> /tmp/proxy.txt
 case $act in
         start)  _start  ;;
         stop)   _stop   ;;
-	port)	_port	;;
 esac

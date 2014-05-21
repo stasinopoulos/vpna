@@ -1,5 +1,6 @@
+.#*
 *~
 *.deb
-#*#
+#*
 debian/var/www/*
 www/stat/*
