@@ -73,11 +73,7 @@
 								</tr>
 								<tr>
 									<td class="title indent1">Proxy</td>
-<<<<<<< .merge_file_NCqYKE
-									<td class="content" id='wanproxy'></td>
-=======
 									<td class="content" id='wanport'></td>
->>>>>>> .merge_file_GDb9cE
 								</tr>
 							</tbody>
 						</table>
