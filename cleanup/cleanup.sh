@@ -43,6 +43,19 @@ sudo apt-get autoclean -y
  
 sudo apt-get clean -y
 
+### Update the OS
+
+sudo apt-get update
+
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
+
+sudo apt-get -f install
+
+### Reboot
+sudo reboot
+
+
+
 
 
 
