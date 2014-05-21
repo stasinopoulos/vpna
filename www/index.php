@@ -27,6 +27,7 @@
 		 	E('refbutton').disabled = false;
 		}
 
+
 		function getUpdate(ipref){ 
 			E('refbutton').disabled = true; 
 			que.drop('bin/info.php',setUpdate,ipref?'do=ip':null); 
@@ -72,7 +73,11 @@
 								</tr>
 								<tr>
 									<td class="title indent1">Proxy</td>
+<<<<<<< .merge_file_NCqYKE
 									<td class="content" id='wanproxy'></td>
+=======
+									<td class="content" id='wanport'></td>
+>>>>>>> .merge_file_GDb9cE
 								</tr>
 							</tbody>
 						</table>
