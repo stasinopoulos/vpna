@@ -6,7 +6,7 @@ $wan = " wan: {
   mac: '". strtoupper(str_replace("HWaddr ","", ( array_key_exists(0,$out)? "$out[0]" : "-" ) )) ."',
   ip: '". str_replace("inet addr:","", ( array_key_exists(1,$out)? "$out[1]" : "-" ) ) ."',
   status: '". ( array_key_exists(2,$out)? "Connected" : "-" ) ."',
-  port: '". exec('proxy.sh port', $out)."'
+  port: '". exec('./proxy.sh port', $out)."'
  }";
 
 unset($out);
