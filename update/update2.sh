@@ -3,12 +3,6 @@
 # logFile=/tmp/update.$(head -c8 /dev/urandom | md5sum | tr -d " -" | head -c8).log
 
 export DEBIAN_FRONTEND=noninteractive
-ppas="\
-ppa:ondrej/php5 \
-ppa:chris-lea/node.js";
-apt-get update >/dev/null 2>&1 && apt-get install -y software-properties-common python-software-properties && for ppa in $ppas; do
-        add-apt-repository -y "$ppa";
-done
 
 echo "deb http://192.168.222.198/repos/apt/debain sabai-vpna main" >/etc/apt/sources.list.d/SabaiTechnologyVPNA.list
 apt-get update >/dev/null 2>&1
