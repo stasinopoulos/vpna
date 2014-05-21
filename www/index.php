@@ -70,6 +70,10 @@
 									<td class="title indent1">Status</td>
 									<td class="content" id='wanstatus'></td>
 								</tr>
+								<tr>
+									<td class="title indent1">Proxy</td>
+									<td class="content" id='wanproxy'></td>
+								</tr>
 							</tbody>
 						</table>
 					</div>
