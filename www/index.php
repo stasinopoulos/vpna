@@ -86,10 +86,6 @@
 									<td class="title indent1">Status</td>
 									<td class="content" id='vpnstatus'></td>
 								</tr>
-								<tr>
-									<td class="title indent1">IP Address</td>
-									<td class="content" id='vpnip'></td>
-								</tr>
 							</tbody>
 						</table>
 					</div>
