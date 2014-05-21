@@ -72,7 +72,7 @@
 									<td class="content" id='wanstatus'></td>
 								</tr>
 								<tr>
-									<td class="title indent1">Proxy</td>
+									<td class="title indent1">Proxy Port</td>
 									<td class="content" id='wanport'></td>
 								</tr>
 							</tbody>
