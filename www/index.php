@@ -145,5 +145,3 @@
 			</tr> <!-- end body -->
 		</form>
 	</table>
-</body>
-</html>

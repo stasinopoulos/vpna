@@ -11,7 +11,7 @@ $wan = " wan: {
 unset($out);
 
 $proxy = " proxy: {
-  port: '". exec("sudo ./proxy.sh port",$out[0]) ."',
+  port: '". exec("./proxy.sh port",$out[0]) ."',
   status: '". exec("cat /var/www/stat/proxy.connected",$out[1]) ."' 
 }";
 
