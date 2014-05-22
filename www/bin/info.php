@@ -10,9 +10,15 @@ $wan = " wan: {
 
 unset($out);
 
+if (file_exists ("/var/www/stat/proxy.connected")) {
+  $proxy_status = rtrim (file_get_contents ("/var/www/stat/proxy.connected"));
+} else {
+  $proxy_status = "Proxy Stopped";
+}
+  
 $proxy = " proxy: {
   port: '". exec("sudo ./proxy.sh port",$out[0]) ."',
-  status: '". exec("cat /var/www/stat/proxy.connected",$out[1]) ."' 
+  status: '$proxy_status'
 }";
 
 unset($out);
