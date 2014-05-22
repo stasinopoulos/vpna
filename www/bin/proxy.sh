@@ -11,7 +11,7 @@ act=$1
 portvalue=$2
  
 # the existing proxy port in the configuration file
-oldport=$(sudo cat /etc/squid3/squid.conf | grep -e 'http_port' | awk -F: '{print $1}' | awk '{print $2}')
+oldport=$(sudo cat /etc/squid3/squid.conf | grep -e '^http_port' | awk -F: '{print $1}' | awk '{print $2}')
  
 # Check that portvalue is not null
 if [[ -z "$portvalue" ]]; then
@@ -50,10 +50,12 @@ _return(){
 }
 
 _stop(){
-   service squid3 stop && _return 1 "Proxy Stopped."
+   echo "Proxy Stopped" > /var/www/stat/proxy.connected;
+   service squid3 stop && _return 1 "Proxy Stopped.";
 }
 
 _start(){
+   echo "Proxy Started" > /var/www/stat/proxy.connected;
    service squid3 restart &&_return 1 "Proxy Started.";
 }
 
