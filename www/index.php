@@ -15,6 +15,9 @@
 		 	for(i in info.wan){ 
 		 		E('wan'+i).innerHTML = info.wan[i]; 
 		 	}
+                        for(i in info.proxy){ 
+                                E('proxy'+i).innerHTML = info.proxy[i]; 
+                        }
 		 	
 		 	for(i in info.vpn){ 
 		 		E('vpn'+i).innerHTML = info.vpn[i]; 
@@ -71,13 +74,28 @@
 									<td class="title indent1">Status</td>
 									<td class="content" id='wanstatus'></td>
 								</tr>
-								<tr>
-									<td class="title indent1">Proxy</td>
-									<td class="content" id='wanport'></td>
-								</tr>
+
 							</tbody>
 						</table>
 					</div>
+
+                                        </div>
+
+                                        <div class='section-title'>Proxy</div>
+                                        <div class='section' id='sabaiproxy-section'>
+                                                <table class="fields">
+                                                        <tbody>
+                                                                <tr>
+                                                                        <td class="title indent1">Port Number</td>
+                                                                        <td class="content" id='proxyport'></td>
+                                                                </tr>
+                                                                <tr>
+                                                                        <td class="title indent1">Status</td>
+                                                                        <td class="content" id='proxystatus'></td>
+                                                                </tr>
+                                                        </tbody>
+                                                </table>
+                                        </div>
 
 					<div class='section-title'>VPN</div>
 					<div class='section' id='sabaivpn-section'>
@@ -90,10 +108,6 @@
 								<tr>
 									<td class="title indent1">Status</td>
 									<td class="content" id='vpnstatus'></td>
-								</tr>
-								<tr>
-									<td class="title indent1">IP Address</td>
-									<td class="content" id='vpnip'></td>
 								</tr>
 							</tbody>
 						</table>

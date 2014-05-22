@@ -6,10 +6,18 @@ $wan = " wan: {
   mac: '". strtoupper(str_replace("HWaddr ","", ( array_key_exists(0,$out)? "$out[0]" : "-" ) )) ."',
   ip: '". str_replace("inet addr:","", ( array_key_exists(1,$out)? "$out[1]" : "-" ) ) ."',
   status: '". ( array_key_exists(2,$out)? "Connected" : "-" ) ."',
-  port: '". exec('proxy.sh port', $out)."'
+  proxy: '". exec("proxy.sh port", $out); ."'
  }";
 
 unset($out);
+
+$proxy = " proxy: {
+  port: '". exec("./proxy.sh port",$out[0]) ."',
+  status: '". exec("cat /var/www/stat/proxy.connected",$out[1]) ."' 
+}";
+
+unset($out);
+
 exec("php get_remote_ip.php",$out);
 
 $vo=array('pptp','l2tp','ovpn');
@@ -28,10 +36,12 @@ $vpn = ",\n vpn: {\n ". $out[1]
 ."\n  type: '". $vpn_type ."',
   status: '". (($vpn_type=='-')?'-':'Connected') ."'\n },";
 
+
 //if( (array_key_exists('do',$_REQUEST) && $_REQUEST['do']=='ip') || !file_exists("/var/www/stat/ip")){ exec("php get_remote_ip.php"); }
 
 echo "info = {\n"
 .$wan
+.$proxy
 .$vpn
 . "\n ". implode("\n ",$out)
 ."\n}";
