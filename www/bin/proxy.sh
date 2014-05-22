@@ -59,7 +59,7 @@ _start(){
 
 
 _port(){
-   _return 1 "Port Noted.";
+   echo $oldport;
 }
 
 sudo -n ls >/dev/null 2>/dev/null
