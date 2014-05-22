@@ -25,6 +25,9 @@
 		var whatPage = $('#whatPage').html()
 		$('#'+whatPage).addClass('active')
 		console.log(whatPage)
+		if (whatPage == 'route') {
+			getLog(3);
+		}
 	}
 
 
@@ -53,7 +56,7 @@
 									switch($tool){
 									 case "Ping":{ echo "<table class='fields'><tbody><tr><td class='title shortWidth'>Address</td><td><input type='text' name='ip' class='lines shortinput' value='localhost'/><input type='button' value='Ping' onclick='getLog(1);'></td></tr><tr><td>Ping Count</td><td><input type='text' name='count' class='lines extrashortinput' value='4'/</td></tbody></table><div id='whatPage' class='noshow'>ping</div>"; break; }
 									 case "Trace":{ echo "<table class='fields'><tbody><tr><td class='title shortWidth'>Address</td><td><input type='text' name='ip' class='lines shortinput' value='localhost'/><input type='button' value='Trace' onclick='getLog(2);'></td></tr><tr><td>Hops</td><td><input type='text' name='count' class='lines extrashortinput' value='30'/></td></tr><tr><td>Max Time</td><td><input type='text' name='size' class='lines extrashortinput' value='5'/><span class='xsmallText'>(seconds)</span></td></tr></tbody></table><div id='whatPage' class='noshow'>trace</div>"; break; }
-									 case "Route":{ echo "<input type='button' value='Route' onclick='getLog(3);'><div id='whatPage' class='noshow'>route</div>"; break; }
+									 case "Route":{ echo "<input type='button' value='Refresh' onclick='getLog(3);'><div id='whatPage' class='noshow'>route</div>"; break; }
 									 case "Shell":{ echo "<textarea id='shellbox' name='cmd'></textarea><br><input type='button' value='Execute' onclick='getLog(4);'><div id='whatPage' class='noshow'>shell</div>";
 									 break; }
 									}
