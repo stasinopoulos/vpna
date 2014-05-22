@@ -33,14 +33,6 @@ function proxysave(act){
 	hideUi("Adjusting Proxy..."); 
 	settingsForm.act.value=act;  
 	que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
-	if (act == 'start') {
-		$('#proxyStop').attr('disabled', false)
-		$('#proxyStart').attr('disabled', true)
-	}
-	else {
-		$('#proxyStop').attr('disabled', true)
-		$('#proxyStart').attr('disabled', false)
-	}
 }
 
 
@@ -59,14 +51,6 @@ function init(){
 	getUpdate(); 
 	$('.active').removeClass('active')
 	$('#settings').addClass('active')
-	var port = '<?php echo exec("./proxy.sh port"); ?>'
-	if (port != 'undefined' && port != '') {
-		$('#portNum').val(port)
-	}
-	else{
-		$('#proxyStop').attr("disabled", "enabled");
-	}
-
 }
 
 </script>
@@ -86,8 +70,18 @@ function init(){
 					<div id='proxy' class=''>
 						<div class='section-title'>Proxy</div>
 						<div class='section'>
-
-							Port: <input type='text' placeholder='(1025-65535)' name='portNum' id='portNum' class='shortinput'/><br><br>
+							<table>
+								<tr>
+									<td>Proxy Status</td>
+									<td id="connected"><?php  ?></td>
+								</tr>
+								<tr>
+									<td>Curent Port</td>
+									<td id="currentport"></td>
+								</tr>
+							</table>
+							<br>
+							<p>Port: <input type='text' placeholder='(1025-65535)' name='portNum' id='portNum' class='shortinput'/></p>
 							<input type='button' id='proxyStart' value='Start' onclick='proxysave("start")'>
 							<input type='button' id='proxyStop' value='Stop' onclick='proxysave("stop")'>
 
