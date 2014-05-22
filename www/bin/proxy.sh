@@ -50,10 +50,12 @@ _return(){
 }
 
 _stop(){
-   service squid3 stop && _return 1 "Proxy Stopped."
+   echo "Proxy Stopped" > /var/www/stat/proxy.connected;
+   service squid3 stop && _return 1 "Proxy Stopped.";
 }
 
 _start(){
+   echo "Proxy Started" > /var/www/stat/proxy.connected;
    service squid3 restart &&_return 1 "Proxy Started.";
 }
 
