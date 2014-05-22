@@ -5,11 +5,18 @@ header('Content-Type: application/javascript');
 $wan = " wan: {
   mac: '". strtoupper(str_replace("HWaddr ","", ( array_key_exists(0,$out)? "$out[0]" : "-" ) )) ."',
   ip: '". str_replace("inet addr:","", ( array_key_exists(1,$out)? "$out[1]" : "-" ) ) ."',
-  status: '". ( array_key_exists(2,$out)? "Connected" : "-" ) ."',
-  port: '". exec('./proxy.sh port', $out)."'
- }";
+  status: '". ( array_key_exists(2,$out)? "Connected" : "-" ) ."' 
+},\n";
 
 unset($out);
+
+$proxy = " proxy: {
+  port: '". exec("./proxy.sh port",$out[0]) ."',
+  status: '". exec("cat /var/www/stat/proxy.connected",$out[1]) ."' 
+}";
+
+unset($out);
+
 exec("php get_remote_ip.php",$out);
 
 $vo=array('pptp','l2tp','ovpn');
@@ -33,6 +40,7 @@ $vpn = ",\n vpn: {\n ". $out[1]
 
 echo "info = {\n"
 .$wan
+.$proxy
 .$vpn
 . "\n ". implode("\n ",$out)
 ."\n}";
