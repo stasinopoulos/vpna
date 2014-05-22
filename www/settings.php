@@ -73,11 +73,11 @@ function init(){
 							<table>
 								<tr>
 									<td>Proxy Status</td>
-									<td id="connected"><?php  ?></td>
+									<td id="connected"><?php exec("cat /var/www/stat/proxy.connected",$out[1]) ?></td>
 								</tr>
 								<tr>
 									<td>Curent Port</td>
-									<td id="currentport"></td>
+									<td id="currentport"><?php exec("sudo ./proxy.sh port",$out[0]) ?></td>
 								</tr>
 							</table>
 							<br>
