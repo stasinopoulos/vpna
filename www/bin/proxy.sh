@@ -11,7 +11,7 @@ act=$1
 portvalue=$2
  
 # the existing proxy port in the configuration file
-oldport=$(sudo cat /etc/squid3/squid.conf | grep -e 'http_port' | awk -F: '{print $1}' | awk '{print $2}')
+oldport=$(sudo cat /etc/squid3/squid.conf | grep -e '^http_port' | awk -F: '{print $1}' | awk '{print $2}')
  
 # Check that portvalue is not null
 if [[ -z "$portvalue" ]]; then
