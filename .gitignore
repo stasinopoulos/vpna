@@ -5,5 +5,5 @@
 debian/var/www/*
 www/stat/*
 *.orig
-/www/usr/pptp
+www/usr/*
 
