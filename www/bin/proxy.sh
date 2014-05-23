@@ -39,7 +39,7 @@ fi
 
 
 # replace the ip address and mask if necessary
-if ! [ $ipaddr = $proxyaddr ]; then
+if [ $ipaddr -ne $proxyaddr ]; then
    logger "Proxy setup: address not equal" $proxyaddr $ipaddr;
    sed -i "s#$proxyaddr#$ipaddr#" /etc/squid3/squid.conf
 fi
