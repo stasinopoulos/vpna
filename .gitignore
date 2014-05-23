@@ -1,9 +1,9 @@
-.#*
-#.*
 *~
 *.deb
-#*
+\#*
+.\#*
 debian/var/www/*
 www/stat/*
 *.orig
 /www/usr/pptp
+

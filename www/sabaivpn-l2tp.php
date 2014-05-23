@@ -39,6 +39,12 @@
 		console.log(l2tp)
 	}
 
+	 function l2tp_cancel() {
+	   E("_act").value="cancel"; 
+	   que.drop("bin/l2tp.php",L2TPresp, $("#_fom").serialize() ); 
+           $("#server, #user, #pass, #psk").val('');
+	 }
+
 
 	</script>
 </head>
@@ -85,7 +91,7 @@
 			<input type='button' class= 'firstButton' value='Start' onclick='L2TPsave("start")'>
 			<input type='button' value='Stop' onclick='L2TPsave("stop")'>
 			<input type='button' value='Save' onclick='L2TPsave("save")'>
-			<input type='button' value='Cancel' onclick='javascript:reloadPage();'>
+			<input type='button' value='Cancel' onclick='l2tp_cancel()'>
 			<span id='messages'>&nbsp;</span><br>
 			</div></form>
 		</td>

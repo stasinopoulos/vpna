@@ -9,6 +9,10 @@ $server=trim($_REQUEST['server']);
 $serverip=trim(gethostbyname($server));
 
 switch ($act) {
+        case "cancel":
+                unlink("/var/www/usr/l2tp");
+                echo "res={ sabai: true, msg : 'Settings cleared.' }";
+                break;
 	case "start":
 	case "stop":
 		$line=exec("sudo ./l2tp.sh $act $user $pass $psk $serverip 2>&1",$out);
