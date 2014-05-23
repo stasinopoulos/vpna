@@ -51,6 +51,12 @@ function init(){
 	$('#pptp').addClass('active')
 }
 
+function pptp_cancel() {
+	E("_act").value="cancel"; 
+	que.drop("bin/pptp.php",PPTPresp, $("#_fom").serialize() ); 
+        $("#server, #user, #pass").val('');
+}
+   
 </script>
 
 </head>
@@ -78,7 +84,7 @@ function init(){
 					<input type='button' class='firstButton' value='Start' onclick='PPTPsave("start")'>
 					<input type='button' value='Stop' onclick='PPTPsave("stop")'>
 					<input type='button' value='Save' onclick='PPTPsave("save")'>
-					<input type='button' value='Cancel' onclick='javascript:reloadPage();'>
+					<input type='button' value='Cancel' onclick='pptp_cancel()'>
 					<span id='messages'>&nbsp;</span><br>
 				</div>
 				</form>

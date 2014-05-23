@@ -9,6 +9,10 @@ $serverip=trim(gethostbyname($server));
 
 
 switch ($act) {
+        case "cancel":
+                unlink("/var/www/usr/pptp");
+                echo "res={ sabai: true, msg : 'Settings cleared.' }";
+                break;
 	case "start":
 	case "stop":
 		$line=exec("sudo /var/www/bin/pptp.sh $act $user $pass $serverip 2>&1",$out);
