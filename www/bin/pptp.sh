@@ -38,7 +38,7 @@ _start(){
 	./ovpn.sh stop
 	pppd file $opts &
 	timeout=15
-	while [ $(cat /var/www/stat/pptp.connected) -eq 0 ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
+	while [ ! -e /var/www/stat/pptp.connected ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
 	_return 1 "PPTP started.";
 }
 
