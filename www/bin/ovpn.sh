@@ -29,7 +29,7 @@ _start(){
 	./l2tp.sh stop
 	openvpn /var/www/sys/ovpn.sabai
 	timeout=15
-	while [ ! -e /var/www/sys/ovpn.connected ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
+	while [ ! -e /var/www/stat/ovpn.connected ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
 	_return 1 "OpenVPN started.";
 }
 

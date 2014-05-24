@@ -43,8 +43,8 @@ _start(){
 	sleep 5;
 	ipsec auto --up SABAI
 	timeout=25;
-	while [ -z "$(ipsec setup status|grep -o '1 tunnels up')" ] && [ $timeout -gt 0 ]; do sleep 1; (( timeout-- )); done
-	if [ -z "$(ipsec setup status|grep -o '1 tunnels up')" ]; then
+	while [ -z "$(ipsec setup status|grep -e '1 tunnels up')" ] && [ $timeout -gt 0 ]; do sleep 1; (( timeout-- )); done
+	if [ -z "$(ipsec setup status|grep -e '1 tunnels up')" ]; then
 		_stop
 		_return 0 "L2TP failed to start."
 	else
