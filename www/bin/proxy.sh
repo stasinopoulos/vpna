@@ -57,12 +57,15 @@ _start(){
     fi
 
     echo "Proxy Started" > /var/www/stat/proxy.connected;
+    echo $newport > /var/www/stat/proxy.port
     service squid3 restart &&_return 1 "Proxy Started.";
 }
 
 
 _port(){
+   echo $oldport > /var/www/stat/proxy.port
    echo $oldport;
+
 }
 
 sudo -n ls >/dev/null 2>/dev/null

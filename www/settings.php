@@ -1,3 +1,9 @@
+<?php
+$proxystatus = file_get_contents('/var/www/stat/proxy.connected');
+?>
+<?php
+$proxyport = file_get_contents('/var/www/stat/proxy.port');
+ ?>
 <!DOCTYPE html>
 <html><head><meta charset='UTF-8'>
 <title>[Sabai Technology] Settings</title><link rel='stylesheet' type='text/css' href='sabai.css'>
@@ -33,6 +39,9 @@ function proxysave(act){
 	hideUi("Adjusting Proxy..."); 
 	settingsForm.act.value=act;  
 	que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
+	<?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
+	<?php $proxyport = file_get_contents('/var/www/stat/proxy.port'); ?>
+	setTimeout("window.location.reload()",1000);
 }
 
 
@@ -72,16 +81,14 @@ function init(){
 						<div class='section'>
 							<table>
 								<tr>
-									<td>Proxy Status</td>
-									<td id="connected"><?php exec("cat /var/www/stat/proxy.connected",$out[1]) ?></td>
+									<td>Proxy Status: <?php echo $proxystatus; ?></td>
 								</tr>
 								<tr>
-									<td>Current Port</td>
-									<td id="currentport"><?php exec("sudo ./proxy.sh port",$out[0]) ?></td>
+									<td>Current Port: <?php echo $proxyport; ?></td>
 								</tr>
 							</table>
 							<br>
-							<p>Port: <input type='text' placeholder='(1025-65535)' name='portNum' id='portNum' class='shortinput'/></p>
+							<p>Port: <input type='text' value='<?php echo $proxyport; ?>' name='portNum' id='portNum' class='shortinput'/></p>
 							<input type='button' id='proxyStart' value='Start' onclick='proxysave("start")'>
 							<input type='button' id='proxyStop' value='Stop' onclick='proxysave("stop")'>
 
