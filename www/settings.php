@@ -36,12 +36,17 @@ function Settingsresp(res){
 }
 
 function proxysave(act){ 
-	hideUi("Adjusting Proxy..."); 
-	settingsForm.act.value=act;  
-	que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
-	<?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
-	<?php $proxyport = file_get_contents('/var/www/stat/proxy.port'); ?>
-	setTimeout("window.location.reload()",1000);
+	$('#saveError').hide()
+	if ($('#portNum').val()<=65536 && $('#portNum').val()>=1025){
+		hideUi("Adjusting Proxy..."); 
+		settingsForm.act.value=act;  
+		que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
+		<?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
+		<?php $proxyport = file_get_contents('/var/www/stat/proxy.port'); ?>
+		setTimeout("window.location.reload()",1000);
+	}else {
+		$('#saveError').show()
+	}
 }
 
 
@@ -79,17 +84,24 @@ function init(){
 					<div id='proxy' class=''>
 						<div class='section-title'>Proxy</div>
 						<div class='section'>
-							<table>
+							<table class='fields'>
 								<tr>
-									<td>Proxy Status: <?php echo $proxystatus; ?></td>
+									<td>Proxy Status</td><td><?php echo $proxystatus; ?></td>
 								</tr>
 								<tr>
-									<td>Current Port: <?php echo $proxyport; ?></td>
+									<td>Current Port</td><td> <?php echo $proxyport; ?></td>
 								</tr>
 							</table>
-							<br>
-							<p>Port: <input type='text' value='<?php echo $proxyport; ?>' name='portNum' id='portNum' class='shortinput'/></p>
-							<input type='button' id='proxyStart' value='Start' onclick='proxysave("start")'>
+							<table class='fields'>
+								<tr>
+									<td>Update Port</td>
+									<td>
+										<input type='text' value='<?php echo $proxyport; ?>' name='portNum' id='portNum' class='shortinput' placeholder='1025-65536'/>
+										<span id='saveError'>Must be a number between 1025 and 65536</span>
+									</td>
+								</tr>
+							</table>
+							<input type='button' id='proxyStart' class='firstButton'value='Start' onclick='proxysave("start")'>
 							<input type='button' id='proxyStop' value='Stop' onclick='proxysave("stop")'>
 
 						</div>

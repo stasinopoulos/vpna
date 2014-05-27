@@ -79,23 +79,23 @@
 						</table>
 					</div>
 
-                                        </div>
+	      </div>
 
-                                        <div class='section-title'>Proxy</div>
-                                        <div class='section' id='sabaiproxy-section'>
-                                                <table class="fields">
-                                                        <tbody>
-                                                                <tr>
-                                                                        <td class="title indent1">Port Number</td>
-                                                                        <td class="content" id='proxyport'></td>
-                                                                </tr>
-                                                                <tr>
-                                                                        <td class="title indent1">Status</td>
-                                                                        <td class="content" id='proxystatus'></td>
-                                                                </tr>
-                                                        </tbody>
-                                                </table>
-                                        </div>
+	      <div class='section-title'>Proxy</div>
+	      <div class='section' id='sabaiproxy-section'>
+          <table class="fields">
+            <tbody>
+              <tr>
+                <td class="title indent1">Port Number</td>
+                <td class="content" id='proxyport'></td>
+              </tr>
+              <tr>
+                <td class="title indent1">Status</td>
+                <td class="content" id='proxystatus'></td>
+              </tr>
+            </tbody>
+          </table>
+	      </div>
 
 					<div class='section-title'>VPN</div>
 					<div class='section' id='sabaivpn-section'>
