@@ -107,6 +107,25 @@ function init(){
 							<input type='button' name='restart' id='restart' value='Restart' onclick='system("reboot")'/>
 						</div>
 					</div>
+					<div class='section-title'>Username</div>
+						<div class='section'>
+							<table>
+								<tr>
+									<td>Username:</td>
+									<td><input type='text' id='vpnaUsername'></td>
+								</tr>
+								<tr>
+									<td>Password:</td>
+									<td><input type='password' id='vpnaPassword'></td>
+								</tr>
+								<tr>
+									<td>Confirm Password:</td>
+									<td><input type='password' id='vpnaPWConfirm'></td>
+								</tr>
+							</table>
+							<br>
+							<button id='usernameUpdate'>Update</button>
+						</div>
 					<br>
 					<span id='messages'>&nbsp;</span>
 					<pre id='response'></pre>
