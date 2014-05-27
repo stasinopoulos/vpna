@@ -5,6 +5,7 @@ _p=$3
 _k=$4
 _s=$5
 _l="$(ip -o -f inet addr show dev eth0 | egrep -o 'inet ([0-9]{0,3}.){3}[0-9]{0,3}' | cut -d ' ' -f2)"
+vpn_command="$1 $2 $3 $4 $5"
 
 _return(){ echo "res={ sabai: $1, msg: '$2' };"; exit 0; }
 _badarg(){ _return 0 "Missing arguments: act=$act, user=$_u, pass=$_p, key=$_k, local=$_l, server=$_s."; }
@@ -26,6 +27,7 @@ _stop(){
 	if [ -e /var/run/pluto/pluto.ctl ] || [ -e /var/run/xl2tpd.pid ]; then
 		_return 0 "L2TP failed to stop."
 	else
+                echo -e "#!/bin/bash\nlogger no VPN initiated on startup" > /var/www/stat/vpn.command
 		[ -n "$_s" ] && ip route del $_s
 		[ "$act" == "stop" ] && _return 1 "L2TP stopped."
 	fi
@@ -50,6 +52,7 @@ _start(){
 	else
 		echo "c sabai" >/var/run/xl2tpd/l2tp-control
 		kill $logpid;
+		echo -e "#!/bin/bash\nsh /var/www/bin/l2tp.sh $vpn_command\nlogger L2TP initiated on startup" > /var/www/stat/vpn.command
 		_return 1 "L2TP started."
 	fi
 }

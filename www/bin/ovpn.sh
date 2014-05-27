@@ -1,6 +1,6 @@
 #!/bin/bash
 act=$1
-
+vpn_command=$1
 sys='/var/www/bin/sys/ovpn'
 pidf='/var/www/stat/ovpn.pid'
 
@@ -15,6 +15,7 @@ _erase(){
 
 _stop(){
 	timeout=15
+        echo -e "#!/bin/bash\nlogger no VPN initiated on startup" > /var/www/stat/vpn.command
 	[ ! -e $pidf ] && _erase
 	[ -e $pidf ] && pid=$(cat $pidf) && [ -n "$pid" ] && kill $pid && while [ -n "$(ps --no-heading $pid)" ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
 	[ "$act" == "stop" ] && _return 1 "OpenVPN stopped."
@@ -30,6 +31,7 @@ _start(){
 	openvpn /var/www/sys/ovpn.sabai
 	timeout=15
 	while [ ! -e /var/www/stat/ovpn.connected ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
+	echo -e "#!/bin/bash\nsh /var/www/bin/ovpn.sh $vpn_command\nlogger OpenVPN initiated on startup" > /var/www/stat/vpn.command
 	_return 1 "OpenVPN started.";
 }
 

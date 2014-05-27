@@ -3,7 +3,7 @@ act=$1
 _u=$2
 _p=$3
 _s=$4
-
+vpn_command="$1 $2 $3 $4"
 pidf="/var/run/ppp7.pid"
 opts="/var/www/usr/pptp.options"
 
@@ -27,6 +27,7 @@ _stop(){
 		lastroute="$(ip route show $_s)"
 		[ -n "$lastroute" ] && ip route del $lastroute
 	fi
+	echo -e "#!/bin/bash\nlogger no VPN initiated on startup" > /var/www/stat/vpn.command
 	[ "$act" == "stop" ] && _return 1 "PPTP stopped."
 }
 
@@ -39,6 +40,7 @@ _start(){
 	pppd file $opts &
 	timeout=15
 	while [ ! -e /var/www/stat/pptp.connected ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
+	echo -e "#!/bin/bash\nsh /var/www/bin/pptp.sh $vpn_command\nlogger PPTP initiated on startup" > /var/www/stat/vpn.command
 	_return 1 "PPTP started.";
 }
 
