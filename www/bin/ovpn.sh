@@ -10,7 +10,7 @@ _return(){
 }
 
 _erase(){
-	killall openvpn 2>/dev/null
+	killall openvpn 2>/dev/null;
 }
 
 _stop(){
@@ -32,7 +32,12 @@ _start(){
 	timeout=15
 	while [ ! -e /var/www/stat/ovpn.connected ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
 	echo -e "#!/bin/bash\nsh /var/www/bin/ovpn.sh $vpn_command\nlogger OpenVPN initiated on startup" > /var/www/stat/vpn.command
-	_return 1 "OpenVPN started.";
+	if [ -e /var/www/stat/ovpn.connected ]; then
+	    _return 1 "OpenVPN started."
+	else
+	    _erase
+	    _return 1 "OpenVPN failed."
+	fi
 }
 
 sudo -n ls >/dev/null 2>/dev/null
