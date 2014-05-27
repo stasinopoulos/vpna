@@ -15,9 +15,9 @@
 		 	for(i in info.wan){ 
 		 		E('wan'+i).innerHTML = info.wan[i]; 
 		 	}
-                        for(i in info.proxy){ 
-                                E('proxy'+i).innerHTML = info.proxy[i]; 
-                        }
+      for(i in info.proxy){ 
+        E('proxy'+i).innerHTML = info.proxy[i]; 
+      }
 		 	
 		 	for(i in info.vpn){ 
 		 		E('vpn'+i).innerHTML = info.vpn[i]; 
@@ -91,7 +91,7 @@
               </tr>
               <tr>
                 <td class="title indent1">Status</td>
-                <td class="content" id='proxystatus'></td>
+                <td class="content" id='proxystatus'>-</td>
               </tr>
             </tbody>
           </table>
@@ -119,21 +119,21 @@
 							<tbody>
 							<tr>
 								<td class="title indent1">IP Address</td>
-								<td class="content" id='locip'></td>
+								<td class="content" id='locip'>-</td>
 							</tr>
 							<tr>
 								<td class="title indent1">Continent</td>
-								<td class="content" id='loccontinent'></td>
+								<td class="content" id='loccontinent'>-</td>
 							<tr>
 								<td class="title indent1">Country</td>
-								<td class="content" id='loccountry'></td>
+								<td class="content" id='loccountry'>-</td>
 							</tr>
 							<tr>
 								<td class="title indent1">Region</td>
-								<td class="content" id='locregion'></td>
+								<td class="content" id='locregion'>-</td>
 							<tr>
 								<td class="title indent1">City</td>
-								<td class="content" id='loccity'></td>
+								<td class="content" id='loccity'>-</td>
 							</tr>
 							</tbody>
 						</table>

@@ -86,15 +86,15 @@ function init(){
 						<div class='section'>
 							<table class='fields'>
 								<tr>
-									<td>Proxy Status</td><td><?php echo $proxystatus; ?></td>
+									<td class='title'>Proxy Status</td><td><?php echo $proxystatus; ?></td>
 								</tr>
 								<tr>
-									<td>Current Port</td><td> <?php echo $proxyport; ?></td>
+									<td class='title'>Current Port</td><td> <?php echo $proxyport; ?></td>
 								</tr>
 							</table>
 							<table class='fields'>
 								<tr>
-									<td>Update Port</td>
+									<td class='title'>Update Port</td>
 									<td>
 										<input type='text' value='<?php echo $proxyport; ?>' name='portNum' id='portNum' class='shortinput' placeholder='1025-65536'/>
 										<span id='saveError'>Must be a number between 1025 and 65536</span>
@@ -109,34 +109,33 @@ function init(){
 					<div id='dhcpLease' class=''>
 						<div class='section-title'>DHCP Lease</div>
 						<div class='section'>
-							<input type='button' name='leaseReset' id='leaseReset' value='Reset' onclick='system("dhcp")'/>
+							<input type='button' name='leaseReset' id='leaseReset' class='firstButton' value='Reset' onclick='system("dhcp")'/>
 						</div>
 					</div>
 					<div id='onOff' class=''>
 						<div class='section-title'>Power</div>
 						<div class='section'>
-							<input type='button' name='power' id='power' value='Off' onclick='system("shutdown")'/>
+							<input type='button' name='power' id='power' value='Off' class='firstButton' onclick='system("shutdown")'/>
 							<input type='button' name='restart' id='restart' value='Restart' onclick='system("reboot")'/>
 						</div>
 					</div>
 					<div class='section-title'>Username</div>
 						<div class='section'>
-							<table>
+							<table class='fields'>
 								<tr>
-									<td>Username:</td>
+									<td>Username</td>
 									<td><input type='text' id='vpnaUsername'></td>
 								</tr>
 								<tr>
-									<td>Password:</td>
+									<td>Password</td>
 									<td><input type='password' id='vpnaPassword'></td>
 								</tr>
 								<tr>
-									<td>Confirm Password:</td>
+									<td>Confirm Password </td>
 									<td><input type='password' id='vpnaPWConfirm'></td>
 								</tr>
 							</table>
-							<br>
-							<button id='usernameUpdate'>Update</button>
+							<button id='usernameUpdate' class='firstButton'>Update</button>
 						</div>
 					<br>
 					<span id='messages'>&nbsp;</span>
