@@ -5,6 +5,7 @@ function newfile(){
  $file = ( array_key_exists('file',$_FILES) && array_key_exists('name',$_FILES['file']) ? $_FILES['file']['name'] : "" );
  $contents = ( array_key_exists('file',$_FILES) && array_key_exists('tmp_name',$_FILES['file']) ? file_get_contents($_FILES['file']['tmp_name']) : "" );
  $type = strrchr($file,".");
+
  switch($type){
   case ".sh":
    $contents = stristr(stristr($contents,"nvram set ovpn_cfg='"),"'");
@@ -23,8 +24,12 @@ function newfile(){
 }
 
 function savefile(){
+$name=$_REQUEST['VPNname'];
+$password=$_REQUEST['VPNpassword'];
  if(array_key_exists('conf',$_REQUEST)){
   file_put_contents("/var/www/usr/ovpn.current",$_REQUEST['conf']);
+  file_put_contents("/var/www/usr/auth-pass",$name ."\n");
+  file_put_contents("/var/www/usr/auth-pass",$password, FILE_APPEND);
   echo "res={ sabai: true, msg: 'OpenVPN configuration saved.', reload: true };";
  }else{
   echo "res={ sabai: false, msg: 'Invalid configuration.' };";
