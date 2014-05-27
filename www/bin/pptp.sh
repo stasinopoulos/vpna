@@ -28,6 +28,9 @@ _stop(){
 		[ -n "$lastroute" ] && ip route del $lastroute
 	fi
 	echo -e "#!/bin/bash\nlogger no VPN initiated on startup" > /var/www/stat/vpn.command
+	if [ -f /var/www/stat/pptp.connected ]; then
+		rm /var/www/stat/pptp.connected
+	fi
 	[ "$act" == "stop" ] && _return 1 "PPTP stopped."
 }
 
