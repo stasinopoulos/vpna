@@ -21,7 +21,7 @@
  }
 ?><!DOCTYPE html>
 <html><head><meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'><title>[Sabai Technology] Registration</title><link rel='stylesheet' type='text/css' href='sabai.css'>
-<script type='text/javascript' src='jquery-1.7.2.js'></script><script type='text/javascript' src='sabaivpn.php'></script><script type='text/javascript'>
+<script type='text/javascript' src='jquery-1.11.1.min.js'></script><script type='text/javascript' src='sabaivpn.php'></script><script type='text/javascript'>
 function regsuccess(){ window.location = '/index.php'; }
 function regresp(text){ sv=JSON.parse(text);
  if(sv.sabai){ hideUi("Registered."); setTimeout(regsuccess,3000); }else{ hidden.style.display='none'; E('messages').innerHTML = sv.msg; } }
