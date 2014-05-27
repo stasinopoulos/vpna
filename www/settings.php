@@ -91,7 +91,7 @@ function init(){
 							<p>Port: <input type='text' value='<?php echo $proxyport; ?>' name='portNum' id='portNum' class='shortinput'/></p>
 							<input type='button' id='proxyStart' value='Start' onclick='proxysave("start")'>
 							<input type='button' id='proxyStop' value='Stop' onclick='proxysave("stop")'>
-
+							<input type='button' id='proxySave' value='Save' onclick='proxysave("save")'>
 						</div>
 					</div>
 					<div id='dhcpLease' class=''>
