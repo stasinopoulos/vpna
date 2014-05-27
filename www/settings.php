@@ -7,7 +7,7 @@ $proxyport = file_get_contents('/var/www/stat/proxy.port');
 <!DOCTYPE html>
 <html><head><meta charset='UTF-8'>
 <title>[Sabai Technology] Settings</title><link rel='stylesheet' type='text/css' href='sabai.css'>
-<script type='text/javascript' src='jquery-1.7.2.js'></script>
+<script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type="text/javascript">
 var hidden, hide, settingsForm, settingsWindow, oldip='',limit=10,info=null,ini=false;

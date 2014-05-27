@@ -3,7 +3,7 @@
 <head>
 	<meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'>
 	<title>[Sabai Technology] L2TP</title><link rel='stylesheet' type='text/css' href='sabai.css'>
-	<script type='text/javascript' src='jquery-1.7.2.js'></script>
+	<script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 	<script type='text/javascript' src='sabaivpn.php'></script>
 	<script type='text/javascript'>
 	var hidden, hide, f,oldip='',limit=10,info=null,ini=false;
