@@ -136,7 +136,7 @@
 							<input type='hidden' id='_act' name='act' value=''>
 							<input type='button' value='Start' onclick='OVPNsave("start");'>
 							<input type='button' value='Stop' onclick='OVPNsave("stop");'>
-							<input type='button' value='Reset' onclick='OVPNsave("erase");'></span>
+							<input type='button' value='Clear' onclick='OVPNsave("erase");'></span>
 							<input type='button' value='Show Log' id='logButton' onclick='toggleLog();'>
 							<input type='button' value='Edit Config' id='editButton' onclick='toggleEdit();'>
 						</div>
