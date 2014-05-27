@@ -1,5 +1,5 @@
 Package: sabai-vpna
-Version: 007
+Version: 2.0
 Priority: extra
 Architecture: amd64
 Depends: bash, apache2, pptpd, pptp-linux, openvpn, ipset, php5, mcrypt, php5-mcrypt, libmcrypt-dev, isc-dhcp-client, squid3

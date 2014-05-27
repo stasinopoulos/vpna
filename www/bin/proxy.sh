@@ -68,6 +68,33 @@ _port(){
 
 }
 
+_save() {
+    # Check that portvalue is not null
+    if [[ -z "$portvalue" ]]; then
+	newport=$oldport;
+	logger "Proxy setup: port not passed" $oldport $newport
+    else
+	newport=$portvalue;
+	logger "Proxy setup: port passed and assigned" $oldport $newport
+    fi
+
+    # replace the configuration port if necessary
+    if [ $newport -ne $oldport ]; then
+	logger "Proxy setup: port not equal" $oldport $newport;
+	sed -i "s/^http_port.*/http_port ${newport}/" /etc/squid3/squid.conf
+    fi
+
+
+    # replace the ip address and mask if necessary
+    if [ "$ipaddr" != "$proxyaddr" ]; then
+	logger "Proxy setup: address not equal" $proxyaddr $ipaddr;
+	sed -i "s#$proxyaddr#$ipaddr#" /etc/squid3/squid.conf
+    fi
+
+    echo $newport > /var/www/stat/proxy.port
+}
+    
+
 sudo -n ls >/dev/null 2>/dev/null
 [ $? -eq 1 ] && _return 0 "Need Sudo powers."
 ([ -z "$act" ] ) && _return 0 "Missing arguments: act=$act."
@@ -81,5 +108,6 @@ case $act in
    start)  _start  ;;
    stop)   _stop   ;;
    port)   _port   ;;
+   save)   _save   ;;
 esac
 

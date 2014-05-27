@@ -7,7 +7,7 @@ $proxyport = file_get_contents('/var/www/stat/proxy.port');
 <!DOCTYPE html>
 <html><head><meta charset='UTF-8'>
 <title>[Sabai Technology] Settings</title><link rel='stylesheet' type='text/css' href='sabai.css'>
-<script type='text/javascript' src='jquery-1.7.2.js'></script>
+<script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type="text/javascript">
 var hidden, hide, settingsForm, settingsWindow, oldip='',limit=10,info=null,ini=false;
@@ -36,12 +36,17 @@ function Settingsresp(res){
 }
 
 function proxysave(act){ 
-	hideUi("Adjusting Proxy..."); 
-	settingsForm.act.value=act;  
-	que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
-	<?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
-	<?php $proxyport = file_get_contents('/var/www/stat/proxy.port'); ?>
-	setTimeout("window.location.reload()",1000);
+	$('#saveError').hide()
+	if ($('#portNum').val()<=65536 && $('#portNum').val()>=1025){
+		hideUi("Adjusting Proxy..."); 
+		settingsForm.act.value=act;  
+		que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
+		<?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
+		<?php $proxyport = file_get_contents('/var/www/stat/proxy.port'); ?>
+		setTimeout("window.location.reload()",1000);
+	}else {
+		$('#saveError').show()
+	}
 }
 
 
@@ -79,52 +84,58 @@ function init(){
 					<div id='proxy' class=''>
 						<div class='section-title'>Proxy</div>
 						<div class='section'>
-							<table>
+							<table class='fields'>
 								<tr>
-									<td>Proxy Status: <?php echo $proxystatus; ?></td>
+									<td class='title'>Proxy Status</td><td><?php echo $proxystatus; ?></td>
 								</tr>
 								<tr>
-									<td>Current Port: <?php echo $proxyport; ?></td>
+									<td class='title'>Current Port</td><td> <?php echo $proxyport; ?></td>
 								</tr>
 							</table>
-							<br>
-							<p>Port: <input type='text' value='<?php echo $proxyport; ?>' name='portNum' id='portNum' class='shortinput'/></p>
-							<input type='button' id='proxyStart' value='Start' onclick='proxysave("start")'>
+							<table class='fields'>
+								<tr>
+									<td class='title'>Update Port</td>
+									<td>
+										<input type='text' value='<?php echo $proxyport; ?>' name='portNum' id='portNum' class='shortinput' placeholder='1025-65536'/>
+										<span id='saveError'>Must be a number between 1025 and 65536</span>
+									</td>
+								</tr>
+							</table>
+							<input type='button' id='proxyStart' class='firstButton'value='Start' onclick='proxysave("start")'>
 							<input type='button' id='proxyStop' value='Stop' onclick='proxysave("stop")'>
-
+							<input type='button' id='proxySave' value='Save' onclick='proxysave("save")'>
 						</div>
 					</div>
 					<div id='dhcpLease' class=''>
 						<div class='section-title'>DHCP Lease</div>
 						<div class='section'>
-							<input type='button' name='leaseReset' id='leaseReset' value='Reset' onclick='system("dhcp")'/>
+							<input type='button' name='leaseReset' id='leaseReset' class='firstButton' value='Reset' onclick='system("dhcp")'/>
 						</div>
 					</div>
 					<div id='onOff' class=''>
 						<div class='section-title'>Power</div>
 						<div class='section'>
-							<input type='button' name='power' id='power' value='Off' onclick='system("shutdown")'/>
+							<input type='button' name='power' id='power' value='Off' class='firstButton' onclick='system("shutdown")'/>
 							<input type='button' name='restart' id='restart' value='Restart' onclick='system("reboot")'/>
 						</div>
 					</div>
 					<div class='section-title'>Username</div>
 						<div class='section'>
-							<table>
+							<table class='fields'>
 								<tr>
-									<td>Username:</td>
+									<td>Username</td>
 									<td><input type='text' id='vpnaUsername'></td>
 								</tr>
 								<tr>
-									<td>Password:</td>
+									<td>Password</td>
 									<td><input type='password' id='vpnaPassword'></td>
 								</tr>
 								<tr>
-									<td>Confirm Password:</td>
+									<td>Confirm Password </td>
 									<td><input type='password' id='vpnaPWConfirm'></td>
 								</tr>
 							</table>
-							<br>
-							<button id='usernameUpdate'>Update</button>
+							<button id='usernameUpdate' class='firstButton'>Update</button>
 						</div>
 					<br>
 					<span id='messages'>&nbsp;</span>

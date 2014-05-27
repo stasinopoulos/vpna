@@ -6,7 +6,7 @@
 	<meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'>
 	<title>[Sabai Technology] Status</title>
 	<link rel='stylesheet' type='text/css' href='sabai.css'>
-	<script type='text/javascript' src='jquery-1.7.2.js'></script>
+	<script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 	<script type='text/javascript' src='sabaivpn.php'></script>
 	<script type='text/javascript'>
 
@@ -15,9 +15,9 @@
 		 	for(i in info.wan){ 
 		 		E('wan'+i).innerHTML = info.wan[i]; 
 		 	}
-                        for(i in info.proxy){ 
-                                E('proxy'+i).innerHTML = info.proxy[i]; 
-                        }
+      for(i in info.proxy){ 
+        E('proxy'+i).innerHTML = info.proxy[i]; 
+      }
 		 	
 		 	for(i in info.vpn){ 
 		 		E('vpn'+i).innerHTML = info.vpn[i]; 
@@ -79,23 +79,23 @@
 						</table>
 					</div>
 
-                                        </div>
+	      </div>
 
-                                        <div class='section-title'>Proxy</div>
-                                        <div class='section' id='sabaiproxy-section'>
-                                                <table class="fields">
-                                                        <tbody>
-                                                                <tr>
-                                                                        <td class="title indent1">Port Number</td>
-                                                                        <td class="content" id='proxyport'></td>
-                                                                </tr>
-                                                                <tr>
-                                                                        <td class="title indent1">Status</td>
-                                                                        <td class="content" id='proxystatus'></td>
-                                                                </tr>
-                                                        </tbody>
-                                                </table>
-                                        </div>
+	      <div class='section-title'>Proxy</div>
+	      <div class='section' id='sabaiproxy-section'>
+          <table class="fields">
+            <tbody>
+              <tr>
+                <td class="title indent1">Port Number</td>
+                <td class="content" id='proxyport'></td>
+              </tr>
+              <tr>
+                <td class="title indent1">Status</td>
+                <td class="content" id='proxystatus'>-</td>
+              </tr>
+            </tbody>
+          </table>
+	      </div>
 
 					<div class='section-title'>VPN</div>
 					<div class='section' id='sabaivpn-section'>
@@ -119,21 +119,21 @@
 							<tbody>
 							<tr>
 								<td class="title indent1">IP Address</td>
-								<td class="content" id='locip'></td>
+								<td class="content" id='locip'>-</td>
 							</tr>
 							<tr>
 								<td class="title indent1">Continent</td>
-								<td class="content" id='loccontinent'></td>
+								<td class="content" id='loccontinent'>-</td>
 							<tr>
 								<td class="title indent1">Country</td>
-								<td class="content" id='loccountry'></td>
+								<td class="content" id='loccountry'>-</td>
 							</tr>
 							<tr>
 								<td class="title indent1">Region</td>
-								<td class="content" id='locregion'></td>
+								<td class="content" id='locregion'>-</td>
 							<tr>
 								<td class="title indent1">City</td>
-								<td class="content" id='loccity'></td>
+								<td class="content" id='loccity'>-</td>
 							</tr>
 							</tbody>
 						</table>

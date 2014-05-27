@@ -721,6 +721,11 @@ td:first-child {
 	float:right;
 }
 
+#saveError {
+	color: red;
+	display: none;
+}
+
 .fields td.title.shortWidth {
 	min-width: 75px;
 }
