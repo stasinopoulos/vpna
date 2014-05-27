@@ -43,6 +43,16 @@ sudo apt-get autoclean -y
  
 sudo apt-get clean -y
 
+### Enable SSH
+
+sudo sed -i 's/Port 31422/Port 22/' /etc/ssh/sshd_config
+
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+
+sudo service ssh restart
+
+
+
 ### Update the OS
 
 sudo apt-get update
