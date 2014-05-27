@@ -1,14 +1,12 @@
 <?php
 
-if(isset($_REQUEST['act']) && $_REQUEST['act']!="" && isset($_REQUEST['portNum']) && $_REQUEST['portNum']!="")
+if(isset($_REQUEST['act']) && $_REQUEST['act']!="")
 {
 
 
 $act=$_REQUEST['act'];
-$port=$_REQUEST['portNum'];
 
-
-$toShell= exec("sudo ./proxy.sh $act $port",$out);
+$toShell= exec("sudo ./proxy.sh $act",$out);
 
 echo $toShell;
 

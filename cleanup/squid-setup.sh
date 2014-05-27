@@ -1,4 +1,4 @@
-sudo apt-get install --assume-yes squid
+sudo apt-get install --assume-yes squid3
 rm /etc/squid3/squid.conf
 cat > /etc/squid3/squid.conf << EOF
 # Access Lists
@@ -27,7 +27,7 @@ http_access allow sabainet
 # And finally deny all other access to this proxy
 http_access deny all
 # Squid server port to listen to
-http_port 8888
+http_port 8080
 # Leave coredumps in the first cache dir
 coredump_dir /var/spool/squid3
 # Add any of your own refresh_pattern entries above these.

@@ -15,9 +15,9 @@
 		 	for(i in info.wan){ 
 		 		E('wan'+i).innerHTML = info.wan[i]; 
 		 	}
-      for(i in info.proxy){ 
-        E('proxy'+i).innerHTML = info.proxy[i]; 
-      }
+	               for(i in info.proxy){ 
+                                E('proxy'+i).innerHTML = info.proxy[i]; 
+	                }
 		 	
 		 	for(i in info.vpn){ 
 		 		E('vpn'+i).innerHTML = info.vpn[i]; 
@@ -86,12 +86,12 @@
           <table class="fields">
             <tbody>
               <tr>
-                <td class="title indent1">Port Number</td>
-                <td class="content" id='proxyport'></td>
-              </tr>
-              <tr>
                 <td class="title indent1">Status</td>
                 <td class="content" id='proxystatus'>-</td>
+              </tr>
+              <tr>
+                <td class="title indent1">Port</td>
+                <td class="content" id='proxyport'>8080</td>
               </tr>
             </tbody>
           </table>

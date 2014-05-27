@@ -17,7 +17,6 @@ if (file_exists ("/var/www/stat/proxy.connected")) {
 }
   
 $proxy = " proxy: {
-  port: '". exec("sudo ./proxy.sh port",$out[0]) ."',
   status: '$proxy_status'
 }";
 

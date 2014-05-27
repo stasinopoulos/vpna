@@ -36,17 +36,11 @@ function Settingsresp(res){
 }
 
 function proxysave(act){ 
-	$('#saveError').hide()
-	if ($('#portNum').val()<=65536 && $('#portNum').val()>=1025){
-		hideUi("Adjusting Proxy..."); 
-		settingsForm.act.value=act;  
-		que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
-		<?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
-		<?php $proxyport = file_get_contents('/var/www/stat/proxy.port'); ?>
-		setTimeout("window.location.reload()",1000);
-	}else {
-		$('#saveError').show()
-	}
+        hideUi("Adjusting Proxy..."); 
+        settingsForm.act.value=act;  
+        que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
+        <?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
+        setTimeout("window.location.reload()",1000);
 }
 
 
@@ -89,21 +83,11 @@ function init(){
 									<td class='title'>Proxy Status</td><td><?php echo $proxystatus; ?></td>
 								</tr>
 								<tr>
-									<td class='title'>Current Port</td><td> <?php echo $proxyport; ?></td>
-								</tr>
-							</table>
-							<table class='fields'>
-								<tr>
-									<td class='title'>Update Port</td>
-									<td>
-										<input type='text' value='<?php echo $proxyport; ?>' name='portNum' id='portNum' class='shortinput' placeholder='1025-65536'/>
-										<span id='saveError'>Must be a number between 1025 and 65536</span>
-									</td>
+									<td class='title'>Port</td><td>8080</td>
 								</tr>
 							</table>
 							<input type='button' id='proxyStart' class='firstButton'value='Start' onclick='proxysave("start")'>
 							<input type='button' id='proxyStop' value='Stop' onclick='proxysave("stop")'>
-							<input type='button' id='proxySave' value='Save' onclick='proxysave("save")'>
 						</div>
 					</div>
 					<div id='dhcpLease' class=''>
