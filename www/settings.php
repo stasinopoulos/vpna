@@ -82,9 +82,6 @@ function init(){
 								<tr>
 									<td class='title'>Proxy Status</td><td><?php echo $proxystatus; ?></td>
 								</tr>
-								<tr>
-									<td class='title'>Port</td><td>8080</td>
-								</tr>
 							</table>
 							<input type='button' id='proxyStart' class='firstButton'value='Start' onclick='proxysave("start")'>
 							<input type='button' id='proxyStop' value='Stop' onclick='proxysave("stop")'>
