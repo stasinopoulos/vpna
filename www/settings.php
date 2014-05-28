@@ -36,11 +36,11 @@ function Settingsresp(res){
 }
 
 function proxysave(act){ 
-        hideUi("Adjusting Proxy..."); 
-        settingsForm.act.value=act;  
-        que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
-        <?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
-        setTimeout("window.location.reload()",1000);
+  hideUi("Adjusting Proxy..."); 
+  settingsForm.act.value=act;  
+  que.drop("bin/proxy.php",Settingsresp, $("#_fom").serialize() ); 
+  <?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
+  setTimeout("window.location.reload()",1000);
 }
 
 
@@ -59,6 +59,11 @@ function init(){
 	getUpdate(); 
 	$('.active').removeClass('active')
 	$('#settings').addClass('active')
+}
+
+function update(){ 
+	hideUi("Updating Credentials..."); 
+	que.drop("bin/auth.php",Updateresp, $("#_fom").serialize() ); 
 }
 
 </script>
@@ -104,19 +109,19 @@ function init(){
 						<div class='section'>
 							<table class='fields'>
 								<tr>
-									<td>Username</td>
+									<td class='title'>Username</td>
 									<td><input type='text' id='vpnaUsername'></td>
 								</tr>
 								<tr>
-									<td>Password</td>
+									<td class='title'>Password</td>
 									<td><input type='password' id='vpnaPassword'></td>
 								</tr>
 								<tr>
-									<td>Confirm Password </td>
-									<td><input type='password' id='vpnaPWConfirm'></td>
+									<td class='title'>Confirm Password </td>
+									<td class='title'><input type='password' id='vpnaPWConfirm'></td>
 								</tr>
 							</table>
-							<button id='usernameUpdate' class='firstButton'>Update</button>
+							<button id='usernameUpdate' class='firstButton' onclick='username()'>Update</button>
 						</div>
 					<br>
 					<span id='messages'>&nbsp;</span>
