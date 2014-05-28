@@ -36,8 +36,7 @@ switch($vo){
  default: $vpn_type='Too many.';
 }
 
-$vpn = ",\n vpn: {\n ". $out[1]
-."\n  type: '". $vpn_type ."',
+$vpn = ",\n vpn: {\n type: '". $vpn_type ."',
   status: '". (($vpn_type=='-')?'-':'Connected') ."'\n },";
 
 //if( (array_key_exists('do',$_REQUEST) && $_REQUEST['do']=='ip') || !file_exists("/var/www/stat/ip")){ exec("php get_remote_ip.php"); }
