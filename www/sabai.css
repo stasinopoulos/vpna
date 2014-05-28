@@ -346,6 +346,7 @@ ul.tabs li a:hover {
 
 .fields td.title { 
 	min-width: 121px; 
+	font-weight: bold;
 }
 
 .fields td.title.indent1 {
@@ -354,9 +355,6 @@ ul.tabs li a:hover {
 
 .fields td.title.indent2 {
 	padding: 1px 5px 1px 10px;
-}
-td:first-child {
-	font-weight: bold;
 }
 
 .fields .spacer { 

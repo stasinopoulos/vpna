@@ -24,7 +24,7 @@
  }
 ?><!DOCTYPE html>
 <html><head><meta charset='UTF-8'>
-<title>[Sabai Technology] Update</title><link rel='stylesheet' type='text/css' href='sabai.css'>
+<title>[VPN Accelerator] Update</title><link rel='stylesheet' type='text/css' href='sabai.css'>
 <script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type='text/javascript'>

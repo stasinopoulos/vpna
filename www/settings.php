@@ -6,7 +6,7 @@ $proxyport = file_get_contents('/var/www/stat/proxy.port');
  ?>
 <!DOCTYPE html>
 <html><head><meta charset='UTF-8'>
-<title>[Sabai Technology] Settings</title><link rel='stylesheet' type='text/css' href='sabai.css'>
+<title>[VPN Accelerator] Settings</title><link rel='stylesheet' type='text/css' href='sabai.css'>
 <script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type="text/javascript">
@@ -81,9 +81,6 @@ function init(){
 							<table class='fields'>
 								<tr>
 									<td class='title'>Proxy Status</td><td><?php echo $proxystatus; ?></td>
-								</tr>
-								<tr>
-									<td class='title'>Port</td><td>8080</td>
 								</tr>
 							</table>
 							<input type='button' id='proxyStart' class='firstButton'value='Start' onclick='proxysave("start")'>

@@ -4,7 +4,7 @@
 <head>
 	<meta charset='UTF-8'>
 	<meta name='robots' content='noindex,nofollow'>
-	<title>[Sabai Technology] OpenVPN</title>
+	<title>[VPN Accelerator] OpenVPN</title>
 	
 	<link rel='stylesheet' type='text/css' href='sabai.css'>
 	

@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'>
-	<title>[Sabai Technology] Status</title>
+	<title>[VPN Accelerator] Status</title>
 	<link rel='stylesheet' type='text/css' href='sabai.css'>
 	<script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 	<script type='text/javascript' src='sabaivpn.php'></script>
@@ -12,9 +12,10 @@
 
 		function setUpdate(res){ 
 			eval(res);
+	                info.proxy.address = info.wan.ip;
 		 	for(i in info.wan){ 
 		 		E('wan'+i).innerHTML = info.wan[i]; 
-		 	}
+	                }
 	               for(i in info.proxy){ 
                                 E('proxy'+i).innerHTML = info.proxy[i]; 
 	                }
@@ -90,7 +91,11 @@
                 <td class="content" id='proxystatus'>-</td>
               </tr>
               <tr>
-                <td class="title indent1">Port</td>
+                <td class="title indent1">HTTP Proxy</td>
+		<td class="content" id='proxyaddress'></td>
+	      </tr>
+	      <tr>
+		<td class="title indent1">Port</td>
                 <td class="content" id='proxyport'>8080</td>
               </tr>
             </tbody>
