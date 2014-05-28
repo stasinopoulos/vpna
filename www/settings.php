@@ -61,9 +61,9 @@ function init(){
 	$('#settings').addClass('active')
 }
 
-function update(){ 
+function username(){ 
 	hideUi("Updating Credentials..."); 
-	que.drop("bin/auth.php",Updateresp, $("#_fom").serialize() ); 
+	que.drop("bin/auth.php",Settingsresp, $("#_fom").serialize() ); 
 }
 
 </script>
@@ -110,15 +110,15 @@ function update(){
 							<table class='fields'>
 								<tr>
 									<td class='title'>Username</td>
-									<td><input type='text' id='vpnaUsername'></td>
+									<td><input type='text' name='vpnaUsername' id='vpnaUsername'></td>
 								</tr>
 								<tr>
 									<td class='title'>Password</td>
-									<td><input type='password' id='vpnaPassword'></td>
+									<td><input type='password' name = 'vpnaPassword' id='vpnaPassword'></td>
 								</tr>
 								<tr>
 									<td class='title'>Confirm Password </td>
-									<td class='title'><input type='password' id='vpnaPWConfirm'></td>
+									<td class='title'><input type='password' name='vpnaPWConfirm' id='vpnaPWConfirm'></td>
 								</tr>
 							</table>
 							<button id='usernameUpdate' class='firstButton' onclick='username()'>Update</button>
