@@ -109,8 +109,8 @@ function username(){
 						<div class='section'>
 							<table class='fields'>
 								<tr>
-									<td class='title'>Username</td>
-									<td><input type='text' name='vpnaUsername' id='vpnaUsername'></td>
+									<td class='title'>Old Password</td>
+									<td><input type='text' name='vpnaOldpass' id='vpnaOldpass'></td>
 								</tr>
 								<tr>
 									<td class='title'>Password</td>
