@@ -1,8 +1,3 @@
-<?php header('Content-Type: text/ecmascript; charset=UTF-8'); ?>
-
-
-
-
 Array.prototype.find = function(v){ 
   var i = f.length; 
   while(this[--i]!=v && i>=0); 

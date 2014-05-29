@@ -22,7 +22,7 @@ AddDefaultCharset UTF-8
 # ~regge BEGIN~
 #RewriteEngine On
 #RewriteCond $0 !=admin-register.php
-#RewriteCond $0 !=sabaivpn.php
+#RewriteCond $0 !=sabaivpn.js
 #RewriteCond $0 !=re.sh
 #RewriteRule ^.*\.php$ admin-register.php
 # ~regge END~
