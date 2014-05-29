@@ -16,29 +16,37 @@
 		 	for(i in info.wan){ 
 		 		E('wan'+i).innerHTML = info.wan[i]; 
 	                }
-	               for(i in info.proxy){ 
+     	                for(i in info.proxy){ 
                                 E('proxy'+i).innerHTML = info.proxy[i]; 
 	                }
 		 	
 		 	for(i in info.vpn){ 
 		 		E('vpn'+i).innerHTML = info.vpn[i]; 
 		 	}
-		 	
-		 	for(i in info.donde){ 
-		 		E('loc'+i).innerHTML = info.donde[i]; 
-		 	}
-		 	
+	   		 				       
 		 	E('refbutton').disabled = false;
 		}
 
 
-		function getUpdate(ipref){ 
-			E('refbutton').disabled = true; 
-			que.drop('bin/info.php',setUpdate,ipref?'do=ip':null); 
-		}
+	 function getUpdate(ipref){ 
+	   E('refbutton').disabled = true; 
+	   que.drop('bin/info.php',setUpdate,ipref?'do=ip':null); 
+	   $.get('bin/get_remote_ip.php', function( data ) {
+	     donde = $.parseJSON(data.substring(6));
+	     console.log(donde);
+	     for(i in donde) E('loc'+i).innerHTML = donde[i];
+	   });
+	 }
 
-		function init(){ getUpdate(); $('#status').addClass('active')
-	}
+	 function init(){ 
+   <?php if (file_exists('stat/ip')) {
+	   echo "donde = $.parseJSON('" . strstr(file_get_contents("stat/ip"), "{") . "');\n";
+	   echo "for(i in donde){E('loc'+i).innerHTML = donde[i];}"; } ?>
+	   getUpdate();
+	   setInterval (getUpdate, 5000); 
+	   $('#status').addClass('active')
+	 }
+	
 	</script>
 </head>
 <body onload='init()'>

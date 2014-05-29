@@ -20,10 +20,6 @@ $proxy = " proxy: {
   status: '$proxy_status'
 }";
 
-unset($out);
-
-exec("php get_remote_ip.php",$out);
-
 $vo=array('pptp','l2tp','ovpn');
 foreach($vo as &$v){ $v=file_exists("/var/www/stat/$v.connected")?$v:''; }
 $vo=implode($vo);
@@ -45,7 +41,6 @@ echo "info = {\n"
 .$wan
 .$proxy
 .$vpn
-. "\n ". implode("\n ",$out)
 ."\n}";
 
 ?>
