@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'>
-<title>[VPN Accelerator] Tools: <?php $tool=ucfirst($_REQUEST['tool']); echo $tool; ?></title><link rel='stylesheet' type='text/css' href='sabai.css'>
+<title>[VPNA] Tools: <?php $tool=ucfirst($_REQUEST['tool']); echo $tool; ?></title><link rel='stylesheet' type='text/css' href='sabai.css'>
 <script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 <script type='text/javascript' src='sabaivpn.php'></script>
 <script type='text/javascript'>

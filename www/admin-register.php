@@ -20,7 +20,7 @@
   return;
  }
 ?><!DOCTYPE html>
-<html><head><meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'><title>[VPN Accelerator] Registration</title><link rel='stylesheet' type='text/css' href='sabai.css'>
+<html><head><meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'><title>[VPNA] Registration</title><link rel='stylesheet' type='text/css' href='sabai.css'>
 <script type='text/javascript' src='jquery-1.11.1.min.js'></script><script type='text/javascript' src='sabaivpn.php'></script><script type='text/javascript'>
 function regsuccess(){ window.location = '/index.php'; }
 function regresp(text){ sv=JSON.parse(text);

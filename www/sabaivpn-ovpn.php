@@ -4,7 +4,7 @@
 <head>
 	<meta charset='UTF-8'>
 	<meta name='robots' content='noindex,nofollow'>
-	<title>[VPN Accelerator] OpenVPN</title>
+	<title>[VPNA] OpenVPN</title>
 	
 	<link rel='stylesheet' type='text/css' href='sabai.css'>
 	
