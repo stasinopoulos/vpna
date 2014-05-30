@@ -1,9 +1,5 @@
-<?php
-$proxystatus = file_get_contents('/var/www/stat/proxy.connected');
-?>
-<?php
-$proxyport = file_get_contents('/var/www/stat/proxy.port');
- ?>
+<?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
+<?php $proxyport = file_get_contents('/var/www/stat/proxy.port'); ?>
 <!DOCTYPE html>
 <html><head><meta charset='UTF-8'>
 <title>[VPNA] Settings</title><link rel='stylesheet' type='text/css' href='sabai.css'>
@@ -12,27 +8,12 @@ $proxyport = file_get_contents('/var/www/stat/proxy.port');
 <script type="text/javascript">
 var hidden, hide, settingsForm, settingsWindow, oldip='',limit=10,info=null,ini=false;
 
-function setUpdate(res){
- if(info) oldip = info.vpn.ip;
- eval(res);
- if(oldip!='' && info.vpn.ip==oldip){ limit--; }
- if(limit<0) return;
- setVPNStats();
-}
-
-function getUpdate(){ 
-	que.drop('bin/info.php',setUpdate); 
-}
 
 function Settingsresp(res){ 
 	settingsWindow.innerHTML = res;
 	eval(res); 
 	msg(res.msg); 
 	showUi(); 
-	if(res.sabai){ 
-		limit=10; 
-		getUpdate(); 
-	} 
 }
 
 function proxysave(act){ 
@@ -56,14 +37,18 @@ function init(){
 	hide = E('hiddentext'); 
 	settingsForm = E('_fom');
 	settingsWindow = E('response');
-	getUpdate(); 
 	$('.active').removeClass('active')
 	$('#settings').addClass('active')
 }
 
 function username(){ 
+	if ( $('#vpnaPassword').val() == $('#vpnaPWConfirm').val() ) {
 	hideUi("Updating Credentials..."); 
-	que.drop("bin/auth.php",Settingsresp, $("#_fom").serialize() ); 
+	que.drop("bin/auth.php",Settingsresp, $("#_fom").serialize() );
+	$('#saveError').hide();
+	} else {
+		$('#saveError').css('display', 'inline-block');
+	}
 }
 
 </script>
@@ -121,7 +106,7 @@ function username(){
 									<td class='title'><input type='password' name='vpnaPWConfirm' id='vpnaPWConfirm'></td>
 								</tr>
 							</table>
-							<button id='usernameUpdate' class='firstButton' onclick='username()'>Update</button>
+							<button id='usernameUpdate' class='firstButton' onclick='username()'>Update</button><div id='saveError'> Passwords must match.</div>
 						</div>
 					<br>
 					<span id='messages'>&nbsp;</span>

@@ -722,6 +722,7 @@ ul.tabs li a:hover {
 #saveError {
 	color: red;
 	display: none;
+	padding-left: 10px;
 }
 
 .fields td.title.shortWidth {

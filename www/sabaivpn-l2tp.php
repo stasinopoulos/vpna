@@ -22,9 +22,27 @@
 	 if(limit<0) return;
 	 setVPNStats();
 	}
-	function getUpdate(){ que.drop('bin/info.php',setUpdate); }
-	function L2TPresp(res){ eval(res); msg(res.msg); showUi(); if(res.sabai){ limit=10; getUpdate(); } }
-	function L2TPsave(act){ hideUi("Adjusting L2TP..."); E("_act").value=act; que.drop("bin/l2tp.php",L2TPresp, $("#_fom").serialize()); }
+	
+	function getUpdate(){ 
+		que.drop('bin/info.php',setUpdate); 
+	}
+	
+	function L2TPresp(res){ 
+		eval(res); 
+		msg(res.msg); 
+		showUi(); 
+		if(res.sabai){ 
+			limit=10; 
+			getUpdate(); 
+		} 
+	}
+	
+	function L2TPsave(act){ 
+		hideUi("Adjusting L2TP..."); 
+		E("_act").value=act; 
+		que.drop("bin/l2tp.php",L2TPresp, $("#_fom").serialize() ); 
+	}
+
 	function init(){ 
 		f = E('_fom'); 
 		hidden = E('hideme'); 
@@ -36,17 +54,16 @@
 		$('#VPNsub-menu').show();
 		$('.active').removeClass('active')
 		$('#l2tp').addClass('active')
-		console.log(l2tp)
 	}
 
-	 function l2tp_cancel() {
-	   E("_act").value="cancel"; 
-	   que.drop("bin/l2tp.php",L2TPresp, $("#_fom").serialize() ); 
-           $("#server, #user, #pass, #psk").val('');
-	 }
-
+	function l2tp_cancel() {
+	  E("_act").value="cancel"; 
+	  que.drop("bin/l2tp.php",L2TPresp, $("#_fom").serialize() ); 
+    $("#server, #user, #pass, #psk").val('');
+	}
 
 	</script>
+
 </head>
 <body onload='init();' id='topmost'>
 	<table id='container' cellspacing=0>
@@ -56,12 +73,13 @@
 		</td>
 		<td id='content'>
 			<form id='_fom' method='post'>
-			<div class='fright' id='vpnstats'></div>
 			<input type='button' value='Help' class= 'fright' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#l2tp","_newtab");'>
+			<div class='fright' id='vpnstats'></div>
 			<input type='hidden' id='_act' name='act'>
 			<div class="pageTitle">VPN: L2TP</div>
 
-			<div class='section-title'>L2TP Setup</div><div class='section'>
+			<div class='section-title'>L2TP Setup</div>
+			<div class='section'>
 			<table class="fields"><tbody>
 			 <tr>
 			 	<td class="title indent1 shortWidth">Server</td>
@@ -88,6 +106,7 @@
 			 	</td>
 			 </tr>
 			</tbody></table>
+			
 			<input type='button' class= 'firstButton' value='Start' onclick='L2TPsave("start")'>
 			<input type='button' value='Stop' onclick='L2TPsave("stop")'>
 			<input type='button' value='Save' onclick='L2TPsave("save")'>

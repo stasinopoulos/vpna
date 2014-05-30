@@ -1,27 +1,32 @@
-<!DOCTYPE html><html><head><meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'>
-<title>[VPNA] PPTP</title><link rel='stylesheet' type='text/css' href='sabai.css'>
-<script type='text/javascript' src='jquery-1.11.1.min.js'></script>
-<script type='text/javascript' src='sabaivpn.js'></script>
-<script type='text/javascript'>
-var hidden, hide, f,oldip='',limit=10,info=null,ini=false;
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'><meta name='robots' content='noindex,nofollow'>
+	<title>[VPNA] PPTP</title><link rel='stylesheet' type='text/css' href='sabai.css'>
+	<script type='text/javascript' src='jquery-1.11.1.min.js'></script>
+	<script type='text/javascript' src='sabaivpn.js'></script>
+	<script type='text/javascript'>
+	var hidden, hide, f,oldip='',limit=10,info=null,ini=false;
 
-pptp = {<?php
- $inf=trim(file_get_contents("/var/www/usr/pptp"));
- if( $inf!=false ) $inf=explode(" ",$inf);
- if( count($inf)==3 ) echo "\n\tuser: '". $inf[0] ."',\n\tpass: '". $inf[1] ."',\n\tserver: '". $inf[2] ."'\n";
- else echo " user: '', pass: '', server: '' ";
-?>}
+	pptp = {<?php
+		$inf=trim(file_get_contents("/var/www/usr/pptp"));
+	 	if( $inf!=false ) $inf=explode(" ",$inf);
+		if( count($inf)==3 ) echo "\n\tuser: '". $inf[0] ."',\n\tpass: '". $inf[1] ."',\n\tserver: '". $inf[2] ."'\n";
+		else echo " user: '', pass: '', server: '' ";
+	?>}
 
-function setUpdate(res){
- if(info) oldip = info.vpn.ip;
- eval(res);
- if(oldip!='' && info.vpn.ip==oldip){ limit--; }
- if(limit<0) return;
- setVPNStats();
+	function setUpdate(res){
+ 		if(info) oldip = info.vpn.ip;
+ 		eval(res);
+ 		if(oldip!='' && info.vpn.ip==oldip){ limit--; }
+ 		if(limit<0) return;
+	 setVPNStats();
 }
+
 function getUpdate(){ 
 	que.drop('bin/info.php',setUpdate); 
 }
+
 function PPTPresp(res){ 
 	eval(res); 
 	msg(res.msg); 
@@ -38,6 +43,7 @@ function PPTPsave(act){
 	E("_act").value=act; 
 	que.drop("bin/pptp.php",PPTPresp, $("#_fom").serialize() ); 
 }
+
 function init(){ 
 	f = E('_fom'); 
 	hidden = E('hideme'); 
@@ -76,11 +82,25 @@ function pptp_cancel() {
 				<div class='section-title'>PPTP Setup</div>
 				<div class='section'>
 					<table class="fields"><tbody>
-					 <tr><td class="title indent1 shortWidth">Server</td><td class="content"><input name="server" id="server" class='longinput' type="text"></td></tr>
-					 <tr><td class="title indent1 shortWidth">Username</td><td class="content"><input name="user" id="user" class='longinput' type="text"></td></tr>
-					 <tr><td class="title indent1 shortWidth">Password</td><td class="content"><input name="pass" id="pass" class='longinput' autocomplete="off" onfocus='peekaboo("pass")' onblur='peekaboo("pass")' type="password"></td></tr>
-
+					 <tr>
+					 	<td class="title indent1 shortWidth">Server</td>
+					 	<td class="content">
+					 		<input name="server" id="server" class='longinput' type="text">
+					 	</td>
+					 </tr>
+					 <tr>
+					 	<td class="title indent1 shortWidth">Username</td>
+					 	<td class="content"><input name="user" id="user" class='longinput' type="text">
+					 	</td>
+					 </tr>
+					 <tr>
+					 	<td class="title indent1 shortWidth">Password</td>
+					 	<td class="content">
+					 		<input name="pass" id="pass" class='longinput' autocomplete="off" onfocus='peekaboo("pass")' onblur='peekaboo("pass")' type="password">
+					 	</td>
+					 </tr>
 					</tbody></table>
+					
 					<input type='button' class='firstButton' value='Start' onclick='PPTPsave("start")'>
 					<input type='button' value='Stop' onclick='PPTPsave("stop")'>
 					<input type='button' value='Save' onclick='PPTPsave("save")'>
