@@ -105,7 +105,7 @@ function username(){
 							<input type='button' name='restart' id='restart' value='Restart' onclick='system("reboot")'/>
 						</div>
 					</div>
-					<div class='section-title'>Username</div>
+					<div class='section-title'>Password</div>
 						<div class='section'>
 							<table class='fields'>
 								<tr>
