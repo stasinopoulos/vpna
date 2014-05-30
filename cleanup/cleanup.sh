@@ -43,16 +43,6 @@ sudo apt-get autoclean -y
  
 sudo apt-get clean -y
 
-### Enable SSH
-
-sudo sed -i 's/Port 31422/Port 22/' /etc/ssh/sshd_config
-
-sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-
-sudo service ssh restart
-
-
-
 ### Update the OS
 
 sudo apt-get update
@@ -61,8 +51,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confd
 
 sudo apt-get -f install
 
-### Reboot
-sudo reboot
+sudo apt-get install anacron -y
 
 
 

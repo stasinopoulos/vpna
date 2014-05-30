@@ -110,7 +110,7 @@ function username(){
 							<table class='fields'>
 								<tr>
 									<td class='title'>Old Password</td>
-									<td><input type='text' name='vpnaOldpass' id='vpnaOldpass'></td>
+									<td><input type='password' name='vpnaOldpass' id='vpnaOldpass'></td>
 								</tr>
 								<tr>
 									<td class='title'>Password</td>
