@@ -39,7 +39,7 @@
 	 }
 
 	 function init(){ 
-   <?php if (file_exists('stat/ip')) {
+   <?php if (file_exists('stat/ip') && file_get_contents("stat/ip") != '') {
 	   echo "donde = $.parseJSON('" . strstr(file_get_contents("stat/ip"), "{") . "');\n";
 	   echo "for(i in donde){E('loc'+i).innerHTML = donde[i];}"; } ?>
 	   getUpdate();
