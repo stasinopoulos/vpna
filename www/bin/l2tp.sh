@@ -14,13 +14,12 @@ _redo(){
         at now + 24 hours -f /var/www/bin/restart_l2tp.sh
 }
 _setup(){
-        sysctl net.ipv4.conf.all.send_redirects=0; sysctl net.ipv4.conf.all.accept_redirects=0;
-        echo -e "include /var/lib/openswan/ipsec.secrets.inc\n$_l $_s : PSK \"$_k\"" >/var/www/usr/l2tp.ipsec.secrets # /etc/ipsec.secrets --> /var/www/usr/ipsec.secrets
-        echo -e "version\t2.0\nconfig setup\n\tnat_traversal=yes\n\tvirtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12\n\toe=off\n\tprotostack=netkey\n\tinter$
-        echo -e "unit 7\nipcp-accept-local\nipcp-accept-remote\nrefuse-eap\nrequire-mschap-v2\nnoauth\nidle 1800\nmtu 1410\nmru 1410\ndefaultroute\nusepeerdns\ndebug\nlock\nco$
-        echo -e "[lac sabai]\nlns = $_s\nppp debug = yes\npppoptfile = /var/www/usr/l2tp.options\nlength bit = yes" >/var/www/usr/l2tp.conf # /etc/xl2tpd/xl2tpd.conf --> /var/$
+	sysctl net.ipv4.conf.all.send_redirects=0; sysctl net.ipv4.conf.all.accept_redirects=0;
+	echo -e "include /var/lib/openswan/ipsec.secrets.inc\n$_l $_s : PSK \"$_k\"" >/var/www/usr/l2tp.ipsec.secrets # /etc/ipsec.secrets --> /var/www/usr/ipsec.secrets
+	echo -e "version\t2.0\nconfig setup\n\tnat_traversal=yes\n\tvirtual_private=%v4:10.0.0.0/8,%v4:192.168.0.0/16,%v4:172.16.0.0/12\n\toe=off\n\tprotostack=netkey\n\tinterfaces=\"%defaultroute\"\n\tplutoopts=\"--interface=eth0\"\n\tforce_keepalive=yes\n\tkeep_alive=3600\nconn SABAI\n\tauthby=secret\n\tpfs=no\n\tauto=add\n\tkeyingtries=3\n\tdpddelay=30\n\tdpdtimeout=120\n\tdpdaction=restart\n\trekey=yes\n\tikelifetime=8h\n\tkeylife=1h\n\ttype=transport\n\tleft=$_l\n\tleftnexthop=%defaultroute\n\tleftprotoport=17/1701\n\tright=$_s\n\trightprotoport=17/1701" >/var/www/usr/l2tp.ipsec.conf # /etc/ipsec.conf --> /var/www/usr/ipsec.conf
+	echo -e "unit 7\nipcp-accept-local\nipcp-accept-remote\nrefuse-eap\nrequire-mschap-v2\nnoauth\nidle 1800\nmtu 1410\nmru 1410\ndefaultroute\nusepeerdns\ndebug\nlock\nconnect-delay 5000\nname $_u\npassword $_p\nip-up-script /var/www/vpn/l2tp.up\nip-down-script /var/www/vpn/l2tp.dn" >/var/www/usr/l2tp.options # path in l2tp.conf
+	echo -e "[lac sabai]\nlns = $_s\nppp debug = yes\npppoptfile = /var/www/usr/l2tp.options\nlength bit = yes" >/var/www/usr/l2tp.conf # /etc/xl2tpd/xl2tpd.conf --> /var/www/usr/l2tp.conf
 }
-
 _stop(){
         echo "d sabai" > /var/run/xl2tpd/l2tp-control;
         sleep 2; while [ -e /var/www/stat/fw.run ]; do sleep 2; done
