@@ -51,8 +51,6 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confd
 
 sudo apt-get -f install
 
-sudo apt-get install anacron -y
-
 
 
 
