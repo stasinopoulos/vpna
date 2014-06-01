@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 #########################################
 ##                                     ##
 ##  Sabai Technology, Inc - 2014 VPNA  ##
