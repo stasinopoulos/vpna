@@ -105,11 +105,11 @@ function username(){
 							<input type='button' name='restart' id='restart' value='Restart' onclick='system("reboot")'/>
 						</div>
 					</div>
-					<div class='section-title'>Password</div>
+					<div class='section-title'>Change Password</div>
 						<div class='section'>
 							<table class='fields'>
 								<tr>
-									<td class='title'>Old Password</td>
+									<td class='title'Current Password</td>
 									<td><input type='password' name='vpnaOldpass' id='vpnaOldpass'></td>
 								</tr>
 								<tr>
