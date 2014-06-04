@@ -10,6 +10,9 @@ vpn_command="$1 $2 $3 $4 $5"
 _return(){ echo "res={ sabai: $1, msg: '$2' };"; exit 0; }
 _badarg(){ _return 0 "Missing arguments: act=$act, user=$_u, pass=$_p, key=$_k, local=$_l, server=$_s."; }
 
+_redo(){
+        at now + 24 hours -f /var/www/bin/restart_l2tp.sh
+}
 _setup(){
 	sysctl net.ipv4.conf.all.send_redirects=0; sysctl net.ipv4.conf.all.accept_redirects=0;
 	echo -e "include /var/lib/openswan/ipsec.secrets.inc\n$_l $_s : PSK \"$_k\"" >/var/www/usr/l2tp.ipsec.secrets # /etc/ipsec.secrets --> /var/www/usr/ipsec.secrets
@@ -17,20 +20,19 @@ _setup(){
 	echo -e "unit 7\nipcp-accept-local\nipcp-accept-remote\nrefuse-eap\nrequire-mschap-v2\nnoauth\nidle 1800\nmtu 1410\nmru 1410\ndefaultroute\nusepeerdns\ndebug\nlock\nconnect-delay 5000\nname $_u\npassword $_p\nip-up-script /var/www/vpn/l2tp.up\nip-down-script /var/www/vpn/l2tp.dn" >/var/www/usr/l2tp.options # path in l2tp.conf
 	echo -e "[lac sabai]\nlns = $_s\nppp debug = yes\npppoptfile = /var/www/usr/l2tp.options\nlength bit = yes" >/var/www/usr/l2tp.conf # /etc/xl2tpd/xl2tpd.conf --> /var/www/usr/l2tp.conf
 }
-
 _stop(){
-	echo "d sabai" > /var/run/xl2tpd/l2tp-control;
-	sleep 2; while [ -e /var/www/stat/fw.run ]; do sleep 2; done
-	service xl2tpd stop; sleep 1; service ipsec stop; sleep 1;
-	timeout=25;
-	while [ -e /var/run/pluto/pluto.ctl ] && [ -e /var/run/xl2tpd.pid ] && [ $timeout -gt 0 ]; do sleep 1; (( timeout-- )); done
-	if [ -e /var/run/pluto/pluto.ctl ] || [ -e /var/run/xl2tpd.pid ]; then
-		_return 0 "L2TP failed to stop."
-	else
+        echo "d sabai" > /var/run/xl2tpd/l2tp-control;
+        sleep 2; while [ -e /var/www/stat/fw.run ]; do sleep 2; done
+        service xl2tpd stop; sleep 1; service ipsec stop; sleep 1;
+        timeout=25;
+        while [ -e /var/run/pluto/pluto.ctl ] && [ -e /var/run/xl2tpd.pid ] && [ $timeout -gt 0 ]; do sleep 1; (( timeout-- )); done
+        if [ -e /var/run/pluto/pluto.ctl ] || [ -e /var/run/xl2tpd.pid ]; then
+                _return 0 "L2TP failed to stop."
+        else
                 echo -e "#!/bin/bash\nlogger no VPN initiated on startup" > /var/www/stat/vpn.command
-		[ -n "$_s" ] && ip route del $_s
-		[ "$act" == "stop" ] && _return 1 "L2TP stopped."
-	fi
+                [ -n "$_s" ] && ip route del $_s
+                [ "$act" == "stop" ] && _return 1 "L2TP stopped."
+        fi
 }
 
 _start(){
@@ -53,14 +55,9 @@ _start(){
 		echo "c sabai" >/var/run/xl2tpd/l2tp-control
 		kill $logpid;
 		echo -e "#!/bin/bash\nsh /var/www/bin/l2tp.sh $vpn_command\nlogger L2TP initiated on startup" > /var/www/stat/vpn.command
+		_redo
 		_return 1 "L2TP started."
 	fi
-}
-
-_restart(){
-	_stop
-	sleep 10
-	_start
 }
 
 sudo -n ls >/dev/null 2>/dev/null || _return 0 "Need Sudo powers."
@@ -68,6 +65,5 @@ sudo -n ls >/dev/null 2>/dev/null || _return 0 "Need Sudo powers."
 case $act in
 	start)	_start	;;
 	stop)	_stop	;;
-	start) _restart ;;
 	*)	_badarg	;;
 esac

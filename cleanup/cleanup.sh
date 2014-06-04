@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 #########################################
 ##                                     ##
 ##  Sabai Technology, Inc - 2014 VPNA  ##
@@ -43,16 +43,6 @@ sudo apt-get autoclean -y
  
 sudo apt-get clean -y
 
-### Enable SSH
-
-sudo sed -i 's/Port 31422/Port 22/' /etc/ssh/sshd_config
-
-sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
-
-sudo service ssh restart
-
-
-
 ### Update the OS
 
 sudo apt-get update
@@ -60,9 +50,6 @@ sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 
 sudo apt-get -f install
-
-### Reboot
-sudo reboot
 
 
 

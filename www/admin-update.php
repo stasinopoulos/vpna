@@ -3,9 +3,9 @@
   if($_REQUEST['version']!='new'){
    header("Content-type: text/ecmascript; charset=utf-8;");
    $req=array( 'version'=>$_REQUEST['version'], 'uid'=>exec("[ -e /sys/class/dmi/id/product_uuid ] && sudo cat /sys/class/dmi/id/product_uuid") );
-#   $updURL='http://blog.sabaitechnology.com/grabs/vpnaupd.php';
+   $updURL='http://blog.sabaitechnology.com/grabs/vpnaupd.php';
 #   $updURL='http://10.0.2.1:8080/grabs/vpnaupd.php';
-   $updURL='http://192.168.222.197/grabs/vpnaupd.php';
+#   $updURL='http://192.168.222.197/grabs/vpnaupd.php';
    $pass='tihuovehe8482E31365';
    $iv='80408020E0301030';
    $rstr=urlencode(openssl_encrypt(serialize($req), 'aes128', $pass,false,$iv));
