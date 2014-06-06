@@ -7,7 +7,6 @@
 	<title>[VPNA] OpenVPN</title>
 	
 	<link rel='stylesheet' type='text/css' href='sabai.css'>
-	
 	<script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 	<script type='text/javascript' src='sabaivpn.js'></script>
 	<style type='text/css'>
@@ -26,7 +25,11 @@
 		function saveEdit(){ 
 			hideUi("Adjusting OpenVPN..."); 
 			E("_act").value='save'; 
-			que.drop( "bin/ovpn.php", OVPNresp, $("#_fom").serialize() ); 
+			que.drop( "bin/ovpn.php", OVPNresp, $("#_fom").serialize() );
+			var uname = <?php echo file('/var/www/usr/auth-pass')[0)?> 			
+			var pass = <?php echo file('/var/www/usr/auth-pass')[1)?> 
+			$('#VPNname').val(uname);
+			$('#VPNpassword').val(pass);		
 		}
 
 		function toggleEdit(){
