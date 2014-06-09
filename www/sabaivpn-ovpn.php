@@ -26,8 +26,12 @@
 			hideUi("Adjusting OpenVPN..."); 
 			E("_act").value='save'; 
 			que.drop( "bin/ovpn.php", OVPNresp, $("#_fom").serialize() );
-			var uname = <?php echo file('/var/www/usr/auth-pass')[0)?> 			
-			var pass = <?php echo file('/var/www/usr/auth-pass')[1)?> 
+<?php
+echo "var uname =  ";
+$authpass = file('var/www/usr/auth-pass');
+echo $authpass[0];
+echo "\nvar pass = " . $authpass[1];
+?> 
 			$('#VPNname').val(uname);
 			$('#VPNpassword').val(pass);		
 		}
