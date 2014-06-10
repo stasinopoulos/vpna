@@ -155,6 +155,7 @@
 					<input id='refbutton' type='button' value='Refresh' onclick='getUpdate(1);' style='float: right; margin-right: 50px;'>
 
 				</td> <!-- end content -->
-			</tr> <!-- end body -->
-		</form>
-	</table>
+			</tr> <!-- end main stuffs -->
+		</table>
+		<div id='footer'> Copyright © 2014 Sabai Technology, LLC </div>
+</body>

@@ -160,27 +160,14 @@ input[type='text'], input[type='password'], {
 	color: #919ea1;
 	text-align:right;
 	margin: 0; padding: 0;
-}*/
-
-/*#footer {
-	height: 1px;
-	text-align: right;
-	border-top: none;
-	padding: 4px 15px 20px 4px;
-}
-
-#footer input { 
-	width: 80px; 
-}
-
-#footer-msg {
-	margin-right: 10px;
-	padding: 2px 10px;
-	color: #222;
-	background: #ffd700;
-	visibility: hidden;
 }
 */
+
+#footer {
+	text-align: center;
+	margin: 10px 142px 0 143px;
+}
+
 #navi {
 	border-right: 1px solid #f0f0f0;
 	vertical-align: top;

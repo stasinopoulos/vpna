@@ -111,6 +111,7 @@ function pptp_cancel() {
 			</td>
 		</tr>
 	</table>
+	<div id='footer'> Copyright © 2014 Sabai Technology, LLC </div>
 
 	<div id='hideme'>
 		<div class='centercolumncontainer'>
