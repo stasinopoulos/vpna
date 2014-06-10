@@ -26,10 +26,6 @@
 			hideUi("Adjusting OpenVPN..."); 
 			E("_act").value='save'; 
 			que.drop( "bin/ovpn.php", OVPNresp, $("#_fom").serialize() );
-			var uname = <?php echo file('/var/www/usr/auth-pass')[0)?> 			
-			var pass = <?php echo file('/var/www/usr/auth-pass')[1)?> 
-			$('#VPNname').val(uname);
-			$('#VPNpassword').val(pass);		
 		}
 
 		function toggleEdit(){
@@ -37,6 +33,16 @@
 		 E('logButton').style.display='none';
 		 E('edit').className='';
 		 E('editButton').style.display='none';
+<?php
+  if ($authpass = file('/var/www/usr/auth-pass')) {
+  echo "uname =  '";
+  echo rtrim($authpass[0]);
+  echo "'\npass = '" . $authpass[1] . "'";
+}
+?> 
+ 	         typeof uname === 'undefined' || $('#VPNname').val(uname);
+                 typeof pass === 'undefined'  || $('#VPNpassword').val(pass);		
+
 		 // var conf=E('conf');
 		 // var leng=(conf.value.match(/\n/g)||'').length;
 		 // conf.style.height=(leng<15?'15':leng)+'em';

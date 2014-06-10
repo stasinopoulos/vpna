@@ -53,6 +53,7 @@ switch ($act){
 		unlink("/var/www/usr/ovpn.current");
 		unlink("/var/www/stat/ovpn.log");
 		unlink("/var/www/stat/ovpn.connected");
+		unlink("/var/www/usr/auth-pass")
 		exec("sudo /var/www/bin/ovpn.sh erase 2>&1");
 		file_put_contents("/var/www/usr/ovpn","{ file: '' }");
 		echo "res={ sabai: true, msg: 'OpenVPN file removed.', reload: true };";
