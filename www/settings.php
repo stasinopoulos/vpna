@@ -78,18 +78,18 @@ function username(){
 						</div>
 					</div>
 					<div id='dhcpLease' class=''>
-						<div class='section-title'>DHCP</div>
+						<div class='section-title'>DHCP/DNS</div>
 						<div class='section'>
 							<input type='button' name='leaseReset' id='leaseReset' class='firstButton' value='Reset Lease' onclick='system("dhcp")'/>
 						</div>
 						<div class='section'>
 							<table class='fields'>
 								<tr>
-									<td class='title'>Primary IP</td>
+									<td class='title'>Primary DNS</td>
 									<td><input type='text' name = 'primaryDHCP' id='primaryDHCP'></td>
 								</tr>
 								<tr>
-									<td class='title'>Secondary IP</td>
+									<td class='title'>Secondary DNS</td>
 									<td class='title'><input type='text' name='secSCHP' id='secDHCP'></td>
 								</tr>
 							</table>
