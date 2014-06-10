@@ -87,7 +87,7 @@
 			</tr>
 		</table>
 	</form>
-
+<div id='footer'> Copyright © 2014 Sabai Technology, LLC </div>
 	<div id='hideme'>
 		<div class='centercolumncontainer'>
 			<div class='middlecontainer'>

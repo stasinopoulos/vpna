@@ -111,7 +111,6 @@ function pptp_cancel() {
 			</td>
 		</tr>
 	</table>
-
 	<div id='hideme'>
 		<div class='centercolumncontainer'>
 			<div class='middlecontainer'>
@@ -123,5 +122,6 @@ function pptp_cancel() {
 			</div>
 		</div>
 	</div>
+	<div id='footer'> Copyright © 2014 Sabai Technology, LLC </div>
 </body>
 </html>

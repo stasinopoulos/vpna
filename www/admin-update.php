@@ -70,7 +70,7 @@ $('#update').addClass('active')
 <br>
 <pre id='messages'></pre>
 </td></tr></table>
-
+<div id='footer'> Copyright © 2014 Sabai Technology, LLC </div>
 <div id='hideme'><div class='centercolumncontainer'><div class='middlecontainer'>
  <div id='hiddentext'>Please wait...</div><br>
  <center><img src='images/menuHeader.gif'></center>
