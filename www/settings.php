@@ -78,9 +78,22 @@ function username(){
 						</div>
 					</div>
 					<div id='dhcpLease' class=''>
-						<div class='section-title'>DHCP Lease</div>
+						<div class='section-title'>DHCP</div>
 						<div class='section'>
-							<input type='button' name='leaseReset' id='leaseReset' class='firstButton' value='Reset' onclick='system("dhcp")'/>
+							<input type='button' name='leaseReset' id='leaseReset' class='firstButton' value='Reset Lease' onclick='system("dhcp")'/>
+						</div>
+						<div class='section'>
+							<table class='fields'>
+								<tr>
+									<td class='title'>Primary IP</td>
+									<td><input type='text' name = 'primaryDHCP' id='primaryDHCP'></td>
+								</tr>
+								<tr>
+									<td class='title'>Secondary IP</td>
+									<td class='title'><input type='text' name='secSCHP' id='secDHCP'></td>
+								</tr>
+							</table>
+							<input type='button' id='updateDHCP' class='firstButton' onclick='updateDHCP()' value='Update'/>
 						</div>
 					</div>
 					<div id='onOff' class=''>
@@ -102,7 +115,8 @@ function username(){
 									<td class='title'><input type='password' name='vpnaPWConfirm' id='vpnaPWConfirm'></td>
 								</tr>
 							</table>
-							<button id='usernameUpdate' class='firstButton' onclick='username()'>Update</button><div id='saveError'> Passwords must match.</div>
+							<input type='button' id='usernameUpdate' class='firstButton' onclick='username()' value='Update' />
+							<div id='saveError'> Passwords must match.</div>
 						</div>
 					<br>
 					<span id='messages'>&nbsp;</span>

@@ -69,7 +69,7 @@ input[type='button'] {
 	border: 1px solid silver;
 	padding: .25em .25em;
 
-	 color: #0B3155;
+	 color: #0B3155 !important;
 	 background-color: #EBEBEB;
 	 cursor: pointer;
 }
