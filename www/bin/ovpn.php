@@ -30,7 +30,7 @@ $password=$_REQUEST['VPNpassword'];
   file_put_contents("/var/www/usr/ovpn.current",$_REQUEST['conf']);
   file_put_contents("/var/www/usr/auth-pass",$name ."\n");
   file_put_contents("/var/www/usr/auth-pass",$password, FILE_APPEND);
-  exec("sudo sed -i 's\auth-user-pass\auth-user-pass /var/www/usr/auth-pass\g' /var/www/usr/ovpn.current");
+  exec("sudo sed -i 's\auth-user-pass(.*)$\auth-user-pass /var/www/usr/auth-pass\g' /var/www/usr/ovpn.current");
   echo "res={ sabai: true, msg: 'OpenVPN configuration saved.', reload: true };";
  }else{
   echo "res={ sabai: false, msg: 'Invalid configuration.' };";
@@ -53,6 +53,7 @@ switch ($act){
 		unlink("/var/www/usr/ovpn.current");
 		unlink("/var/www/stat/ovpn.log");
 		unlink("/var/www/stat/ovpn.connected");
+		unlink("/var/www/usr/auth-pass")
 		exec("sudo /var/www/bin/ovpn.sh erase 2>&1");
 		file_put_contents("/var/www/usr/ovpn","{ file: '' }");
 		echo "res={ sabai: true, msg: 'OpenVPN file removed.', reload: true };";

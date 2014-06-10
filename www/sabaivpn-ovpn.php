@@ -7,7 +7,6 @@
 	<title>[VPNA] OpenVPN</title>
 	
 	<link rel='stylesheet' type='text/css' href='sabai.css'>
-	
 	<script type='text/javascript' src='jquery-1.11.1.min.js'></script>
 	<script type='text/javascript' src='sabaivpn.js'></script>
 	<style type='text/css'>
@@ -26,7 +25,7 @@
 		function saveEdit(){ 
 			hideUi("Adjusting OpenVPN..."); 
 			E("_act").value='save'; 
-			que.drop( "bin/ovpn.php", OVPNresp, $("#_fom").serialize() ); 
+			que.drop( "bin/ovpn.php", OVPNresp, $("#_fom").serialize() );
 		}
 
 		function toggleEdit(){
@@ -34,6 +33,16 @@
 		 E('logButton').style.display='none';
 		 E('edit').className='';
 		 E('editButton').style.display='none';
+<?php
+  if ($authpass = file('/var/www/usr/auth-pass')) {
+  echo "uname =  '";
+  echo rtrim($authpass[0]);
+  echo "'\npass = '" . $authpass[1] . "'";
+}
+?> 
+ 	         typeof uname === 'undefined' || $('#VPNname').val(uname);
+                 typeof pass === 'undefined'  || $('#VPNpassword').val(pass);		
+
 		 // var conf=E('conf');
 		 // var leng=(conf.value.match(/\n/g)||'').length;
 		 // conf.style.height=(leng<15?'15':leng)+'em';
@@ -166,6 +175,7 @@
 			</td>
 		</tr>
 	</table>
+	
 	<div id='hideme'>
 		<div class='centercolumncontainer'>
 			<div class='middlecontainer'>
