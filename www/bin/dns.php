@@ -1,9 +1,10 @@
 <?php
 $prim=$_REQUEST['primaryDNS'];
 $sec=$_REQUEST['secDNS'];
- $contents = "auto eth0\niface eth0 inet dhcp\ndns-nameservers " . $prim . "\ndns-nameservers " . $sec ;
 
 
-file_put_contents("/etc/network/interfaces", $contents);
-echo "res={ sabai: 1, msg: '" . $contents . "'};";
+$toShell= exec("sudo ./dns.sh $prim $sec",$out);
+
+echo $toShell;
+
 ?>
