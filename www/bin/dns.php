@@ -1,7 +1,9 @@
 <?php
 $prim=$_REQUEST['primaryDNS'];
 $sec=$_REQUEST['secDNS'];
+ $contents = "auto eth0\niface eth0 inet dhcp\ndns-nameservers " . $prim . "\ndns-nameservers " . $sec ;
 
-file_put_contents("/var/www/sys/net.aut", "dns-nameservers " . $prim . " " . $sec);
-echo "res={ sabai: 1, msg: 'Credentials Updated' };";
+
+file_put_contents("/etc/network/interfaces", $contents);
+echo "res={ sabai: 1, msg: '" . $contents . "'};";
 ?>

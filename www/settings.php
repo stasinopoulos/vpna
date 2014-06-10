@@ -31,6 +31,14 @@ function system(act){
 	que.drop("bin/system.php",Settingsresp, $("#_fom").serialize() ); 
 }
 
+function DNSupdate() {
+	console.log('you clicked update')
+	hideUi("Updating DNS..."); 
+	console.log('flashed the update thing')
+	que.drop("bin/dns.php",Settingsresp, $("#_fom").serialize() );
+	console.log('executed the php')
+}
+
 function init(){ 
 	f = $('#_fom'); 
 	hidden = E('hideme'); 
@@ -51,10 +59,6 @@ function username(){
 	}
 }
 
-function updateDNS() {
-	hideUi("Updating DNS..."); 
-	que.drop("bin/dns.php",Settingsresp, $("#_fom").serialize()
-}
 
 </script>
 
@@ -98,7 +102,7 @@ function updateDNS() {
 									<td class='title'><input type='text' name='secDNS' id='secDNS'></td>
 								</tr>
 							</table>
-							<input type='button' id='updateDNS' class='firstButton' onclick='updateDNS()' value='Update'/>
+							<input type='button' id='updateDNS' class='firstButton' value='Update' onclick='DNSupdate()'>
 						</div>
 					</div>
 					<div id='onOff' class=''>
