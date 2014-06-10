@@ -16,4 +16,9 @@ dns-nameservers $dns1
 dns-nameservers $dns2
 EOF
 
+cat > /var/www/stat/dns << EOF
+$dns1
+$dns2
+EOF
+
 sudo /etc/init.d/networking restart
