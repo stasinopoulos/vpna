@@ -51,6 +51,11 @@ function username(){
 	}
 }
 
+function updateDNS() {
+	hideUi("Updating DNS..."); 
+	que.drop("bin/dns.php",Settingsresp, $("#_fom").serialize()
+}
+
 </script>
 
 <body onload='init();' id='topmost'>
@@ -86,14 +91,14 @@ function username(){
 							<table class='fields'>
 								<tr>
 									<td class='title'>Primary DNS</td>
-									<td><input type='text' name = 'primaryDHCP' id='primaryDHCP'></td>
+									<td><input type='text' name = 'primaryDNS' id='primaryDNS'></td>
 								</tr>
 								<tr>
 									<td class='title'>Secondary DNS</td>
-									<td class='title'><input type='text' name='secSCHP' id='secDHCP'></td>
+									<td class='title'><input type='text' name='secDNS' id='secDNS'></td>
 								</tr>
 							</table>
-							<input type='button' id='updateDHCP' class='firstButton' onclick='updateDHCP()' value='Update'/>
+							<input type='button' id='updateDNS' class='firstButton' onclick='updateDNS()' value='Update'/>
 						</div>
 					</div>
 					<div id='onOff' class=''>
