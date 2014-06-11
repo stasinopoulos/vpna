@@ -14,6 +14,7 @@ function Settingsresp(res){
 	eval(res); 
 	msg(res.msg); 
 	showUi(); 
+	console.log('Hid the update message')
 }
 
 function proxysave(act){ 
@@ -34,9 +35,8 @@ function system(act){
 function DNSupdate() {
 	console.log('you clicked update')
 	hideUi("Updating DNS..."); 
-	console.log('flashed the update thing')
 	que.drop("bin/dns.php",Settingsresp, $("#_fom").serialize() );
-	console.log('executed the php')
+	console.log(res)
 }
 
 function init(){ 

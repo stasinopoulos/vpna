@@ -24,3 +24,5 @@ $dns2
 EOF
 
 sudo /etc/init.d/networking restart
+
+echo "res={ sabai: 1, msg: 'DNS Updated' };";
