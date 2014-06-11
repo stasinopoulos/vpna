@@ -16,6 +16,8 @@ dns-nameservers $dns1
 dns-nameservers $dns2
 EOF
 
+touch /var/www/stat/dns
+
 cat > /var/www/stat/dns << EOF
 $dns1
 $dns2
