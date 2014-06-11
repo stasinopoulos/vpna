@@ -12,13 +12,13 @@
 
 		function setUpdate(res){ 
 			eval(res);
-	                info.proxy.address = info.wan.ip;
+	    info.proxy.address = info.wan.ip;
 		 	for(i in info.wan){ 
 		 		E('wan'+i).innerHTML = info.wan[i]; 
-	                }
-     	                for(i in info.proxy){ 
-                                E('proxy'+i).innerHTML = info.proxy[i]; 
-	                }
+      }
+      for(i in info.proxy){ 
+        E('proxy'+i).innerHTML = info.proxy[i]; 
+      }
 		 	
 		 	for(i in info.vpn){ 
 		 		E('vpn'+i).innerHTML = info.vpn[i]; 
