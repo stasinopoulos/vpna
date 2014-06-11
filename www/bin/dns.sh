@@ -12,8 +12,7 @@ iface lo inet loopback
 # The primary network interface
 auto eth0
 iface eth0 inet dhcp
-dns-nameservers $dns1
-dns-nameservers $dns2
+dns-nameservers $dns $dns2
 EOF
 
 touch /var/www/stat/dns

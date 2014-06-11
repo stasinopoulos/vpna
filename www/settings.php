@@ -65,7 +65,7 @@ function init(){
 function username(){ 
 	if ( $('#vpnaPassword').val() == $('#vpnaPWConfirm').val() ) {
 	hideUi("Updating Credentials..."); 
-	que.drop("bin/auth.php",Settingsresp, $("#_fom").serialize() );
+	setTimeout(function(){que.drop("bin/auth.php",Settingsresp, $("#_fom").serialize())}, 3000);
 	$('#saveError').hide();
 	} else {
 		$('#saveError').css('display', 'inline-block');
