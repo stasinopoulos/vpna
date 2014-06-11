@@ -36,7 +36,19 @@ function DNSupdate() {
 	console.log('you clicked update')
 	hideUi("Updating DNS..."); 
 	que.drop("bin/dns.php",Settingsresp, $("#_fom").serialize() );
-	console.log(res)
+
+}
+
+function DNSset() {
+	<?php
+  if ($dns = file('/var/www/stat/dns')) {
+  echo "primary =  '";
+  echo trim($dns[0]);
+  echo "';\nsecondary = '" . trim($dns[1]) . "';\n";
+	}
+	?> 	
+	$('#primaryDNS').val(primary)		
+	$('#secDNS').val(secondary)
 }
 
 function init(){ 
@@ -47,6 +59,7 @@ function init(){
 	settingsWindow = E('response');
 	$('.active').removeClass('active')
 	$('#settings').addClass('active')
+	DNSset();
 }
 
 function username(){ 
@@ -87,7 +100,7 @@ function username(){
 						</div>
 					</div>
 					<div id='dhcpLease' class=''>
-						<div class='section-title'>DHCP/DNS</div>
+						<div class='section-title'>DHCP / DNS</div>
 						<div class='section'>
 							<input type='button' name='leaseReset' id='leaseReset' class='firstButton' value='Reset Lease' onclick='system("dhcp")'/>
 						</div>
