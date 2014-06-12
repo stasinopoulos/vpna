@@ -152,7 +152,7 @@
 						</table>
 					</div>
 
-					<input id='refbutton' type='button' value='Refresh' onclick='getUpdate(1);' style='float: right; margin-right: 50px;'>
+					<!-- <input id='refbutton' type='button' value='Refresh' onclick='getUpdate(1);' style='float: right; margin-right: 50px;'> -->
 
 				</td> <!-- end content -->
 			</tr> <!-- end main stuffs -->
