@@ -16,15 +16,25 @@
 	?>}
 
 	function setUpdate(res){
-	 if(info) oldip = info.vpn.ip;
-	 eval(res);
-	 if(oldip!='' && info.vpn.ip==oldip){ limit--; }
-	 if(limit<0) return;
-	 setVPNStats();
+			if(info) oldip = info.vpn.ip; 
+			eval(res); 
+			if(oldip!='' && info.vpn.ip==oldip){ 
+				limit--; 
+			}; 
+			if(limit<0) return; 
+
+			for(i in info.vpn){ 
+		 		E('vpn'+i).innerHTML = info.vpn[i]; 
+		 	} 
 	}
 	
 	function getUpdate(){ 
-		que.drop('bin/info.php',setUpdate); 
+			que.drop('bin/info.php',setUpdate,ipref?'do=ip':null); 
+	   $.get('bin/get_remote_ip.php', function( data ) {
+	     donde = $.parseJSON(data.substring(6));
+	     console.log(donde);
+	     for(i in donde) E('loc'+i).innerHTML = donde[i];
+	   });
 	}
 	
 	function L2TPresp(res){ 
@@ -50,7 +60,11 @@
 		for(var i in l2tp){ 
 			E(i).value = l2tp[i]; 
 		}; 
-		getUpdate(); 
+		<?php if (file_exists('stat/ip') && file_get_contents("stat/ip") != '') {
+	   echo "donde = $.parseJSON('" . strstr(file_get_contents("stat/ip"), "{") . "');\n";
+	   echo "for(i in donde){E('loc'+i).innerHTML = donde[i];}"; } ?>
+	   getUpdate(); 
+	   setInterval (getUpdate, 5000);
 		$('#VPNsub-menu').show();
 		$('.active').removeClass('active')
 		$('#l2tp').addClass('active')
@@ -73,8 +87,18 @@
 		</td>
 		<td id='content'>
 			<form id='_fom' method='post'>
-			<input type='button' value='Help' class= 'fright' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#l2tp","_newtab");'>
-			<div class='fright' id='vpnstats'></div>
+				<input type='button' class='fright' value='Help' onclick='window.open("http://www.sabaitechnology.com/v/sabaiHelp/vpnahelp.html#ovpn","_newtab");'>
+				<div class='fright' id='vpnstats'>
+					<div id='vpntype'></div>
+					<div id='vpnstatus'></div>
+					<div id='locip'></div>
+					<div class='noshow' id='loccontinent'></div>
+					<div id='loccountry'></div>
+					<div class= 'noshow' id='locregion'></div>
+					<div id='loccity'></div>
+				</div>
+				<br>
+
 			<input type='hidden' id='_act' name='act'>
 			<div class="pageTitle">VPN: L2TP</div>
 
