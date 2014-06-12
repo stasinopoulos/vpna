@@ -45,7 +45,6 @@
 			</td>
 			<td id='content'>
 				<div class="pageTitle">Diagnostics: <?php echo $tool?></div>
-				<div id='ident'>Sabai Technology</div>
 				<div id='logging'>
 					<div class='section-title'><?php echo $tool ?></div>
 					<div class='section'>
