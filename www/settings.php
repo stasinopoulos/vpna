@@ -143,7 +143,7 @@ function username(){
 						</div>
 					<br>
 					<span id='messages'>&nbsp;</span>
-					<pre id='response'></pre>
+					<pre class='noshow' id='response'></pre>
 					</form>
 				</td>
 			</tr>

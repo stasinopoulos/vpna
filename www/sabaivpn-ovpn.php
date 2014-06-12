@@ -137,6 +137,9 @@
 				<div class='fright' id='vpnstats'>
 					<div id='vpntype'></div>
 					<div id='vpnstatus'></div>
+				</div>
+
+				<div class='fright' id='locstats'>
 					<div id='locip'></div>
 					<div class='noshow' id='loccontinent'></div>
 					<div id='loccountry'></div>
