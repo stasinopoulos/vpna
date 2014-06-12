@@ -47,8 +47,9 @@ function DNSset() {
   echo "';\nsecondary = '" . trim($dns[1]) . "';\n";
 	}
 	?> 	
-	$('#primaryDNS').val(primary)		
-	$('#secDNS').val(secondary)
+
+	typeof primary === 'undefined' || $('#primaryDNS').val(primary)		
+	typeof secondary === 'undefined' || $('#secDNS').val(secondary)
 }
 
 function init(){ 
