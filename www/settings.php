@@ -1,5 +1,5 @@
 <?php $proxystatus = file_get_contents('/var/www/stat/proxy.connected'); ?>
-<?php $proxyport = file_get_contents('/var/www/stat/proxy.port'); ?>
+
 <!DOCTYPE html>
 <html><head><meta charset='UTF-8'>
 <title>[VPNA] Settings</title><link rel='stylesheet' type='text/css' href='sabai.css'>
