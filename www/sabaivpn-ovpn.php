@@ -79,7 +79,7 @@
 		 	} 
 		}
 
-		function getUpdate(){ 
+		function getUpdate(ipref){ 
 			que.drop('bin/info.php',setUpdate,ipref?'do=ip':null); 
 	   $.get('bin/get_remote_ip.php', function( data ) {
 	     donde = $.parseJSON(data.substring(6));
