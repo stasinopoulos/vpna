@@ -4,6 +4,7 @@
 <html><head><meta charset='UTF-8'>
 <title>[VPNA] Settings</title><link rel='stylesheet' type='text/css' href='sabai.css'>
 <script type='text/javascript' src='jquery-1.11.1.min.js'></script>
+<script type='text/javascript' src='jquery.validate.min.js'></script>
 <script type='text/javascript' src='sabaivpn.js'></script>
 <script type="text/javascript">
 var hidden, hide, settingsForm, settingsWindow, oldip='',limit=10,info=null,ini=false;
@@ -53,6 +54,7 @@ function DNSset() {
 }
 
 function init(){ 
+   $( function() {
 	f = $('#_fom'); 
 	hidden = E('hideme'); 
 	hide = E('hiddentext'); 
@@ -61,7 +63,31 @@ function init(){
 	$('.active').removeClass('active')
 	$('#settings').addClass('active')
 	DNSset();
-}
+
+     $.validator.addMethod('IP4Checker', function(value) {
+       var ip = /^(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[0-9]{2}|[0-9])(\.(25[0-5]|2[0-4][0-9]|[0-1][0-9]{2}|[0-9]{2}|[0-9])){3}$/;
+       if (value.match(ip)) {
+	 E('updateDNS').disabled = false;
+	 return true;
+       }
+       else {
+	 E('updateDNS').disabled = true;
+	 return false;
+       }
+     }, 'DNS server must be valid IP');
+
+     $('#_fom').validate({
+       rules: {
+	 primaryDNS: {
+	   required: true,
+	   IP4Checker: true
+	 },
+	 secDNS: {
+	   IP4Checker: true
+	 }
+       }
+     });
+});}
 
 function username(){ 
 	if ( $('#vpnaPassword').val() == $('#vpnaPWConfirm').val() ) {
