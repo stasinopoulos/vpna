@@ -24,12 +24,10 @@
 		 		E('vpn'+i).innerHTML = info.vpn[i]; 
 		 	}
 	   		 				       
-		 	E('refbutton').disabled = false;
 		}
 
 
 	 function getUpdate(ipref){ 
-	   E('refbutton').disabled = true; 
 	   que.drop('bin/info.php',setUpdate,ipref?'do=ip':null); 
 	   $.get('bin/get_remote_ip.php', function( data ) {
 	     donde = $.parseJSON(data.substring(6));
@@ -151,8 +149,6 @@
 							</tbody>
 						</table>
 					</div>
-
-					<!-- <input id='refbutton' type='button' value='Refresh' onclick='getUpdate(1);' style='float: right; margin-right: 50px;'> -->
 
 				</td> <!-- end content -->
 			</tr> <!-- end main stuffs -->
