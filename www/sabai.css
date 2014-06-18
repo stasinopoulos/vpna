@@ -321,6 +321,11 @@ ul.tabs li a:hover {
 		margin: 10px 20px 25px 20px;
 }
 
+.error {
+    font-weight: bold;
+    color: red;
+}
+
 .fields {
 	padding: 10px;
 	margin-bottom: 10px;

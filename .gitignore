@@ -7,3 +7,5 @@ www/stat/*
 *.orig
 www/usr/*
 
+/debian/etc/init/vpna_reset.conf
+/debian/home/sabai/vpna_reset.pl
