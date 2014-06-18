@@ -7,7 +7,7 @@ openlog("VPNAreset", "", LOG_USER);
 
 sub reinstall_vpna () {
     for(`dpkg -i /home/sabai/sabai-vpna.deb`) {
-	printf;
+	print;
     }
     syslog ("notice", "VPNA reset completed");
 }
