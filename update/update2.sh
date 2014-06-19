@@ -54,11 +54,11 @@ sudo apt-get install -y openssl openvpn libclass-data-inheritable-perl
 echo " OPENSSSL INSTALLED"
 
 # Install Reset Control 
-sudo wget http://198.211.117.53/repos/apt/debian/pool/main/libl/liblinux-input-perl/liblinux-input-perl_1.03-1_all.deb
+sudo wget -N http://198.211.117.53/repos/apt/debian/pool/main/libl/liblinux-input-perl/liblinux-input-perl_1.03-1_all.deb
 sudo dpkg -i liblinux-input-perl_1.03-1_all.deb
 echo "This step is done"
 
-sudo wget http://198.211.117.53/repos/apt/debian/pool/main/s/sabai-vpna/sabai-vpna_2.0_amd64.deb
+sudo wget -N http://198.211.117.53/repos/apt/debian/pool/main/s/sabai-vpna/sabai-vpna_2.0_amd64.deb
 cp sabai-vpna_2.0_amd64.deb /home/sabai/sabai-vpna.deb
 
 sudo apt-get remove sabai-vpna
