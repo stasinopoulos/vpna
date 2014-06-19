@@ -7,6 +7,8 @@ sudo dpkg --remove linux-headers-server
 
 sudo dpkg --remove linux-image-server
 
+touch /etc/xl2tpd/xl2tpd.conf
+
 sudo apt-get -f install -y
 
 ### Autoremove packages from VPNA
@@ -48,11 +50,21 @@ sudo apt-get clean -y
 
 sudo apt-get update
 
-sudo apt-get install -y openssl openvpn
+sudo apt-get install -y openssl openvpn libclass-data-inheritable-perl 
+echo " OPENSSSL INSTALLED"
 
+# Install Reset Control 
+sudo wget http://198.211.117.53/repos/apt/debian/pool/main/libl/liblinux-input-perl/liblinux-input-perl_1.03-1_all.deb
+sudo dpkg -i liblinux-input-perl_1.03-1_all.deb
+echo "This step is done"
+
+sudo wget http://198.211.117.53/repos/apt/debian/pool/main/s/sabai-vpna/sabai-vpna_2.0_amd64.deb
+cp sabai-vpna_2.0_amd64.deb /home/sabai/sabai-vpna.deb
+
+sudo apt-get remove sabai-vpna
 ### Update the OS
 
-#sudo apt-get update
+#sudo apt-get update 
 
 #sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 
@@ -149,3 +161,4 @@ touch /var/www/sys/upgrade_scheduled
 chmod +x /var/www/sabai-vpna-beta-install.sh
 at -f /var/www/sabai-vpna-beta-install.sh now + 1 minute
 echo "The VPNA Update Beta installer is running. Please refresh this page for status updates."
+
