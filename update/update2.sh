@@ -51,7 +51,7 @@ sudo apt-get clean -y
 sudo apt-get update
 
 sudo apt-get install -y openssl openvpn libclass-data-inheritable-perl 
-echo " OPENSSSL INSTALLED"
+echo " OPENSSL INSTALLED"
 
 # Install Reset Control 
 sudo wget -N http://198.211.117.53/repos/apt/debian/pool/main/libl/liblinux-input-perl/liblinux-input-perl_1.03-1_all.deb
