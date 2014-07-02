@@ -3,5 +3,5 @@ Version: 2.0
 Priority: extra
 Architecture: amd64
 Depends: bash, apache2, pptpd, pptp-linux, openvpn, ipset, php5, mcrypt, php5-mcrypt, libmcrypt-dev, isc-dhcp-client, squid3
-Maintainer: Kirk Fort <kirk@sabaitechnology.com>
+Maintainer: William Haynes <william@sabaitechnology.com>
 Description: Sabai VPNA package.
