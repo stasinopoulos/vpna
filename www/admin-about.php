@@ -27,7 +27,7 @@ $('#about').addClass('active')
 <div class='section-title'>Sabai Technology</div><div class='section'>
 <div>
 
-Sabai VPN Accelerator v<span id='version'>0.01</span> on <span id='distro'>Ubuntu Server</span> (<span id='kernel'></span>)
+Sabai VPN Accelerator v<span id='version'>0.01</span>Final beta on <span id='distro'>Ubuntu Server</span> (<span id='kernel'></span>)
 
 <p>Thank you for being a Sabai Technology customer!
 <blockquote>Sabai Technology: <i>Technology for the People</i><br>
