@@ -1,0 +1,6 @@
+#!/bin/bash
+awk '!a[$0]++' /etc/apt/sources.list > /etc/apt/sources.list.bak
+mv /etc/apt/sources.list /etc/apt/sources.list.precleanup
+mv /etc/apt/sources.list.bak /etc/apt/sources.list
+rm /etc/apt/sources.list.precleanup
+logger "Done with cleaning up duplicate sources"
