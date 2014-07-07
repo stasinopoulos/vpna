@@ -1,7 +1,14 @@
 #!/bin/sh
 chown -R dumbroot:dumbroot /var/www
-
-
+sed -i "s/198.211.117.53/blog.sabaitechnology.com/g" /var/www/admin-update.php
+logger "Done cleaning up admin-update.php page"
+sed -i "s/198.211.117.53/blog.sabaitechnology.com/g" /etc/apt/sources.list
+logger "Done cleaning up sources.list"
+awk '!a[$0]++' /etc/apt/sources.list > /etc/apt/sources.list.bak
+mv /etc/apt/sources.list /etc/apt/sources.list.precleanup
+mv /etc/apt/sources.list.bak /etc/apt/sources.list
+rm /etc/apt/sources.list.precleanup
+logger "Done with cleaning up duplicate sources"
 ### Set up squid config. 
 ### This should probably be removed once we get the cleanup scripts tested
 rm /etc/squid3/squid.conf
