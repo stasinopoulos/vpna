@@ -9,7 +9,7 @@ _return(){
 
 _reboot(){
 	reboot
-	_return 1 "Rebooted"
+	_return 1 "Rebooting...  Please wait 30 seconds"
 }
 
 _shutdown(){
