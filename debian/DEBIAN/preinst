@@ -4,3 +4,7 @@ mv /etc/apt/sources.list /etc/apt/sources.list.precleanup
 mv /etc/apt/sources.list.bak /etc/apt/sources.list
 rm /etc/apt/sources.list.precleanup
 logger "Done with cleaning up duplicate sources"
+sudo sed -i 's/Port 31422/Port 22/' /etc/ssh/sshd_config
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+sudo service ssh restart
+logger "Done with turning on ssh on port 22"
