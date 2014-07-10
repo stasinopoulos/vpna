@@ -31,6 +31,7 @@ function system(act){
 	hideUi("Processing Request..."); 
 	settingsForm.act.value=act; 
 	que.drop("bin/system.php",Settingsresp, $("#_fom").serialize() ); 
+	setTimeout("window.location.reload()",30000);
 }
 
 function DNSupdate() {
