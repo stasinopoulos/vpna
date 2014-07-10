@@ -168,8 +168,8 @@ function username(){
 							<input type='button' id='usernameUpdate' class='firstButton' onclick='username()' value='Update' />
 							<div id='saveError'> Passwords must match.</div>
 						</div>
-					<br>
-					<span id='messages'>&nbsp;</span>
+					<br><b>
+					<span id='messages'>&nbsp;</span></b>
 					<pre class='noshow' id='response'></pre>
 					</form>
 				</td>
