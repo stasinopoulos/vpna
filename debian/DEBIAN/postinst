@@ -82,7 +82,7 @@ cat > /etc/rc.local<< EOF
 # bits.
 #
 # By default this script does nothing.
-sudo /var/www/stat/vpn.command
+sudo sh /var/www/stat/vpn.command
 exit 0
 EOF
 
