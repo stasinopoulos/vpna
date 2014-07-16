@@ -69,7 +69,7 @@ service squid3 stop
 echo "Proxy Stopped" > /var/www/stat/proxy.connected
 #Check for VPN status and restart if it was on at reboot - power off
 cat > /etc/init.d/vpnstart << EOF
-#!/bin/sh
+#!/bin/bash
 chmod +x /var/www/stat/vpn.command
 /var/www/stat/vpn.command
 EOF
