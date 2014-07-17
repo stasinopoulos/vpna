@@ -67,23 +67,13 @@ fi
  
 service squid3 stop
 echo "Proxy Stopped" > /var/www/stat/proxy.connected
-
-
-cat > /etc/rc.local<< EOF
-#!/bin/sh -e
-#
-# rc.local
-#
-# This script is executed at the end of each multiuser runlevel.
-# Make sure that the script will "exit 0" on success or any other
-# value on error.
-#
-# In order to enable or disable this script just change the execution
-# bits.
-#
-# By default this script does nothing.
-sudo /var/www/stat/vpn.command
-exit 0
+#Check for VPN status and restart if it was on at reboot - power off
+cat > /etc/init.d/vpnstart << EOF
+#!/bin/bash
+chmod +x /var/www/stat/vpn.command
+/var/www/stat/vpn.command
 EOF
+chmod +x /etc/init.d/vpnstart
+
 
 
