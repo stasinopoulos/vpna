@@ -57,6 +57,7 @@ _start(){
 		echo "c sabai" >/var/run/xl2tpd/l2tp-control
 		kill $logpid;
 		echo -e "#!/bin/bash\nservice xl2tpd stop\nservice ipsec stop\nsleep 120\n/bin/bash /var/www/bin/restart_l2tp.sh $vpn_command\nlogger L2TP initiated on startup" > /var/www/stat/vpn.command
+                echo -e "L2TP started" > /var/www/stat/l2tp.connected
 		_redo
 		_return 1 "L2TP started."
 	fi
