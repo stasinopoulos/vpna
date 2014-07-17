@@ -46,11 +46,11 @@ sudo apt-get autoclean -y
  
 sudo apt-get clean -y
 
-## Update Openssl and Openvpn
+## Update Openssl and Openvpn and NTP server
 
 sudo apt-get update
 
-sudo apt-get install -y openssl openvpn libclass-data-inheritable-perl 
+sudo apt-get install -y openssl openvpn libclass-data-inheritable-perl ntp
 echo " OPENSSL INSTALLED"
 
 # Install Reset Control 
