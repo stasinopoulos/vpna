@@ -36,7 +36,9 @@ _stop(){
 }
 
 _start(){
-	_stop
+        echo "d sabai" > /var/run/xl2tpd/l2tp-control;
+        sleep 2; while [ -e /var/www/stat/fw.run ]; do sleep 2; done
+        service xl2tpd stop; sleep 1; service ipsec stop; sleep 1;
 	( [ -z "$_u" ] || [ -z "$_p" ] || [ -z "$_k" ] || [ -z "$_l" ] || [ -z "$_s" ] ) && _badargs
 	ip route add $_s via $(ip route ls to 0/0 dev eth0|cut -d ' ' -f3) dev eth0
 	./pptp.sh stop
@@ -54,7 +56,7 @@ _start(){
 	else
 		echo "c sabai" >/var/run/xl2tpd/l2tp-control
 		kill $logpid;
-		echo -e "#!/bin/bash\nsh /var/www/bin/l2tp.sh $vpn_command\nlogger L2TP initiated on startup" > /var/www/stat/vpn.command
+		echo -e "#!/bin/bash\nservice xl2tpd stop\nservice ipsec stop\nsleep 120\n/bin/bash /var/www/bin/restart_l2tp.sh $vpn_command\nlogger L2TP initiated on startup" > /var/www/stat/vpn.command
 		_redo
 		_return 1 "L2TP started."
 	fi
