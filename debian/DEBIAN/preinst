@@ -8,3 +8,6 @@ sudo sed -i 's/Port 31422/Port 22/' /etc/ssh/sshd_config
 sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
 sudo service ssh restart
 logger "Done with turning on ssh on port 22"
+if [ -e /var/www/stat/vpn.command ]; then
+cp -a /var/www/stat/vpn.command /tmp/vpn.command
+fi
