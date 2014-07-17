@@ -31,7 +31,7 @@ _start(){
 	openvpn /var/www/sys/ovpn.sabai
 	timeout=15
 	while [ ! -e /var/www/stat/ovpn.connected ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
-	echo -e "#!/bin/bash\nsh /var/www/bin/ovpn.sh $vpn_command\nlogger OpenVPN initiated on startup" > /var/www/stat/vpn.command
+	echo -e "#!/bin/bash\n/bin/bash /var/www/bin/ovpn.sh $vpn_command\nlogger OpenVPN initiated on startup" > /var/www/stat/vpn.command
 	if [ -e /var/www/stat/ovpn.connected ]; then
 	    _return 1 "OpenVPN started."
 	else

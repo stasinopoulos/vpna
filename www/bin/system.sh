@@ -8,11 +8,21 @@ _return(){
 }
 
 _reboot(){
+	if [ -e /var/stat/l2tp.connected]; then
+		service xl2tpd stop;
+		service ipsec stop;
+		sleep 5
+	fi
 	reboot
 	_return 1 "Rebooting...  Please wait 30 seconds"
 }
 
 _shutdown(){
+        if [ -e /var/stat/l2tp.connected]; then
+                service xl2tpd stop;
+                service ipsec stop;
+                sleep 5
+        fi
 	shutdown -P now
 	_return 1 "Shut Down Complete"
 }

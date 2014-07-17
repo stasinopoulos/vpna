@@ -43,7 +43,7 @@ _start(){
 	pppd file $opts &
 	timeout=15
 	while [ ! -e /var/www/stat/pptp.connected ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
-	echo -e "#!/bin/bash\nsh /var/www/bin/pptp.sh $vpn_command\nlogger PPTP initiated on startup" > /var/www/stat/vpn.command
+	echo -e "#!/bin/bash\n/bin/bash /var/www/bin/pptp.sh $vpn_command\nlogger PPTP initiated on startup" > /var/www/stat/vpn.command
 	_return 1 "PPTP started.";
 }
 
