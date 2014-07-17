@@ -30,6 +30,7 @@ _stop(){
                 _return 0 "L2TP failed to stop."
         else
                 echo -e "#!/bin/bash\nlogger no VPN initiated on startup" > /var/www/stat/vpn.command
+		rm /var/stat/l2tp.connected
                 [ -n "$_s" ] && ip route del $_s
                 [ "$act" == "stop" ] && _return 1 "L2TP stopped."
         fi
