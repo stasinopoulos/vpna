@@ -81,6 +81,6 @@ fi
 rm -rf /var/www/sav
 mkdir /var/www/sav
 if [ -e /var/www/*.deb ]; then
-cp -a /var/www/*.deb sav
+cp -a /var/www/*.deb /var/www/sav
 rm /var/www/*.deb*
 fi
