@@ -80,7 +80,7 @@ fi
 #clean up any left over deb files put in sav directory under www
 rm -rf /var/www/sav
 mkdir /var/www/sav
-if [ -e /var/www/*.deb ]; then
+if [ -e /var/www/sabai-vpna_2.0_amd64.deb ]; then
 cp -a /var/www/*.deb /var/www/sav
 rm /var/www/*.deb*
 fi
