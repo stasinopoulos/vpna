@@ -73,9 +73,5 @@ chmod +x /var/www/stat/vpn.command
 /var/www/stat/vpn.command
 EOF
 chmod +x /etc/init.d/vpnstart
-<<<<<<< HEAD
-
-=======
->>>>>>> bfe689a09c176a05ef1bd398319825ed438d7f6c
 
 
