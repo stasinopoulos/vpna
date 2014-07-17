@@ -64,7 +64,6 @@ if ! [ $ipaddr = $proxyaddr ]; then
         logger "Proxy setup: address not equal" $proxyaddr $ipaddr;
         sed -i "s#$proxyaddr#$ipaddr#" /etc/squid3/squid.conf
 fi
- 
 service squid3 stop
 echo "Proxy Stopped" > /var/www/stat/proxy.connected
 #Check for VPN status and restart if it was on at reboot - power off
