@@ -64,7 +64,7 @@
 					<script type='text/javascript'>navi()</script>
 				</td>
 				<td id='content'>
-					<div class="pageTitle">Status - Beta RC2</div>
+					<div class="pageTitle">Status</div>
 					<div class='section-title'>WAN</div>
 					<div class='section' id='wan-section'>
 						<table class="fields">
