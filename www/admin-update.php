@@ -61,7 +61,7 @@ $('#update').addClass('active')
   <div class="pageTitle">Update</div>
 	<div class='section-title'>Sabai VPNA Update</div>
 	<div class='section'>
-		<div>Current Version: 2.0 <span id='cversion'></span></div><br>
+		<div>Current Version: <span id='cversion'></span></div><br>
 		<div id='newversion' class='hiddenChildMenu'>New Version: <span id='available'></span></div><br>
 		<input type='button' value='Check for Update' id='_checkUpdate' onclick='checkUpdate();'>
 		<input type='button' class='hiddenChildMenu' id='_doUpdate' value='Run Update' onclick='doUpdate();'>
