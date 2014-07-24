@@ -1,5 +1,19 @@
 #!/bin/bash
 
+echo " "
+echo "**********************************************************************************"
+echo "*****                                                                        *****"
+echo "*****        Smile!  You're Almost There...  It's worth the wait :-)         *****"
+echo "*****                                                                        *****"
+echo "*****    Once this text shows, please wait an additional 5 minutes before    *****"
+echo "*****   refreshing this page (ctrl F5).  Then the update will be completed.  *****"
+echo "*****                                                                        *****"
+echo "**********************************************************************************"
+echo " "
+echo " "
+echo " "
+
+
 ### A Hope and  Prayer
 sudo dpkg --remove linux-server
 
@@ -160,5 +174,4 @@ SINST
 touch /var/www/sys/upgrade_scheduled
 chmod +x /var/www/sabai-vpna-install.sh
 at -f /var/www/sabai-vpna-install.sh now + 1 minute
-echo "The VPNA Update installer is running. Please refresh this page for status updates."
-
+echo "The VPNA Update installer is running. Please refresh after 5 minutes for new VPNA software."
