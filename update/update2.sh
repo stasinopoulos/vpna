@@ -129,24 +129,24 @@ SKEY
 
 echo "deb http://198.211.117.53/repos/apt/debian vpna main" >>/etc/apt/sources.list
 apt-get update >/dev/null 2>&1
-#echo "apt-get -y -o Dpkg::Options::=--force-confnew install sabai-vpna" >/var/www/sabai-vpna-beta-install.sh
+#echo "apt-get -y -o Dpkg::Options::=--force-confnew install sabai-vpna" >/var/www/sabai-vpna-install.sh
 
-#echo "The VPNA Update Beta installer is still running." > /var/www/admin-update.php
+#echo "The VPNA Update installer is still running." > /var/www/admin-update.php
 cat >/var/www/admin-updating.php <<SPHP
 <?php
  if(file_exists("/var/www/sys/upgrade_scheduled")){
-  echo "The VPNA Update Beta installer is scheduled.";
+  echo "The VPNA Update installer is scheduled.";
  }else{
   if(file_exists("/var/www/sys/upgrading")){
-   echo "The VPNA Update Beta installer is still running.";
+   echo "The VPNA Update installer is still running.";
   }else{
-   echo "The VPNA Update Beta installer appears to have finished; please refresh the page.";
+   echo "The VPNA Update installer appears to have finished; please refresh the page.";
   }
  }
 ?>
 SPHP
 
-cat >/var/www/sabai-vpna-beta-install.sh <<SINST
+cat >/var/www/sabai-vpna-install.sh <<SINST
 #!/bin/bash
 cp /var/www/admin-update.php /var/www/admin-updated.php
 mv /var/www/admin-updating.php /var/www/admin-update.php
@@ -158,7 +158,7 @@ sudo reboot
 SINST
 
 touch /var/www/sys/upgrade_scheduled
-chmod +x /var/www/sabai-vpna-beta-install.sh
-at -f /var/www/sabai-vpna-beta-install.sh now + 1 minute
-echo "The VPNA Update Beta installer is running. Please refresh this page for status updates."
+chmod +x /var/www/sabai-vpna-install.sh
+at -f /var/www/sabai-vpna-install.sh now + 1 minute
+echo "The VPNA Update installer is running. Please refresh this page for status updates."
 
