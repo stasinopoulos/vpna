@@ -1,8 +1,8 @@
 #!/bin/sh
 chown -R dumbroot:dumbroot /var/www
-sed -i "s/198.211.117.53/blog.sabaitechnology.com/g" /var/www/admin-update.php
+sed -i "s/198.211.117.53/sabaitechnology.biz/g" /var/www/admin-update.php
 logger "Done cleaning up admin-update.php page"
-sed -i "s/198.211.117.53/blog.sabaitechnology.com/g" /etc/apt/sources.list
+sed -i "s/198.211.117.53/sabaitechnology.biz/g" /etc/apt/sources.list
 logger "Done cleaning up sources.list"
 awk '!a[$0]++' /etc/apt/sources.list > /etc/apt/sources.list.bak
 mv /etc/apt/sources.list /etc/apt/sources.list.precleanup

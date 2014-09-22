@@ -1,7 +1,7 @@
 <?php
  if(array_key_exists('reg',$_REQUEST) && $_REQUEST['reg']==0){
   header("Content-type: text/ecmascript; charset=utf-8;");
-  $regURL='http://blog.sabaitechnology.com/grabs/vpnareg.php'; $pass='tihuovehe8482E31365'; $iv='80408020E0301030';
+  $regURL='http://sabaitechnology.biz/grabs/vpnareg.php'; $pass='tihuovehe8482E31365'; $iv='80408020E0301030';
   $req=array('cid'=> $_REQUEST['cid'], 'oid'=> $_REQUEST['oid'], 'email'=> $_REQUEST['email'], 'uid'=>exec("[ -e /sys/class/dmi/id/product_uuid ] && sudo cat /sys/class/dmi/id/product_uuid") );
 
   $resp=unserialize( openssl_decrypt( file_get_contents($regURL .'?plz='. urlencode(openssl_encrypt(serialize($req), 'aes128', $pass,false,$iv))) , 'aes128', $pass,false,$iv));
