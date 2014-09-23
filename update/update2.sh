@@ -1,4 +1,5 @@
 #!/bin/bash
+# modified 9-23-14 to do initial clean and update for version 2.1
 
 echo " "
 echo "**********************************************************************************"
@@ -13,52 +14,60 @@ echo " "
 echo " "
 echo " "
 
+#show current disk state
+df -h
 
-### A Hope and  Prayer
-sudo dpkg --remove linux-server
+#make sure ssh is on
+sudo sed -i 's/Port 31422/Port 22/' /etc/ssh/sshd_config
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+sudo service ssh restart
+logger "Done with turning on ssh on port 22"
 
-sudo dpkg --remove linux-headers-server
+#erase excess log files
+sudo rm /var/log/kern.*
+sudo touch /var/log/kern.log
+sudo rm /var/log/*.gz
+sudo rm /var/log/syslog*
+sudo touch /var/log/syslog
+sudo rm /var/log/auth.*
+sudo touch /var/log/auth.log
+sudo rm /var/log/boot.*
+sudo touch /var/log/boot.log
+sudo rm /var/log/apache2/access.*
+sudo touch /var/log/apache2/access.log
+sudo rm /var/log/apache2/error.*
+sudo touch /var/log/apache2/error.log
+sudo rm /var/log/*.1
+sudo rm /var/log/*.old
 
-sudo dpkg --remove linux-image-server
-
-touch /etc/xl2tpd/xl2tpd.conf
-
-sudo apt-get -f install -y
-
-### Autoremove packages from VPNA
-
+#cleanup old apt packages
+sudo apt-get clean -y
+sudo apt-get autoclean -y
 sudo apt-get autoremove -y
 
-### Autoclean packages from VPNA
-
-sudo apt-get autoclean -y
-
-### Clean packages from VPNA
-
-sudo apt-get clean -y
-
+#cleanup old linux headers and images
+sudo dpkg --remove linux-server
+sudo dpkg --remove linux-headers-server
+sudo dpkg --remove linux-image-server
+dpkg -l 'linux-*' | sed '/^ii/!d;/'"$(uname -r | sed "s/\(.*\)-\([^0-9]\+\)/\1/")"'/d;s/^[^ ]* [^ ]* \([^ ]*\).*/\1/;/[0-9]/!d' | xargs sudo apt-get -y purge
 
 ### Remove and purge MySQL from VPNA
-
 sudo apt-get remove --purge mysql-server mysql-client mysql-common -y
-
 sudo rm -rf /var/lib/mysql
 
-sudo apt-get autoremove -y
-
-sudo apt-get autoclean -y
- 
-sudo apt-get clean -y
-
 ### Remove and purge Samba
-
 sudo apt-get remove --purge samba* -y
 
-sudo apt-get autoremove -y
+#fix any missing dependencies
+sudo apt-get -f install -y
 
-sudo apt-get autoclean -y
- 
+#do a final cleanup
+sudo apt-get autoremove -y
 sudo apt-get clean -y
+sudo apt-get autoclean -y
+
+#show cleaned disk space
+df -h
 
 ## Update Openssl and Openvpn and NTP server
 
@@ -76,13 +85,6 @@ sudo wget -N http://198.211.117.53/repos/apt/debian/pool/main/s/sabai-vpna/sabai
 cp sabai-vpna_2.0_amd64.deb /home/sabai/sabai-vpna.deb
 
 sudo apt-get remove sabai-vpna -y
-### Update the OS
-
-#sudo apt-get update 
-
-#sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
-
-#sudo apt-get -f install
 
 export DEBIAN_FRONTEND=noninteractive
 
@@ -174,4 +176,8 @@ SINST
 touch /var/www/sys/upgrade_scheduled
 chmod +x /var/www/sabai-vpna-install.sh
 at -f /var/www/sabai-vpna-install.sh now + 1 minute
+
+# show final disk space
+df -h
+
 echo "The VPNA Update installer is running. Please refresh after 5 minutes for new VPNA software."
