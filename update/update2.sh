@@ -73,6 +73,10 @@ df -h
 
 sudo apt-get update
 
+#update bash to deal with Remote exploit vulnerability in bash CVE-2014-6271
+sudo apt-get install bash -y
+
+
 sudo apt-get install -y openssl openvpn libclass-data-inheritable-perl ntp
 echo " OPENSSL INSTALLED"
 
