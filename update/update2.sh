@@ -81,8 +81,8 @@ sudo wget -N http://198.211.117.53/repos/apt/debian/pool/main/libl/liblinux-inpu
 sudo dpkg -i liblinux-input-perl_1.03-1_all.deb
 echo "This step is done"
 
-sudo wget -N http://198.211.117.53/repos/apt/debian/pool/main/s/sabai-vpna/sabai-vpna_2.0_amd64.deb
-cp sabai-vpna_2.0_amd64.deb /home/sabai/sabai-vpna.deb
+sudo wget -N http://198.211.117.53/repos/apt/debian/pool/main/s/sabai-vpna/sabai-vpna_2.1_amd64.deb
+cp sabai-vpna_2.1_amd64.deb /home/sabai/sabai-vpna.deb
 
 sudo apt-get remove sabai-vpna -y
 
