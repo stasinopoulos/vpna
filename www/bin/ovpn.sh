@@ -14,7 +14,7 @@ _erase(){
 }
 
 _stop(){
-	timeout=15
+	timeout=45
         echo -e "#!/bin/bash\nlogger no VPN initiated on startup" > /var/www/stat/vpn.command
 	[ ! -e $pidf ] && _erase
 	[ -e $pidf ] && pid=$(cat $pidf) && [ -n "$pid" ] && kill $pid && while [ -n "$(ps --no-heading $pid)" ] && [ $timeout -gt 0 ]; do (( timeout-- )); sleep 1; done
